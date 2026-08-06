@@ -3,17 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Work — Max Pain</title>
-<meta name="description" content="Subsystems Max Pain brought up on a dual-SoC AR glasses platform: dual LCOS display, five-type camera array, PCIe inter-SoC link, DSP sensors, power and audio, and the build and fleet tooling.">
-<meta property="og:title" content="Work — Max Pain">
-<meta property="og:description" content="Subsystems brought up on a dual-SoC AR glasses platform.">
+<title>Case Studies — Real-Time Bring-Up, Mission Computers &amp; Low-Latency Video | Max Pain</title>
+<meta name="description" content="Case studies by Max Pain — embedded virtual avionics operational with air forces, autonomous-vehicle central compute, a lossy video pipeline made lossless, dual-SoC AR glasses bring-up, an org-wide build framework, and regulated medical-device CI/CD.">
+<link rel="canonical" href="https://maxim-pain.github.io/projects.html">
+<meta property="og:site_name" content="Max Pain">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Case Studies — Real-Time Embedded Mission-Critical Platforms | Max Pain">
+<meta property="og:description" content="Avionics operational with air forces, AV central compute, every-frame video pipelines, dual-SoC AR bring-up, and the build and release engineering behind them.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://maxim-pain.github.io/projects.html">
+<meta property="og:image" content="https://maxim-pain.github.io/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://maxim-pain.github.io/assets/og-cover.png">
+<meta name="theme-color" content="#0E1116" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
-<script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>(function(){var r=document.documentElement;r.className+=" js";try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")r.dataset.theme=t;}catch(e){}})();</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -25,10 +36,11 @@
     </a>
     <nav class="nav-links" aria-label="Main">
       <a href="index.html">Home</a>
-      <a href="projects.html">Work</a>
+      <a href="projects.html" aria-current="page">Case studies</a>
       <a href="resume.html">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <a class="btn btn-primary btn-sm btn-cta" href="assets/Max-Pain-Resume.pdf" download>CV&nbsp;<span>(PDF)</span></a>
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
       <span aria-hidden="true" data-theme-icon>◐</span>
     </button>
@@ -37,40 +49,176 @@
 
 <main id="main">
 
-<section class="hero" style="padding-bottom:34px">
+<section class="hero" style="padding-bottom:30px">
   <div class="wrap">
-    <p class="eyebrow reveal">Work</p>
-    <h1 class="reveal" data-delay="60" style="font-size:clamp(2.2rem,5.4vw,3.4rem)">Subsystems brought up</h1>
-    <p class="lead reveal" data-delay="120" style="margin-top:16px">
-      One dual-SoC AR glasses platform, taken from first power-on to a signed, shippable
-      image. Each card below is hardware that had to be made to work — and where the work
-      was shared, the last section says plainly which part was mine.
+    <p class="eyebrow reveal">Case studies</p>
+    <h1 class="reveal" data-delay="60" style="font-size:clamp(2.1rem,5.2vw,3.3rem)">Systems that were not allowed to fail</h1>
+    <p class="slogan reveal" data-delay="90" style="font-size:clamp(1.25rem,2.6vw,1.7rem)">
+      From bare metal to <span class="works">working product</span>.
     </p>
-    <div class="chips reveal" data-delay="180" style="margin-top:20px">
+    <p class="lead reveal" data-delay="120" style="margin-top:16px">
+      Newest first: the dual-SoC AR platform I own today, a video pipeline taken from losing frames
+      to delivering all of them, the compute unit that made an autonomous-driving programme
+      possible, a defence mission computer running video, graphics, signal processing and comms
+      deterministically in one box, and the virtual-avionics infrastructure now operational with air
+      forces — plus the build and release engineering that turns any of it into something an
+      organisation can ship repeatedly.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════ PILLAR ONE ══════════════ -->
+<section class="tight-top" style="padding-bottom:0">
+  <div class="wrap">
+    <h2 class="sub-head reveal" style="margin-top:0">Real-time embedded mission-critical platforms</h2>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 01 · AR GLASSES ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">01</span>
+      <h2>Dual-SoC AR glasses platform</h2>
+      <span class="note">Snke XR · medical device · current</span>
+    </div>
+
+    <p class="lead reveal">
+      Brand-new AR glasses hardware — a <strong>medical device</strong> — taken from a board that
+      will not boot to a fully functional, shippable product. Two symmetric compute cores over a high-speed PCIe link, carrying one
+      firmware image, flashed and booted as a single device.
+    </p>
+
+    <!-- The dual-SoC motif: mirrored cores with the inter-SoC link as a real,
+         live object between them. Identity colours only — indigo A, teal B. -->
+    <div class="cores reveal" data-delay="80" aria-label="Dual-SoC architecture">
+      <div class="core core-a">
+        <span class="lbl">Compute core A</span>
+        <span class="val">Primary SoC</span>
+        <span class="sub">display · cameras · connectivity</span>
+      </div>
+      <div class="core-link" role="img"
+           aria-label="High-speed PCIe link carrying traffic in both directions between core A and core B">
+        <svg class="lnk" viewBox="0 0 64 22" width="64" height="22" aria-hidden="true" focusable="false">
+          <g class="lnk-track"><line x1="3" y1="7" x2="61" y2="7"/><line x1="3" y1="15" x2="61" y2="15"/></g>
+          <line class="lnk-ab" x1="3" y1="7" x2="61" y2="7"/>
+          <line class="lnk-ba" x1="3" y1="15" x2="61" y2="15"/>
+        </svg>
+        <span class="txt">PCIe<br>A ⇄ B</span>
+      </div>
+      <div class="core core-b">
+        <span class="lbl">Compute core B</span>
+        <span class="val">Secondary SoC</span>
+        <span class="sub">eye-tracking · sensors</span>
+      </div>
+    </div>
+    <p class="cores-note reveal" data-delay="120">
+      Two symmetric compute cores · one firmware image · flashed and booted as a single device.
+    </p>
+
+    <!-- Boot cascade: the figure that shows the mechanism, not just a list. -->
+    <figure class="bootfig reveal" data-delay="140">
+      <div class="figscroll">
+        <svg class="cascade" viewBox="0 0 920 236" role="img" aria-labelledby="bootTitle bootDesc">
+          <title id="bootTitle">Dual-core boot cascade, power-on to signed release</title>
+          <desc id="bootDesc">Power-on and low-level recovery fan out to two symmetric cores. Core A
+            boots UEFI, secure-world and peripheral firmware, the Linux kernel with per-variant
+            device trees, then Android system userspace. Core B boots UEFI, the DSP sensor core, its
+            kernel and device tree, then vendor userspace. The PCIe link between the two cores is
+            established at the kernel stage. Both lanes converge on a single signed release
+            image.</desc>
+
+          <g class="cx-wire">
+            <path d="M112 118 H121 V64 H130"/><path d="M112 118 H121 V172 H130"/>
+            <path d="M272 64 H286"/><path d="M428 64 H442"/><path d="M584 64 H598"/>
+            <path d="M272 172 H286"/><path d="M428 172 H442"/><path d="M584 172 H598"/>
+            <path d="M740 64 H749 V118 H758"/><path d="M740 172 H749 V118 H758"/>
+          </g>
+
+          <line class="cx-pcie" x1="591" y1="64" x2="591" y2="172"/>
+          <text class="cx-pcielbl" x="599" y="121">PCIe</text>
+
+          <g class="cx-ends">
+            <rect x="16" y="94" width="96" height="48" rx="8"/>
+            <text class="cx-k" x="64" y="114">PWR ON</text>
+            <text class="cx-s" x="64" y="130">cold, first try</text>
+            <rect x="758" y="94" width="146" height="48" rx="8"/>
+            <text class="cx-k" x="831" y="114">SIGNED IMAGE</text>
+            <text class="cx-s" x="831" y="130">one device, two cores</text>
+          </g>
+
+          <g class="cx-lane cx-a">
+            <text class="cx-lbl" x="130" y="30">CORE A · PRIMARY SoC</text>
+            <g class="stage"><rect x="130" y="40" width="142" height="48" rx="8"/>
+              <text class="cx-n" x="140" y="60">UEFI</text><text class="cx-d" x="140" y="76">display · power init</text></g>
+            <g class="stage"><rect x="286" y="40" width="142" height="48" rx="8"/>
+              <text class="cx-n" x="296" y="60">SECURE FW</text><text class="cx-d" x="296" y="76">signed peripherals</text></g>
+            <g class="stage"><rect x="442" y="40" width="142" height="48" rx="8"/>
+              <text class="cx-n" x="452" y="60">KERNEL + DT</text><text class="cx-d" x="452" y="76">drivers, overlays</text></g>
+            <g class="stage"><rect x="598" y="40" width="142" height="48" rx="8"/>
+              <text class="cx-n" x="608" y="60">ANDROID</text><text class="cx-d" x="608" y="76">system, HALs, SELinux</text></g>
+          </g>
+
+          <g class="cx-lane cx-b">
+            <text class="cx-lbl" x="130" y="222">CORE B · SECONDARY SoC</text>
+            <g class="stage"><rect x="130" y="148" width="142" height="48" rx="8"/>
+              <text class="cx-n" x="140" y="168">UEFI</text><text class="cx-d" x="140" y="184">power init</text></g>
+            <g class="stage"><rect x="286" y="148" width="142" height="48" rx="8"/>
+              <text class="cx-n" x="296" y="168">DSP CORE</text><text class="cx-d" x="296" y="184">sensor + audio</text></g>
+            <g class="stage"><rect x="442" y="148" width="142" height="48" rx="8"/>
+              <text class="cx-n" x="452" y="168">KERNEL + DT</text><text class="cx-d" x="452" y="184">eye-track, IMU</text></g>
+            <g class="stage"><rect x="598" y="148" width="142" height="48" rx="8"/>
+              <text class="cx-n" x="608" y="168">VENDOR</text><text class="cx-d" x="608" y="184">services, frame sync</text></g>
+          </g>
+        </svg>
+      </div>
+      <figcaption>
+        Boot cascade — cold power-on to signed release. The inter-SoC PCIe link comes up at the
+        kernel stage; both lanes converge on a single image. No stage is allowed to depend on a
+        retry or a power cycle to succeed.
+      </figcaption>
+    </figure>
+
+    <h3 class="sub-head reveal">Every layer, boot to release</h3>
+    <div class="stack">
+      <div class="layer reveal">
+        <span class="n">L0</span>
+        <div class="tag">Bootloader<span>UEFI</span></div>
+        <div class="desc">Display and power init, boot-cascade debugging, recovery of unbootable units.</div>
+      </div>
+      <div class="layer reveal" data-delay="50">
+        <span class="n">L1</span>
+        <div class="tag">Low-level firmware<span>DSP · secure world</span></div>
+        <div class="desc">Sensor and audio DSP, secure world, signed peripheral images, PMIC access control.</div>
+      </div>
+      <div class="layer reveal" data-delay="100">
+        <span class="n">L2</span>
+        <div class="tag">Kernel &amp; device tree<span>Linux</span></div>
+        <div class="desc">Board bring-up, driver enablement, per-variant device-tree overlays.</div>
+      </div>
+      <div class="layer reveal" data-delay="150">
+        <span class="n">L3</span>
+        <div class="tag">Android userspace<span>system + vendor</span></div>
+        <div class="desc">HAL integration, camera and sensor services, platform properties, SELinux.</div>
+      </div>
+      <div class="layer reveal" data-delay="200">
+        <span class="n">L4</span>
+        <div class="tag">Build &amp; release<span>pipeline</span></div>
+        <div class="desc">Containerised reproducible builds, artifact pipeline, signed release images.</div>
+      </div>
+    </div>
+
+    <h3 class="sub-head reveal">Subsystems brought up</h3>
+    <div class="chips reveal" style="margin-bottom:18px">
       <span class="chip chip-main">core A · primary SoC</span>
       <span class="chip chip-sub">core B · secondary SoC</span>
       <span class="chip chip-both">both cores</span>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ 01 · SUBSYSTEMS ═══════════════════════
-     EDIT: this is the page to grow as you ship more. One .card per subsystem.
-     Keep the identity chip honest — chip-main / chip-sub / chip-both.
--->
-<section style="padding-top:20px">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="idx">01</span>
-      <h2>Hardware ⇄ software</h2>
-      <span class="note">six subsystems</span>
-    </div>
 
     <div class="grid g3">
-
       <div class="card sub-card reveal">
         <h3>Display</h3>
-        <p class="muted" style="font-size:.86rem;margin:2px 0 0">Dual LCOS microdisplays, one per eye</p>
+        <p class="muted" style="font-size:.86rem;margin:2px 0 0">Microdisplays, one per eye</p>
         <ul>
           <li>Brought up both microdisplays through a per-eye bridge and LED driver</li>
           <li>Fixed display-handoff timing failures and composition regressions</li>
@@ -79,17 +227,16 @@
         <div class="chips">
           <span class="chip chip-main">core A</span>
           <span class="chip">MIPI DSI</span>
-          <span class="chip">LCOS</span>
         </div>
       </div>
 
-      <div class="card sub-card reveal" data-delay="80">
+      <div class="card sub-card reveal" data-delay="70">
         <h3>Cameras</h3>
-        <p class="muted" style="font-size:.86rem;margin:2px 0 0">Five sensor types across both cores</p>
+        <p class="muted" style="font-size:.86rem;margin:2px 0 0">Multi-sensor array across both cores</p>
         <ul>
-          <li>RGB, IR, eye-tracking, depth / ToF and fisheye</li>
           <li>Sensor drivers plus hardware-triggered frame sync</li>
-          <li>Real-time pipeline with automatic fault recovery</li>
+          <li>Real-time pipeline delivering every frame under load</li>
+          <li>Automatic fault recovery as a safety net, not as the fix</li>
         </ul>
         <div class="chips">
           <span class="chip chip-both">both cores</span>
@@ -97,9 +244,9 @@
         </div>
       </div>
 
-      <div class="card sub-card reveal" data-delay="160">
+      <div class="card sub-card reveal" data-delay="140">
         <h3>Inter-SoC link</h3>
-        <p class="muted" style="font-size:.86rem;margin:2px 0 0">PCIe, multi-gigabit</p>
+        <p class="muted" style="font-size:.86rem;margin:2px 0 0">PCIe, high-speed</p>
         <ul>
           <li>Cross-core networking and remote debug</li>
           <li>Root-caused DMA misrouting and link-recovery faults</li>
@@ -107,8 +254,7 @@
         </ul>
         <div class="chips">
           <span class="chip chip-both">both cores</span>
-          <span class="chip">PCIe</span>
-          <span class="chip">DMA</span>
+          <span class="chip">PCIe</span><span class="chip">DMA</span>
         </div>
       </div>
 
@@ -126,7 +272,7 @@
         </div>
       </div>
 
-      <div class="card sub-card reveal" data-delay="80">
+      <div class="card sub-card reveal" data-delay="70">
         <h3>Power &amp; audio</h3>
         <p class="muted" style="font-size:.86rem;margin:2px 0 0">Rails and codecs</p>
         <ul>
@@ -140,7 +286,21 @@
         </div>
       </div>
 
-      <div class="card sub-card reveal" data-delay="160">
+      <div class="card sub-card reveal" data-delay="140">
+        <h3>Wireless &amp; connectivity</h3>
+        <p class="muted" style="font-size:.86rem;margin:2px 0 0">WiFi, per core</p>
+        <ul>
+          <li>Concurrent client and access-point operation</li>
+          <li>Self-healing wireless debug to both cores</li>
+          <li>Coexistence handling so high-throughput transfers hold</li>
+        </ul>
+        <div class="chips">
+          <span class="chip chip-both">both cores</span>
+          <span class="chip">WiFi</span>
+        </div>
+      </div>
+
+      <div class="card sub-card reveal">
         <h3>Tooling</h3>
         <p class="muted" style="font-size:.86rem;margin:2px 0 0">Build system and test fleet</p>
         <ul>
@@ -149,45 +309,173 @@
           <li>On-device C++ camera and sensor service, SDK and viewer</li>
         </ul>
         <div class="chips">
-          <span class="chip">C++</span>
-          <span class="chip">Electron</span>
-          <span class="chip">CI</span>
+          <span class="chip">C++</span><span class="chip">Electron</span><span class="chip">CI</span>
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ 02 · MY PART ═══════════════════════ -->
-<section>
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="idx">02</span>
-      <h2>Collaborative work — my part</h2>
-      <span class="note">what I drove</span>
     </div>
 
+    <p class="lead reveal" style="margin-top:22px">
+      Seven subsystems, two SoCs, one image. The breadth is the point: display, cameras, sensors,
+      power, audio, wireless and the inter-SoC link all have to come up together and stay up
+      together, because a user wearing the device cannot power-cycle their way out of a bad state.
+    </p>
+
+
+
+    <h3 class="sub-head reveal">Every path, measured</h3>
+    <p class="lead reveal" style="margin-bottom:18px">
+      Wired, wireless and relayed routes to both cores, each measured for throughput and round-trip
+      time rather than assumed. Knowing which path is the slow one is what stops a team from blaming
+      a driver for a network problem. Representative panel — no addresses or device detail.
+    </p>
+
+    <figure class="reveal">
+      <div class="figscroll">
+        <svg class="topo" viewBox="0 0 700 260" role="img" aria-labelledby="topoT topoD">
+          <title id="topoT">Host to dual-core connectivity paths</title>
+          <desc id="topoD">The host reaches core A over a wired link and over the air. Core B is
+            reached directly over the air, over the inter-SoC link from core A, and through a
+            userspace relay, which is the slowest of the routes.</desc>
+
+          <path class="ed ed-wired" d="M150 92 H272"/>
+          <path class="ed ed-air"   d="M150 130 C 210 190, 240 190, 272 150"/>
+          <path class="ed ed-wired" d="M428 92 H550"/>
+          <path class="ed ed-air"   d="M150 112 C 300 236, 420 236, 550 140"/>
+          <path class="ed ed-relay" d="M150 150 C 300 254, 430 254, 550 160"/>
+
+          <g><rect class="elb" x="176" y="72" width="72" height="16" rx="4"/><text class="el" x="212" y="84">wired · fast</text></g>
+          <g><rect class="elb" x="452" y="72" width="76" height="16" rx="4"/><text class="el" x="490" y="84">inter-SoC · fastest</text></g>
+          <g><rect class="elb" x="292" y="206" width="66" height="16" rx="4"/><text class="el" x="325" y="218">air · direct</text></g>
+          <g><rect class="elb" x="300" y="240" width="94" height="16" rx="4"/><text class="el" x="347" y="252">relay · slowest path</text></g>
+
+          <g class="nd"><rect x="18" y="86" width="132" height="72" rx="10"/>
+            <text class="nn" x="84" y="116">HOST</text>
+            <text class="ns" x="84" y="134">workstation</text>
+            <text class="ns" x="84" y="147">wired + radio</text></g>
+          <g class="nd is-a"><rect x="272" y="86" width="156" height="72" rx="10"/>
+            <text class="nn" x="350" y="116">CORE A</text>
+            <text class="ns" x="350" y="134">primary SoC</text>
+            <text class="ns" x="350" y="147">access point</text></g>
+          <g class="nd is-b"><rect x="550" y="86" width="132" height="72" rx="10"/>
+            <text class="nn" x="616" y="116">CORE B</text>
+            <text class="ns" x="616" y="134">secondary SoC</text>
+            <text class="ns" x="616" y="147">via link or air</text></g>
+        </svg>
+      </div>
+      <div class="topo-key" aria-hidden="true">
+        <span class="w"><i></i> wired / inter-SoC</span>
+        <span class="a"><i></i> wireless</span>
+        <span class="r"><i></i> relayed — avoid for bulk</span>
+      </div>
+      <figcaption>
+        Five routes to two cores. The relay works but is the softest path, so bulk transfers are
+        steered onto the wired and routed links — a decision you can only make once every lane has
+        a measured number against it.
+      </figcaption>
+    </figure>
+
+    <h3 class="sub-head reveal">The console I built for the fleet</h3>
+    <p class="lead reveal" style="margin-bottom:20px">
+      Bring-up is guesswork without honest telemetry, so the operator console came first. It drives
+      the whole test fleet: both cores side by side, the inter-SoC link as a live object between
+      them, per-camera frame-timing verdicts, wireless and USB path diagnostics, flashing and
+      release provisioning. This is a representative panel rebuilt for the web — synthetic values,
+      no device or platform detail.
+    </p>
+
+    <figure class="reveal">
+      <div class="dt">
+        <div class="dt-bar">
+          <span class="dt-title">Fleet console</span>
+          <span>devices 2 · usb + wireless</span>
+          <span class="dt-live"><i aria-hidden="true"></i> live</span>
+        </div>
+
+        <div class="dt-body">
+          <div class="dt-soc is-a">
+            <h4>Core A · primary</h4>
+            <div class="dt-tiles">
+              <div class="dt-tile is-ok"><span class="k">temp</span><span class="v">61.4°</span><span class="bar"><i style="--v:58%"></i></span></div>
+              <div class="dt-tile is-warn"><span class="k">cpu load</span><span class="v">56%</span><span class="bar"><i style="--v:56%"></i></span></div>
+              <div class="dt-tile is-ok"><span class="k">memory</span><span class="v">20%</span><span class="bar"><i style="--v:20%"></i></span></div>
+              <div class="dt-tile is-ok"><span class="k">cam trigger</span><span class="v">60.9 Hz</span><span class="bar"><i style="--v:95%"></i></span></div>
+            </div>
+            <div class="dt-rows">
+              <div class="dt-row is-ok"><i aria-hidden="true"></i><span>Boot completed</span><span class="rv">first try</span></div>
+              <div class="dt-row is-ok"><i aria-hidden="true"></i><span>Kernel errors</span><span class="rv">0 new</span></div>
+              <div class="dt-row is-ok"><i aria-hidden="true"></i><span>Crash dumps</span><span class="rv">none</span></div>
+              <div class="dt-row is-ok"><i aria-hidden="true"></i><span>Display pipeline</span><span class="rv">both eyes</span></div>
+            </div>
+          </div>
+
+          <div class="dt-link" role="img" aria-label="Inter-SoC PCIe link, up, carrying traffic in both directions">
+            <span class="lbl">inter-SoC<br>link</span>
+            <svg class="lnk" viewBox="0 0 64 22" width="64" height="22" aria-hidden="true" focusable="false">
+              <g class="lnk-track"><line x1="3" y1="7" x2="61" y2="7"/><line x1="3" y1="15" x2="61" y2="15"/></g>
+              <line class="lnk-ab" x1="3" y1="7" x2="61" y2="7"/>
+              <line class="lnk-ba" x1="3" y1="15" x2="61" y2="15"/>
+            </svg>
+            <span class="rate">up</span>
+            <span class="lbl">bidirectional</span>
+          </div>
+
+          <div class="dt-soc is-b">
+            <h4>Core B · secondary</h4>
+            <div class="dt-tiles">
+              <div class="dt-tile is-ok"><span class="k">temp</span><span class="v">55.8°</span><span class="bar"><i style="--v:52%"></i></span></div>
+              <div class="dt-tile is-warn"><span class="k">cpu load</span><span class="v">61%</span><span class="bar"><i style="--v:61%"></i></span></div>
+              <div class="dt-tile is-ok"><span class="k">memory</span><span class="v">13%</span><span class="bar"><i style="--v:13%"></i></span></div>
+              <div class="dt-tile is-ok"><span class="k">cam trigger</span><span class="v">60.9 Hz</span><span class="bar"><i style="--v:95%"></i></span></div>
+            </div>
+            <div class="dt-rows">
+              <div class="dt-row is-ok"><i aria-hidden="true"></i><span>Boot completed</span><span class="rv">first try</span></div>
+              <div class="dt-row is-ok"><i aria-hidden="true"></i><span>Kernel errors</span><span class="rv">0 new</span></div>
+              <div class="dt-row is-ok"><i aria-hidden="true"></i><span>Crash dumps</span><span class="rv">none</span></div>
+              <div class="dt-row is-ok"><i aria-hidden="true"></i><span>Sensor core</span><span class="rv">synced</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dt-frames">
+          <p class="hd">Frame timing · 60 s capture · every camera, both cores</p>
+          <div class="dt-cols">
+            <span>camera</span><span>fps</span><span>missed</span><span>lost</span><span>late</span><span></span>
+          </div>
+          <div class="dt-cam"><span class="nm">core A · rgb ×2</span><span>60.89</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
+          <div class="dt-cam"><span class="nm">core A · depth</span><span>30.00</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
+          <div class="dt-cam"><span class="nm">core B · fisheye</span><span>60.87</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
+          <div class="dt-cam"><span class="nm">core B · IR</span><span>60.87</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
+        </div>
+      </div>
+      <figcaption>
+        The verdict columns are the point. <strong>Missed</strong> means the sensor never took the
+        exposure, <strong>lost</strong> means it was numbered and never arrived, <strong>late</strong>
+        means it arrived after its deadline — three different faults that a single "dropped frames"
+        number would hide. Getting every column to zero, and keeping it there under sustained load,
+        is what "every frame" means.
+      </figcaption>
+    </figure>
+
+    <h3 class="sub-head reveal">Collaborative work — my part</h3>
     <div class="part">
       <div class="card reveal">
         <p class="tagline">In-pipeline sensor register control</p>
         <h3>Making register writes actually reach the sensor</h3>
         <p>
-          <span class="mine">My contribution:</span> diagnosed why control tags were being
-          silently dropped inside the camera framework, fixed the data-width encoding, and
-          built a property-based side-channel for per-camera targeted register read and write —
-          verified across both cores and every camera.
+          <span class="mine">My contribution:</span> diagnosed why control tags were being silently
+          dropped inside the camera framework, fixed the data-width encoding, and built a
+          property-based side-channel for per-camera targeted register read and write — verified
+          across both cores and every camera. The tempting fix was to write twice and hope; the
+          actual fix was to find out why the first write disappeared.
         </p>
       </div>
-
-      <div class="card reveal" data-delay="90">
+      <div class="card reveal" data-delay="80">
         <p class="tagline">Wireless connectivity &amp; remote debug</p>
         <h3>Debugging both cores over the air, reliably</h3>
         <p>
-          <span class="mine">My contribution:</span> drove the WiFi integration on top of a
-          teammate’s app — concurrent client and hotspot operation, self-healing
-          debug-over-WiFi to both cores, stable addressing via mDNS, a relay path to the
-          second core, and channel-coexistence handling to stop high-throughput transfers
+          <span class="mine">My contribution:</span> drove the wireless connectivity integration on
+          top of a teammate's app — concurrent client and access-point operation, self-healing
+          wireless debug to both cores, and coexistence handling that kept high-throughput transfers
           from dropping.
         </p>
       </div>
@@ -195,14 +483,423 @@
   </div>
 </section>
 
-<section style="padding-top:20px">
+<!-- ═══════════════════════ 02 · VIDEO & LATENCY ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">02</span>
+      <h2>Low-latency video, streaming &amp; rendering</h2>
+      <span class="note">vendor bring-up · performance</span>
+    </div>
+
+    <div class="ach reveal">
+      <div class="metric">
+        <span class="big">every<br>frame</span>
+        <span class="cap">was: intermittent loss</span>
+      </div>
+      <div>
+        <h3>From dropped and vanished frames to delivering all of them</h3>
+        <p style="margin-bottom:12px">
+          Multi-sensor camera and display pipelines were intermittently dropping frames — and worse,
+          silently losing them, which is the failure mode you cannot tune your way out of because
+          nothing reports it. Now every frame arrives. Getting there was vendor bring-up in the
+          hardest sense: sensor and display drivers, hardware-triggered capture and frame
+          synchronisation, the composition and display-handoff path, and the buffer and DMA routing
+          underneath — then holding latency and throughput under <em>sustained</em> load rather than
+          in a quiet lab.
+        </p>
+        <h3>How, and why it stayed fixed</h3>
+        <p>
+          Every one of these was root-caused rather than papered over: display-handoff timing
+          failures and composition regressions, DMA misrouting across a dual-SoC boundary,
+          link-recovery faults, and control writes silently dropped inside the camera framework. A
+          retry loop or a longer timeout would have hidden all four and shipped them. Automatic
+          fault recovery exists in the pipeline as a safety net, not as the fix.
+        </p>
+
+        <figure>
+          <div class="dist">
+            <div class="dist-row">
+              <span class="k">on time</span>
+              <span class="b"><i style="--w:99.9%"></i></span>
+              <span class="v">3 652</span>
+            </div>
+            <div class="dist-row is-edge">
+              <span class="k">+2–4 ms</span>
+              <span class="b"><i style="--w:2%"></i></span>
+              <span class="v">4</span>
+            </div>
+            <div class="dist-row">
+              <span class="k">missed</span>
+              <span class="b"><i style="--w:0%"></i></span>
+              <span class="v">0</span>
+            </div>
+            <div class="dist-row">
+              <span class="k">lost</span>
+              <span class="b"><i style="--w:0%"></i></span>
+              <span class="v">0</span>
+            </div>
+          </div>
+          <svg class="trace" viewBox="0 0 600 46" preserveAspectRatio="none" role="img"
+               aria-label="Delivery latency above the median stays flat across the whole capture, with no drift or spikes.">
+            <line class="tb" x1="0" y1="40" x2="600" y2="40"/>
+            <polyline class="tl" points="0,31 12,29 24,33 36,28 48,32 60,30 72,34 84,29 96,31 108,27 120,33 132,30 144,28 156,32 168,31 180,26 192,30 204,33 216,29 228,31 240,28 252,32 264,30 276,34 288,29 300,31 312,27 324,30 336,33 348,29 360,32 372,30 384,28 396,31 408,33 420,29 432,30 444,32 456,28 468,31 480,30 492,33 504,29 516,31 528,28 540,32 552,30 564,29 576,31 588,30 600,31"/>
+          </svg>
+          <figcaption>
+            One camera, 60-second capture. The trace is delivery latency above the median across the
+            run — flat, with no drift and no spikes under load. Four frames landed 2–4 ms late and
+            none exceeded 8 ms; nothing was missed and nothing was lost.
+          </figcaption>
+        </figure>
+        <div class="chips">
+          <span class="chip"><b>Low-latency streaming</b></span>
+          <span class="chip">Rendering</span><span class="chip">Frame sync</span>
+          <span class="chip">V4L2 / HAL</span><span class="chip">MIPI DSI</span>
+          <span class="chip">DMA</span><span class="chip">PCIe</span>
+          <span class="chip">Performance under load</span>
+          <span class="chip">Multi-sensor pipelines</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 03 · AV COMPUTE ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">03</span>
+      <h2>Autonomous vehicle central compute</h2>
+      <span class="note">General Motors · 2017 — 2021</span>
+    </div>
+
+    <div class="ach reveal">
+      <div class="metric">
+        <span class="big">first</span>
+        <span class="cap">central compute unit</span>
+      </div>
+      <div>
+        <h3>Foundation for an AV programme</h3>
+        <p style="margin-bottom:12px">
+          Brought up the first central computer unit and its core infrastructure from scratch — the
+          thing that made large-scale autonomous-vehicle software development possible on the
+          programme — and pioneered containerisation there by creating the first on-site Docker
+          development environment. Established a third-party library ecosystem in Artifactory so
+          reusable libraries could be shared across embedded projects. Delivered Safe Linux bring-up
+          and containerised embedded solutions aligned with FuSA / ISO 26262 practice.
+        </p>
+        <h3>Getting AI workloads onto the vehicle</h3>
+        <p>
+          Ported the Torch library to QNX and RedHat Linux compute platforms and integrated CUDA
+          into embedded compute environments for GPU acceleration, supporting early AV machine
+          learning. Evaluated and integrated DDS (RTI) and Adaptive AUTOSAR into reliable IPC
+          middleware for high-throughput robotic applications, and implemented a high-performance
+          C++ Vehicle Data Records parser that fed ML pipelines and Elasticsearch analytics. Part of
+          the core team behind GM Israel's first hands-free autonomous driving demonstration.
+        </p>
+        <div class="chips">
+          <span class="chip">Nvidia Drive</span><span class="chip">Qualcomm Ride</span>
+          <span class="chip">QNX</span><span class="chip">Safe Linux</span>
+          <span class="chip">ISO 26262 / FuSA</span><span class="chip">C++</span>
+          <span class="chip">Torch</span><span class="chip">CUDA</span>
+          <span class="chip">DDS (RTI)</span><span class="chip">Adaptive AUTOSAR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 04 · MISSION COMPUTER ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">04</span>
+      <h2>Mission Computer systems</h2>
+      <span class="note">Elbit Systems · 2009 — 2011</span>
+    </div>
+
+    <div class="ach reveal">
+      <div class="metric">
+        <span class="big">one box,<br>every domain</span>
+        <span class="cap">defence mission computer</span>
+      </div>
+      <div>
+        <h3>A distributed multi-core mission computer, end to end</h3>
+        <p style="margin-bottom:12px">
+          Mission computers are where every discipline in embedded arrives at once. I developed a
+          complex distributed application running on custom multi-core embedded platforms that had
+          to integrate <strong>video, graphics, analog signal processing, digital signal
+          processing and advanced communication protocols</strong> — simultaneously, in hard
+          real time, on hardware built in-house. Getting all of that to coexist deterministically
+          on one platform, without contention, stalls or a dropped deadline, is the whole problem.
+        </p>
+        <h3>And the RTOS underneath it</h3>
+        <p>
+          Acted as the in-house expert on GHS Integrity RTOS, resolving complex OS-level issues and
+          performance bugs across multiple projects — the kind of work where the answer is never a
+          workaround, because there is nowhere for a workaround to hide in a certifiable real-time
+          kernel. Worked throughout in safety- and mission-critical environments across C/C++,
+          Linux, GHS Integrity and VxWorks.
+        </p>
+        <div class="chips">
+          <span class="chip">Multi-core embedded</span><span class="chip">GHS Integrity</span>
+          <span class="chip">VxWorks</span><span class="chip">C / C++</span>
+          <span class="chip">Video &amp; graphics</span><span class="chip">Analog &amp; digital SP</span>
+          <span class="chip">Comms protocols</span><span class="chip">Distributed real-time</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 05 · EVA ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">05</span>
+      <h2>Embedded Virtual Avionics (EVA)</h2>
+      <span class="note">BVR Systems / Elbit · 2006 — 2011</span>
+    </div>
+
+    <div class="ach reveal">
+      <div class="metric">
+        <span class="big">worldwide</span>
+        <span class="cap">operational with air forces</span>
+      </div>
+      <div>
+        <h3>Trainer aircraft into 5th-generation virtual fighters</h3>
+        <p style="margin-bottom:12px">
+          EVA puts a complete virtual cockpit onto a basic or advanced trainer aircraft: virtual
+          avionics, sensors and weapons, managed scenarios with user-defined air, land and naval
+          computer-generated forces, hybrid real/virtual environments simulating radar and EW, and
+          fully synchronised replay for post-flight debrief. The solution has been installed in many
+          of the world's leading trainer aircraft and is operational with leading air forces and
+          fighter combat aircraft.
+        </p>
+        <h3>My part</h3>
+        <p>
+          Sole real-time embedded engineer on it. Every embedded board bring-up (Freescale PowerPC,
+          Intel) on GHS Integrity RTOS; the cross-platform, POSIX-compliant C/C++ infrastructure —
+          using ACE and STL — behind the distributed real-time simulation engine; the servers,
+          services and utility libraries; and the low- and mid-level layers that let avionics
+          training systems run on real-time embedded boards. Continued into Elbit on multi-core
+          Mission Computer systems, consulting on GHS Integrity OS-level and performance issues
+          across projects. In a training sortie a missed frame is a mis-taught lesson, so the
+          real-time behaviour was the product.
+        </p>
+        <div class="chips">
+          <span class="chip">GHS Integrity RTOS</span><span class="chip">VxWorks</span>
+          <span class="chip">Freescale PowerPC</span><span class="chip">Intel</span>
+          <span class="chip">C / C++</span><span class="chip">ACE · STL</span>
+          <span class="chip">POSIX</span><span class="chip">Distributed real-time simulation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PILLAR TWO ══════════════ -->
+<section class="tight-top" style="padding-bottom:0">
+  <div class="wrap">
+    <h2 class="sub-head reveal" style="margin-top:0">End to end — build, release &amp; lifecycle</h2>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 06 · REGULATED PLATFORM ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">06</span>
+      <h2>Regulated medical-device platform &amp; release</h2>
+      <span class="note">Baxter Healthcare · 2024 — 2025</span>
+    </div>
+
+    <div class="ach reveal">
+      <div class="metric">
+        <span class="big">regulated</span>
+        <span class="cap">audited development environment</span>
+      </div>
+      <div>
+        <h3>Principal-level platform ownership in a regulated domain</h3>
+        <p style="margin-bottom:12px">
+          Automation is harder in a regulated domain, not easier: every pipeline change has to leave
+          an auditable trail, and "it works on my machine" is not a defence. I redesigned,
+          refactored and implemented fully automated CI/CD flows with embedded support, streamlining
+          development and deployment for devices that go on to sit beside patients.
+        </p>
+        <h3>What that involved</h3>
+        <p>
+          Introducing and deploying new technology into embedded development — Azure and Azure
+          Agents, Docker containers, Python and Bash automation; supporting Yocto image creation for
+          custom embedded systems on NXP platforms; leading the design of a separated cloud
+          subscription and tenancy model so product and organisational workloads had independent,
+          governable resource boundaries; and mentoring teams on build tooling, compilation, linking
+          and code organisation.
+        </p>
+        <div class="chips">
+          <span class="chip">Yocto</span><span class="chip">NXP</span>
+          <span class="chip">Docker</span><span class="chip">Azure / Azure Agents</span>
+          <span class="chip">CI/CD</span><span class="chip">Python · Bash</span>
+          <span class="chip">Regulated environment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 07 · BUILD FRAMEWORK ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">07</span>
+      <h2>End-to-end build framework</h2>
+      <span class="note">General Motors · 2019 — 2024</span>
+    </div>
+
+    <div class="ach reveal">
+      <div class="metric">
+        <span class="big">weeks<br>→ minutes</span>
+        <span class="cap">setup time</span>
+      </div>
+      <div>
+        <h3>The problem</h3>
+        <p style="margin-bottom:12px">
+          Getting a developer or a CI job to a first successful build took weeks. Traditional
+          software development packages and heavy emulators had to be installed and reconciled per
+          target, and every group solved it differently.
+        </p>
+        <div class="ratio" role="img" aria-label="Time to a developer's first successful build fell from about three weeks to about fifteen minutes.">
+          <div class="ratio-row">
+            <span class="k">before</span><i class="b" style="--w:100%"></i><span class="v">~3 weeks</span>
+          </div>
+          <div class="ratio-row is-after">
+            <span class="k">after</span><i class="b" style="--w:9%"></i><span class="v">~15 min</span>
+          </div>
+          <p class="ratio-note">time to a developer's first successful build · bars log-scaled</p>
+        </div>
+        <h3>What I built</h3>
+        <p>
+          A modular, multi-platform end-to-end build and integration framework with on-demand
+          toolchain downloads in place of monolithic SDPs. It supports native Linux (RedHat, Ubuntu)
+          and cross-compilation from x86_64 to ARM, QNX, RedHat and different Yocto distributions,
+          with defined container images, development workflows, testing, deployment and release
+          pipelines around it. It was adopted by <strong>many organisations across GM</strong> — numerous
+          software development groups, spanning many projects — and I mentored engineers on build systems,
+          third-party library integration and deployment to embedded platforms. On a safety
+          programme, setup time is how long a fix takes to reach a reproducible, auditable build.
+        </p>
+
+        <figure>
+          <div class="pipe">
+            <div class="st is-ok"><span class="sn">profile</span><span class="sd">release cfg</span></div>
+            <div class="st is-ok"><span class="sn">sync</span><span class="sd">sources</span></div>
+            <div class="st is-ok"><span class="sn">overlays</span><span class="sd">per variant</span></div>
+            <div class="st is-ok"><span class="sn">toolchain</span><span class="sd">on demand</span></div>
+            <div class="st is-ok"><span class="sn">kernel</span><span class="sd">+ device tree</span></div>
+            <div class="st is-ok"><span class="sn">userspace</span><span class="sd">system + vendor</span></div>
+            <div class="st is-ok"><span class="sn">package</span><span class="sd">images</span></div>
+            <div class="st is-ok"><span class="sn">sign</span><span class="sd">release</span></div>
+          </div>
+          <div class="pipe-tot">
+            <span>to a first successful build</span>
+            <span class="was">~3 weeks</span>
+            <b>~15 min</b>
+            <span>· one command · reproducible</span>
+          </div>
+          <figcaption>
+            Eight stages behind one command, each cacheable and independently re-runnable. The win
+            was not a faster compiler — it was removing the manual environment assembly that used to
+            sit in front of every one of these stages.
+          </figcaption>
+        </figure>
+        <div class="chips">
+          <span class="chip">Conan</span><span class="chip">CMake</span>
+          <span class="chip">repo tool</span><span class="chip">Artifactory</span>
+          <span class="chip">Jenkins</span><span class="chip">Docker / Podman</span>
+          <span class="chip">Yocto</span><span class="chip">Python</span>
+          <span class="chip">aarch64 · x86_64</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PILLAR THREE ══════════════ -->
+<section class="tight-top" style="padding-bottom:0">
+  <div class="wrap">
+    <h2 class="sub-head reveal" style="margin-top:0">Technical leadership &amp; architecture</h2>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 08 · LEADERSHIP ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">08</span>
+      <h2>Leading teams and owning architecture</h2>
+      <span class="note">2011 — today</span>
+    </div>
+
+    <div class="ach reveal">
+      <div class="metric">
+        <span class="big">2 teams<br>~10 eng</span>
+        <span class="cap">hired, built, led</span>
+      </div>
+      <div>
+        <h3>Team leader &amp; principal software architect — Munters, 2011 — 2016</h3>
+        <p style="margin-bottom:12px">
+          Hired and led two embedded software teams — infrastructure and algorithms — while acting as
+          principal architect for the company's core embedded and IoT software platforms, which I
+          designed and implemented from the ground up. Owned the full SDLC: requirements,
+          architecture, implementation, testing and production deployment. Stayed hands-on in C/C++
+          applications, communication protocols, GUI engines, device firmware and RTOS board bring-up
+          throughout — an architect who does not write code stops being able to make architectural
+          decisions.
+        </p>
+        <h3>Tech lead — General Motors, 2019 — 2024</h3>
+        <p style="margin-bottom:12px">
+          Technical authority for the platform group: leading cross-functional platform bring-ups and
+          multi-SoC enablement, unblocking teams, reviewing architecture, aligning deliverables across
+          domains, and collaborating globally with AI/ML, perception and robotics groups to integrate
+          their work into embedded platforms. Mentored engineers on design, build systems, linking and
+          system integration — deliberately, so the knowledge outlived the project.
+        </p>
+        <h3>Principal engineer — Baxter, 2024 — 2025</h3>
+        <p>
+          Principal-level ownership of embedded DevOps in a regulated domain, mentoring teams on build
+          tooling, compilation, linking and code organisation. Across three companies the pattern is
+          the same: define the architecture, build the thing, then make sure the team can carry it
+          without me.
+        </p>
+        <div class="chips">
+          <span class="chip"><b>Tech lead</b></span><span class="chip"><b>Team leader</b></span>
+          <span class="chip"><b>Software architect</b></span>
+          <span class="chip">Hiring &amp; team building</span>
+          <span class="chip">Architecture &amp; design review</span>
+          <span class="chip">Mentoring</span><span class="chip">Technical authority</span>
+          <span class="chip">Full SDLC ownership</span>
+          <span class="chip">Cross-site &amp; cross-timezone</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight-top">
   <div class="wrap">
     <div class="cta reveal">
-      <h2>The short version is on the resume</h2>
-      <p class="lead">Dates, roles and skills — printable straight to PDF.</p>
+      <div>
+        <p class="kicker">Next step</p>
+        <h2>Everything, in order</h2>
+      <p class="lead">
+        Eleven roles across 25 years — defence and avionics, automotive safety, medical, industrial
+        and XR — with the technology behind each one.
+      </p>
+      </div>
       <div class="btn-row">
-        <a class="btn btn-primary" href="resume.html">Read the resume</a>
-        <a class="btn btn-ghost" href="contact.html">Contact</a>
+        <a class="btn btn-primary" href="assets/Max-Pain-Resume.pdf" download>Download CV (PDF)</a>
+        <a class="btn btn-tonal" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20mission-critical%20embedded&amp;body=Role%3A%0ACompany%3A%0ALocation%20%2F%20remote%3A%0ASeniority%3A%0ADomain%3A%0AJD%20link%3A%0A%0A">Email me about a role</a>
+        <a class="btn btn-ghost" href="resume.html">Read the resume</a>
       </div>
     </div>
   </div>
@@ -213,8 +910,8 @@
 <footer>
   <div class="wrap footer-inner">
     <span>© <span data-year>2026</span> Max Pain</span>
-    <span class="muted">boot → kernel → Android → release</span>
-    <span><a href="mailto:max.pain@snke.com">max.pain@snke.com</a></span>
+    <span class="muted">Real-time embedded · mission-critical · bring-up to release</span>
+    <span><a href="mailto:pain.max@gmail.com">pain.max@gmail.com</a></span>
   </div>
 </footer>
 

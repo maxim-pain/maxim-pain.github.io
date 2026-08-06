@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Pain;Max;;;
+FN:Max Pain
+TITLE:Real-Time Embedded Mission-Critical Systems — Tech Lead / Principal Engineer
+EMAIL;TYPE=INTERNET,PREF:pain.max@gmail.com
+TEL;TYPE=CELL,VOICE:+972544752283
+ADR;TYPE=HOME:;;;Hadera;Haifa District;;Israel
+URL:https://maxim-pain.github.io/
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/max-pain/
+NOTE:Real-time embedded mission-critical systems specialist. 25 years across defence and avionics, automotive functional safety (ISO 26262 / FuSA), medical devices, industrial control and XR. Multi-SoC and vendor bring-up, hard real-time, low-latency video and rendering, C/C++, Linux/QNX/RTOS. Also owns build, CI/CD and release end to end.
+END:VCARD

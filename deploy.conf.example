@@ -31,7 +31,7 @@ GITHUB_TOKEN=""
 # ── Commit identity ──────────────────────────────────────────────────────────
 # What shows up as the author on your commits.
 GIT_NAME="Maxim Pain"
-GIT_EMAIL="max.pain@snke.com"
+GIT_EMAIL="pain.max@gmail.com"
 
 # ── Optional ─────────────────────────────────────────────────────────────────
 # Branch GitHub Pages serves from.

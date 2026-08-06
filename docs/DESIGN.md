@@ -80,4 +80,10 @@ status also carries a text label.
   remembered in `localStorage`.
 - **Print.** `resume.html` has a print stylesheet that flattens tokens to black-on-white and
   drops the nav, buttons and CTA. Check it with Ctrl-P after editing that page.
-- **Motion.** Reveal-on-scroll only, and fully disabled under `prefers-reduced-motion`.
+- **Motion.** Scroll-linked or state-linked, never ambient — with two deliberate exceptions where
+  continuous motion *is* the meaning: the inter-SoC link (traffic flowing in both directions) and
+  the current-role marker (a slow "live" pulse). Where the browser supports
+  `animation-timeline: view()`, reveals become position-linked rather than timer-based and the JS
+  observer path is retired; the observer remains as the fallback. All of it is disabled under
+  `prefers-reduced-motion`, none of it gates content visibility, and the print stylesheet forces
+  every animated element to its end state so a partially-scrolled page never prints half-faded.

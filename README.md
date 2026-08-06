@@ -1,18 +1,24 @@
 # maxim-pain.github.io
 
-Personal site and resume for Max Pain. Plain HTML, CSS and JS — no build step, no
-dependencies, no framework. Lives at <https://maxim-pain.github.io>.
+Personal site and resume for Max Pain — embedded systems tech lead. Plain HTML, CSS and JS.
+No build step, no dependencies, no framework. Lives at <https://maxim-pain.github.io>.
 
 ```
-index.html            home — headline, dual-SoC motif, the boot→release stack, skills
-projects.html         work — six subsystems + "collaborative work: my part"
-resume.html           printable resume (Ctrl-P gives a clean A4 PDF)
-contact.html          email / LinkedIn / GitHub
+index.html            home — headline, portrait, stat strip, "what I am proudest of", AI, technologies
+projects.html         selected work — AR glasses platform in depth, GM build framework,
+                      AV central compute, EVA avionics, Munters IoT platform
+resume.html           full resume, 11 roles across 25 years — prints to a clean 5-page PDF
+contact.html          email / phone / LinkedIn / GitHub
+404.html              styled not-found page (GitHub Pages serves this automatically)
 
-assets/style.css      the whole design system (role-based tokens, dark + light)
-assets/main.js         theme toggle, scroll reveal, active nav, print button
+assets/style.css      the whole design system — role-based tokens, dark + light
+assets/main.js        theme toggle, scroll reveal, active nav, print button
+assets/max-pain.jpg   headshot (home hero + resume header)
 assets/favicon.svg    the dual-core mark
 
+.nojekyll             tells GitHub Pages to serve files verbatim (see below)
+robots.txt            allows crawling, points at the sitemap
+sitemap.xml           the four real pages
 docs/DESIGN.md        the six visual rules — read before changing anything visual
 
 setup.sh              one-time: init the repo, verify your token
@@ -32,11 +38,8 @@ deploy.conf.example   template for your credentials
 ./serve.sh 3000         # different port
 ```
 
-Edit a file, save, reload. That's the loop — responses are sent with no-cache headers so you
-never look at a stale stylesheet. `Ctrl-C` to stop. Needs nothing but `python3`.
-
-This serves the files exactly the way GitHub Pages will, so if it looks right locally it will
-look right live.
+Edit a file, save, reload. Responses carry no-cache headers so you never look at a stale
+stylesheet. `Ctrl-C` to stop. Needs nothing but `python3`.
 
 ---
 
@@ -44,14 +47,14 @@ look right live.
 
 ### 1. Make a Personal Access Token
 
-GitHub stopped accepting account passwords over HTTPS in 2021, so "username + password" is
-not an option — you need a **Personal Access Token**, which you then use *as* the password.
+GitHub has not accepted account passwords over HTTPS since 2021, so "username + password" is
+not an option — you need a **Personal Access Token**, used *as* the password.
 
-1. Go to <https://github.com/settings/tokens?type=beta> → **Generate new token**
+1. <https://github.com/settings/tokens?type=beta> → **Generate new token**
 2. **Repository access** → *Only select repositories* → `maxim-pain.github.io`
 3. **Permissions** → *Repository permissions* → **Contents: Read and write**
-4. Expiration: 90 days is a reasonable default (you will need to redo this when it expires)
-5. **Generate token**, then copy it — GitHub shows it exactly once
+4. Expiration: 90 days is a reasonable default
+5. **Generate token** and copy it — GitHub shows it exactly once
 
 ### 2. Fill in your config
 
@@ -61,7 +64,7 @@ chmod 600 deploy.conf
 nano deploy.conf          # paste username + token
 ```
 
-`deploy.conf` is in `.gitignore`, so it never gets committed or pushed. The scripts also
+`deploy.conf` is gitignored, so it is never committed or pushed. The scripts additionally
 refuse to push if they ever find it tracked by git.
 
 ### 3. Run setup
@@ -70,79 +73,96 @@ refuse to push if they ever find it tracked by git.
 ./setup.sh
 ```
 
-It checks your token against the GitHub API, tells you specifically what is wrong if it
-fails, initialises the repo, points `origin` at GitHub, and makes the first commit. It does
-not push — look at the site first.
+Checks your token against the GitHub API, says specifically what is wrong if it fails,
+initialises the repo, points `origin` at GitHub and makes the first commit. It does not push.
 
 ---
 
 ## Publish
 
 ```bash
-./push.sh                        # auto message: "Update site (2026-08-06 21:14)"
+./push.sh                        # auto message
 ./push.sh "rewrote the resume"   # your own message
 ```
 
-Stages everything, commits, rebases on anything new from GitHub, then pushes. Live in about
-a minute at <https://maxim-pain.github.io>.
-
-## Pull
+Stages everything, commits, rebases on anything new from GitHub, pushes. Live in about a
+minute at <https://maxim-pain.github.io>.
 
 ```bash
-./pull.sh
+./pull.sh                        # bring down edits made on github.com
 ```
 
-For when you edited a file directly on github.com, or you're on a second machine. Local
-uncommitted work is stashed and re-applied on top.
+---
 
-### Enabling Pages (once, after the first push)
+## What GitHub Pages actually does (and what this repo does about it)
 
-For a repo named exactly `<username>.github.io` GitHub usually enables Pages automatically.
-If the site 404s after a few minutes, check **Settings → Pages**:
+Pages is a **static file host** — no server-side code, no custom headers, no redirects. This
+site is static HTML/CSS/JS, so it is fully compatible. The specifics that matter:
 
-- Source: **Deploy from a branch**
-- Branch: **main**, folder: **/ (root)**
+| Pages behaviour | How this repo handles it |
+| --- | --- |
+| **Runs your repo through Jekyll by default**, which can transform or skip files (anything starting with `_` or `.` is dropped) | **`.nojekyll`** at the repo root turns Jekyll off entirely — files are served byte-for-byte, and builds are faster |
+| Repo named `<user>.github.io` serves at the **domain root**; a project repo serves under `/<repo>/` | All links are **relative** (`assets/style.css`, not `/assets/style.css`), so the site works either way |
+| Paths are **case-sensitive** on the server even if your local filesystem is not | Everything is lowercase and verified to match |
+| **HTTPS only** — mixed content is blocked | The only external resource is Google Fonts over HTTPS |
+| Serves **`404.html`** for unknown paths | Included, styled to match, `noindex` |
+| No custom cache headers | `serve.sh` sets no-cache locally only; nothing depends on it in production |
+| Limits: 1 GB repo, 100 MB per file, 100 GB/month soft bandwidth | The whole site is ~270 KB |
+| Pages is enabled automatically for a `<user>.github.io` repo | Nothing to configure — if it 404s after a few minutes, check **Settings → Pages**: *Deploy from a branch*, branch `main`, folder `/ (root)` |
 
-Build status is at
-<https://github.com/maxim-pain/maxim-pain.github.io/actions>.
+Build status: <https://github.com/maxim-pain/maxim-pain.github.io/actions>
+
+**The site also works with JavaScript switched off.** The scroll-reveal effect only hides
+content when the `js` class is present on `<html>`, which the inline head script sets. If JS
+never runs — blocked, broken, or a crawler that does not execute it — every element renders
+visible instead of the page appearing blank. Verified by stripping all JS and rendering.
 
 ---
 
 ## Where the token lives
 
 The scripts never write the token into `.git/config`, never put it in the remote URL, and
-never pass it as a command-line argument (where `ps aux` would expose it). It is handed to
-git through a short-lived `GIT_ASKPASS` helper in a `mktemp` file that is deleted when the
-script exits. `git remote -v` shows a clean `https://github.com/...` URL.
+never pass it as a command-line argument (where `ps aux` would expose it). It is handed to git
+through a short-lived `GIT_ASKPASS` helper in a `mktemp` file, deleted when the script exits.
+`git remote -v` shows a clean `https://github.com/...` URL.
 
-If a token ever does leak: revoke it at <https://github.com/settings/tokens> and generate a
-new one. Revoking is instant and free.
+If a token leaks: revoke it at <https://github.com/settings/tokens> and generate a new one.
 
 ---
 
 ## Editing the content
 
-Everything on the site is real content except three things, all marked with an `EDIT:`
-comment in the HTML:
+The site is built from your LinkedIn export, your CV (v0.1.7) and the AR-glasses brief. Two
+facts are **inferred rather than sourced**, both marked with an `EDIT:` comment in
+`resume.html` and appearing nowhere else on the site:
 
-1. **`resume.html`** — employment **dates** and job titles (`[20XX] — present`), any earlier
-   roles, and the **education** card. These are the only facts the site is guessing at.
-2. **`resume.html`** — the spoken-languages chips.
-3. **`projects.html`** — grow this page as you ship more subsystems. One `.card.sub-card` per
-   subsystem; keep the identity chip honest (`chip-main` = core A, `chip-sub` = core B,
-   `chip-both`).
+1. The **Snke XR start year** (`2025 — present`)
+2. The **Baxter Healthcare end year** (`2024 — 2025`)
 
-Deliberately kept off the site: silicon part numbers, product names, internal repo paths and
-port mappings. The public copy describes the *work* ("primary SoC", "secondary SoC") without
-publishing the platform.
+Correct those two and the whole site is accurate.
+
+Deliberately kept off the public site: silicon part numbers and product names for the current
+AR platform, internal repo paths, and port mappings. The site describes the *work* ("primary
+SoC", "secondary SoC") without publishing the platform. Everything about GM, Baxter, Elbit,
+BVR and the rest comes from your own CV, so it is already public.
+
+Where to add things as you go:
+
+- **New achievement** → an `.ach` block in `index.html` §01. Keep every one to a concrete
+  outcome with a number or a "first" — never a duty.
+- **New project write-up** → a numbered section in `projects.html`, same `.ach` pattern.
+- **New role** → a `.tl-item` in `resume.html`. Recent roles get bullets and a `.tl-stack`
+  tech line; older ones use `.tl-item.is-brief` with a single paragraph.
 
 ## Changing how it looks
 
-Read [docs/DESIGN.md](docs/DESIGN.md) first. Short version: colour is assigned by role, not
-by hex; the tokens are all at the top of `assets/style.css`; saturated colour only appears
-when it means something (`--primary` = interactive, `--main`/`--sub` = which compute core,
-`--ok`/`--warn`/`--error` = status). Both themes are maintained — if you touch one, check
-the other with the toggle in the nav.
+Read [docs/DESIGN.md](docs/DESIGN.md) first. Short version: colour is assigned by role, not by
+hex; the tokens are at the top of `assets/style.css`; saturated colour appears only when it
+means something (`--primary` = interactive, `--main`/`--sub` = which compute core,
+`--ok`/`--warn`/`--error` = status). Both themes are maintained — if you touch one, check the
+other with the toggle in the nav. After editing `resume.html`, check the print layout with
+Ctrl-P; the print stylesheet flattens the palette to black-on-white and collapses chip grids
+into flowing text so the PDF stays tight.
 
-Local design skills sit in `.claude/skills/` (gitignored, never published) so any Claude Code
+Local design skills live in `.claude/skills/` (gitignored, never published) so any Claude Code
 session in this repo picks up the same rules.

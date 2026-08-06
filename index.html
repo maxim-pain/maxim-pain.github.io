@@ -3,21 +3,52 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Max Pain — Platform / Systems Engineer</title>
-<meta name="description" content="Max Pain — platform and systems engineer. Full-stack AR glasses bring-up: bootloader, kernel, Android userspace and signed release images on a dual-SoC platform.">
+<!-- Keyword-first: "Max Pain" is an options-trading term and will never rank,
+     so the searchable role terms lead and the name trails. -->
+<title>Real-Time Embedded Systems Specialist — Mission-Critical Platforms, Tech Lead | Max Pain</title>
+<meta name="description" content="From bare metal to working product. Max Pain — Embedded Systems Tech Lead, principal engineer and architect for real-time, mission- and safety-critical platforms. 25 years across defence and avionics, automotive functional safety (ISO 26262 / FuSA), medical devices, industrial control and XR: multi-SoC and vendor bring-up, hard real-time performance, low-latency video and rendering, C/C++, Linux, QNX, RTOS. Root cause, never workarounds — no deadlocks, no crash dumps, no reboot as a fix.">
 <meta name="author" content="Max Pain">
-<meta property="og:title" content="Max Pain — Platform / Systems Engineer">
-<meta property="og:description" content="Full-stack AR glasses bring-up — bootloader to signed release images on a dual-SoC platform.">
+<meta name="keywords" content="embedded systems, mission-critical, safety-critical, real-time, hard real-time, functional safety, ISO 26262, FuSA, tech lead, principal engineer, software architect, multi-SoC bring-up, board bring-up, BSP, device tree, Linux, Yocto, QNX, RTOS, Android AOSP, C++, PCIe, low-latency video, streaming, rendering, performance optimisation, software architecture, team leadership, CI/CD, release engineering, reproducible builds">
+<link rel="canonical" href="https://maxim-pain.github.io/">
+<meta property="og:site_name" content="Max Pain">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Max Pain — Real-Time Embedded Mission-Critical Systems Specialist">
+<meta property="og:description" content="From bare metal to working product. 25 years of real-time, mission-critical embedded — defence and avionics, automotive safety, medical, XR. No deadlocks, no crash dumps, never a reboot as a fix, root cause every time.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://maxim-pain.github.io/">
-<link rel="canonical" href="https://maxim-pain.github.io/">
+<meta property="og:image" content="https://maxim-pain.github.io/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://maxim-pain.github.io/assets/og-cover.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <script>/* Set the theme before first paint so there is no flash. */
-(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+(function(){var r=document.documentElement;r.className+=" js";try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")r.dataset.theme=t;}catch(e){}})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Max Pain",
+  "jobTitle": "Real-Time Embedded Systems Tech Lead",
+  "description": "Embedded Systems Tech Lead, principal engineer and software architect with 25 years across defence and avionics, automotive functional safety, medical devices, industrial IoT and XR. Specialises in multi-SoC and vendor bring-up, hard real-time performance, low-latency video and rendering, and architecture — and also owns the build, CI/CD and release side end to end.",
+  "url": "https://maxim-pain.github.io/",
+  "image": "https://maxim-pain.github.io/assets/max-pain.jpg",
+  "email": "mailto:pain.max@gmail.com",
+  "telephone": "+972-54-475-2283",
+  "address": { "@type": "PostalAddress", "addressLocality": "Hadera", "addressRegion": "Haifa District", "addressCountry": "IL" },
+  "sameAs": ["https://www.linkedin.com/in/max-pain/", "https://github.com/maxim-pain"],
+  "alumniOf": [
+    { "@type": "EducationalOrganization", "name": "Champlain College" },
+    { "@type": "EducationalOrganization", "name": "Naval Technical College — ORT" }
+  ],
+  "knowsAbout": ["Embedded systems","Real-time systems","Mission-critical software","Safety-critical software","Functional safety","ISO 26262","Multi-SoC bring-up","Board support packages","Device tree","Linux","Yocto","QNX","RTOS","Android AOSP","C","C++","PCIe","Low-latency video streaming","Rendering","Performance optimisation","Software architecture","CI/CD","Release engineering","Team leadership"],
+  "knowsLanguage": ["Hebrew","Russian","English"]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -29,11 +60,12 @@
       <span class="mark" aria-hidden="true"><i></i><s></s><i></i></span> Max&nbsp;Pain
     </a>
     <nav class="nav-links" aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Work</a>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="projects.html">Case studies</a>
       <a href="resume.html">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <a class="btn btn-primary btn-sm btn-cta" href="assets/Max-Pain-Resume.pdf" download>CV&nbsp;<span>(PDF)</span></a>
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
       <span aria-hidden="true" data-theme-icon>◐</span>
     </button>
@@ -45,159 +77,666 @@
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow reveal">Platform · Systems Engineer</p>
-    <h1 class="reveal" data-delay="60">Max Pain</h1>
-    <p class="lead reveal" data-delay="120" style="margin-top:14px">
-      Full-stack AR glasses bring-up at <strong>Snke XR</strong>.
-    </p>
-    <p class="lead reveal" data-delay="180" style="margin-top:18px">
-      I take brand-new AR glasses hardware from <em>“doesn’t boot”</em> to a fully functional,
-      shippable device — owning every layer of a dual-SoC platform, from the bootloader all the
-      way up to signed release images.
-    </p>
+    <div class="hero-split">
 
-    <!-- The dual-SoC motif: two mirrored cores, the inter-SoC link as a first-class
-         object between them. Identity colours only — indigo core A, teal core B. -->
-    <div class="cores reveal" data-delay="240" aria-label="Dual-SoC architecture">
-      <div class="core core-a">
-        <span class="lbl">Compute core A</span>
-        <span class="val">Primary SoC</span>
-        <span class="sub">display · cameras · connectivity</span>
+      <div>
+        <div class="hero-head reveal">
+          <p class="nameplate"><span class="mark" aria-hidden="true"><i></i><s></s><i></i></span> Max Pain</p>
+          <p class="status">
+            <span class="dot" aria-hidden="true"></span>
+            Open to principal · staff · tech-lead roles
+          </p>
+        </div>
+
+        <h1 class="reveal" data-delay="60">Embedded Systems Tech&nbsp;Lead</h1>
+
+        <p class="slogan reveal" data-delay="90">
+          From bare metal to <span class="works">working product</span>.
+        </p>
+        <p class="slogan-sub reveal" data-delay="110">
+          Avionics, autonomous vehicles, medical devices, AR glasses — 25 years of first boots
+          that stayed up. Today: a medical-device AR platform.
+        </p>
+
+        <p class="tl-stack reveal" data-delay="140" style="font-size:.8rem;line-height:1.9;margin-top:18px">
+          Principal engineer &amp; architect · real-time, mission- and safety-critical platforms ·
+          multi-SoC bring-up · RTOS (QNX, GHS Integrity, VxWorks) · Linux / Yocto · C / C++ ·
+          ISO 26262 / FuSA
+        </p>
+
+        <div class="btn-row reveal" data-delay="180">
+          <a class="btn btn-primary" href="assets/Max-Pain-Resume.pdf" download>Download CV (PDF)</a>
+          <a class="btn btn-tonal" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20embedded%20systems&amp;body=Role%3A%0ACompany%3A%0ALocation%20%2F%20remote%3A%0ASeniority%3A%0ADomain%3A%0AJD%20link%3A%0A%0A">Email me about a role</a>
+          <a class="btn btn-ghost" href="projects.html">Case studies</a>
+        </div>
       </div>
-      <div class="core-link" aria-hidden="true">
-        <span class="arrows">⇄</span>
-        <span class="txt">PCIe<br>LINK</span>
+
+      <div class="reveal" data-delay="120">
+        <div class="portrait">
+          <img src="assets/max-pain.jpg" alt="Max Pain" width="868" height="1287">
+          <div class="portrait-rail" aria-hidden="true"><span>Snke XR</span><span>Platform lead</span></div>
+        </div>
+        <dl class="spec">
+          <div><dt>Based</dt><dd>Hadera, Israel · UTC+3</dd></div>
+          <div><dt>Mode</dt><dd>On-site · hybrid · remote</dd></div>
+          <div><dt>Now</dt><dd>Dual-SoC AR platform bring-up</dd></div>
+          <div><dt>Reply</dt><dd>Every serious enquiry, ~1 day</dd></div>
+          <div><dt>Langs</dt><dd>Hebrew · Russian · English</dd></div>
+        </dl>
       </div>
-      <div class="core core-b">
-        <span class="lbl">Compute core B</span>
-        <span class="val">Secondary SoC</span>
-        <span class="sub">eye-tracking · sensors</span>
-      </div>
+
     </div>
-    <p class="cores-note reveal" data-delay="280">
-      Two symmetric compute cores · one firmware image · flashed and booted as a single device.
-    </p>
 
-    <div class="btn-row reveal" data-delay="320">
-      <a class="btn btn-primary" href="projects.html">See the work →</a>
-      <a class="btn btn-ghost" href="resume.html">Resume</a>
+    <div class="stats reveal" data-delay="300">
+      <div class="stat">
+        <span class="key">experience</span>
+        <span class="num">25 yrs</span>
+        <span class="lbl">Real-time embedded, 2001 → today</span>
+      </div>
+      <div class="stat">
+        <span class="key">domains</span>
+        <span class="num">5</span>
+        <span class="lbl">Defence &amp; avionics · automotive · medical · industrial · XR</span>
+      </div>
+      <div class="stat">
+        <span class="key">build setup</span>
+        <span class="num"><span class="from">weeks</span><span class="arw">→</span>min</span>
+        <span class="lbl">Build framework adopted by many organisations across GM</span>
+      </div>
+      <div class="stat">
+        <span class="key">teams built</span>
+        <span class="num">2</span>
+        <span class="lbl">~10 engineers hired and led as team leader</span>
+      </div>
+      <div class="stat">
+        <span class="key">current · AR glasses</span>
+        <span class="num">2 SoCs</span>
+        <span class="lbl">7 subsystems brought up from scratch — first power-on to signed release</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 01 · THE STACK ═══════════════════════ -->
-<section style="padding-top:20px">
+<!-- ═══════════════════════ 01 · OWNERSHIP ═══════════════════════ -->
+<section class="tight-top">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="idx">01</span>
-      <h2>Full-stack coverage</h2>
-      <span class="note">boot → release, every layer</span>
+      <h2>Every layer, bare metal to signed release</h2>
+      <span class="note">what I own · no hand-offs</span>
     </div>
 
-    <div class="stack">
-      <div class="layer reveal">
-        <span class="n">L0</span>
-        <div class="tag">Bootloader<span>UEFI</span></div>
-        <div class="desc">Display and power init, boot-cascade debugging, EDL brick recovery.</div>
+    <p class="lead reveal" style="margin-bottom:26px">
+      A product goes from a bare board to a signed release through eight layers. Most embedded
+      roles own three of them and hand off at both ends — and hand-offs are where mission-critical
+      programmes lose months. <strong>I own the whole column</strong>, including the build, CI/CD
+      and release pipelines around it, so there is one person accountable for the whole path.
+    </p>
+
+    <figure class="ownfig reveal">
+      <div class="own">
+        <ol class="own-stack" role="list">
+          <li role="listitem"><b>Signed release</b><span>image signing · release pipeline</span></li>
+          <li role="listitem"><b>Build &amp; CI</b><span>reproducible containers · toolchains</span></li>
+          <li role="listitem" class="is-typ"><b>Application</b><span>services · SDKs · tooling</span></li>
+          <li role="listitem" class="is-typ"><b>OS userspace</b><span>Android / Linux · HALs · SELinux</span></li>
+          <li role="listitem" class="is-typ"><b>Kernel &amp; drivers</b><span>BSP · device tree · V4L2 · DMA</span></li>
+          <li role="listitem"><b>Firmware</b><span>DSP · secure world · PMIC</span></li>
+          <li role="listitem"><b>Bootloader</b><span>UEFI · display &amp; power init</span></li>
+          <li role="listitem"><b>Silicon &amp; board</b><span>multi-SoC bring-up · PCIe · JTAG</span></li>
+        </ol>
+        <p class="own-band" aria-hidden="true">typical<br>embedded<br>role</p>
+        <p class="own-mine" aria-hidden="true">I own<br>all<br>of it</p>
       </div>
-      <div class="layer reveal" data-delay="60">
-        <span class="n">L1</span>
-        <div class="tag">Low-level firmware<span>DSP · TrustZone · PIL</span></div>
-        <div class="desc">Sensor and audio DSP, secure world, signed peripheral images, PMIC access control.</div>
+      <figcaption class="is-label">Bare board → signed release · shaded band = a typical embedded remit</figcaption>
+
+        <div class="costs">
+        <div class="cost">
+          <span class="n">3 of 8</span>
+          <span class="t">Layers a typical embedded role owns</span>
       </div>
-      <div class="layer reveal" data-delay="120">
-        <span class="n">L2</span>
-        <div class="tag">Kernel &amp; device tree<span>Linux</span></div>
-        <div class="desc">Board bring-up, driver enablement, per-variant device-tree overlays.</div>
+        <div class="cost">
+          <span class="n">2</span>
+          <span class="t">Hand-off boundaries that stall a programme</span>
       </div>
-      <div class="layer reveal" data-delay="180">
-        <span class="n">L3</span>
-        <div class="tag">Android userspace<span>system + vendor</span></div>
-        <div class="desc">HAL integration, camera and sensor services, platform properties, SELinux.</div>
+        <div class="cost is-mine">
+          <span class="n">0</span>
+          <span class="t">Hand-offs when one engineer owns the column</span>
       </div>
-      <div class="layer reveal" data-delay="240">
-        <span class="n">L4</span>
-        <div class="tag">Build &amp; release<span>pipeline</span></div>
-        <div class="desc">Containerised reproducible builds, artifact pipeline, signed release images.</div>
+    </div>
+    </figure>
+
+
+    <h3 class="sub-head reveal">What owning the top of the column means</h3>
+
+    <div class="grid g3">
+      <div class="card reveal">
+        <h3>Build &amp; toolchain infrastructure</h3>
+        <p>
+          Modular multi-platform build frameworks, containerised reproducible builds, on-demand
+          toolchains, artifact and third-party library ecosystems, layered device-tree and overlay
+          build systems for per-variant hardware.
+        </p>
+        <div class="chips">
+          <span class="chip">Conan</span><span class="chip">CMake</span>
+          <span class="chip">Yocto</span><span class="chip">Artifactory</span>
+          <span class="chip">Docker · Podman</span>
+        </div>
+      </div>
+      <div class="card reveal" data-delay="80">
+        <h3>CI/CD &amp; release engineering</h3>
+        <p>
+          Fully automated pipelines for embedded targets, signed release images, release profile and
+          configuration management, deployment automation to real hardware, and the development and
+          release processes around them — including inside a regulated medical-device environment.
+        </p>
+        <div class="chips">
+          <span class="chip">Jenkins</span><span class="chip">Azure / Azure Agents</span>
+          <span class="chip">Code signing</span><span class="chip">Release pipelines</span>
+        </div>
+      </div>
+      <div class="card reveal" data-delay="160">
+        <h3>Lifecycle &amp; automation at scale</h3>
+        <p>
+          I have authored <strong>40+ executable automation skills</strong> that codify a platform's
+          entire bring-up and release lifecycle — flashing, image verification, overlay application,
+          release configuration, wireless deployment, per-subsystem test sweeps, crash-dump capture.
+          Tribal knowledge becomes a versioned, reviewable procedure that every engineer runs the
+          same way.
+        </p>
+        <div class="chips">
+          <span class="chip">Test automation</span><span class="chip">Fleet tooling</span>
+          <span class="chip">Claude Code · agent skills</span>
+          <span class="chip">Copilot · ChatGPT · Cursor</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 02 · HOW I WORK ═══════════════════════ -->
-<section>
+<!-- ═══════════════════════ 02 · SHIPPED ═══════════════════════ -->
+<section class="tight-top">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="idx">02</span>
-      <h2>How I work</h2>
-      <span class="note">bring-up habits</span>
+      <h2>Systems I have shipped</h2>
+      <span class="note">newest first · outcomes, with the stakes attached</span>
+    </div>
+
+    <div class="grid" style="gap:12px">
+
+      <div class="ach reveal">
+        <div class="metric">
+          <span class="big">2 SoCs → 1 image</span>
+          <span class="cap">current work</span>
+        </div>
+        <div>
+          <p class="where">Snke XR · medical-device AR glasses · current</p>
+          <h3>Full-stack bring-up of a dual-SoC AR platform, boot to signed release</h3>
+          <p>
+            Two symmetric compute cores over a high-speed PCIe link, flashed and booted as one
+            device. I own every layer: UEFI bootloader display and power init, DSP and secure-world
+            firmware, signed peripheral images, Linux kernel and per-variant device-tree overlays,
+            Android system and vendor userspace, and the signed release pipeline that produces the
+            images — plus microdisplays, a multi-sensor camera array with hardware-triggered frame
+            sync, the DSP sensor core, and the PMIC power and audio paths.
+          </p>
+          <div class="chips">
+            <span class="chip">UEFI</span><span class="chip">Linux kernel</span>
+            <span class="chip">Android / AOSP</span><span class="chip">Device tree</span>
+            <span class="chip">PCIe</span><span class="chip">MIPI DSI</span>
+            <span class="chip">TrustZone</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach reveal" data-delay="70">
+        <div class="metric is-flag">
+          <span class="big">every frame</span>
+          <span class="cap">was: intermittent loss</span>
+        </div>
+        <div>
+          <p class="where">Vendor bring-up · video, streaming &amp; rendering · current</p>
+          <h3>Turned a lossy video pipeline into one that delivers all of it</h3>
+          <p>
+            Multi-sensor camera and display pipelines that dropped and silently lost frames now
+            deliver every one of them. That work is vendor bring-up in the hardest sense —
+            sensor and display drivers, hardware-triggered capture, the composition and handoff
+            path, and low-latency streaming and rendering held stable under sustained load rather
+            than in a quiet lab. Root-caused DMA misrouting and link-recovery faults across a
+            dual-SoC boundary along the way.
+          </p>
+          <div class="chips">
+            <span class="chip">Low-latency streaming</span><span class="chip">Rendering</span>
+            <span class="chip">Frame sync</span><span class="chip">V4L2 / HAL</span>
+            <span class="chip">DMA</span><span class="chip">PCIe</span>
+            <span class="chip">Performance under load</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach reveal" data-delay="140">
+        <div class="metric">
+          <span class="big">weeks → minutes</span>
+          <span class="cap">setup time, adopted org-wide</span>
+        </div>
+        <div>
+          <p class="where">General Motors · Tech Lead, Platform &amp; Infrastructure · 2019 — 2024</p>
+          <h3>A build framework that many GM organisations adopted</h3>
+          <div class="ratio" role="img" aria-label="Time to a developer's first successful build fell from about three weeks to about fifteen minutes.">
+            <p class="ratio-x">≈2000× <span>faster</span></p>
+            <div class="ratio-row">
+              <span class="k">before</span><i class="b" style="--w:100%"></i><span class="v">~3 weeks</span>
+            </div>
+            <div class="ratio-row is-after">
+              <span class="k">after</span><i class="b" style="--w:26%"></i><span class="v">~15 min</span>
+            </div>
+            <p class="ratio-note">time to a developer’s first successful build · bars on a log₁₀ scale</p>
+          </div>
+          <p>
+            I built a modular, multi-platform build and integration framework with on-demand
+            toolchain downloads in place of monolithic SDPs and heavy emulators. It covers native
+            Linux plus cross-compilation to ARM, QNX and multiple Yocto distributions, with the
+            container images, workflows, testing, deployment and release pipelines defined around
+            it — and it was taken up by <strong>many organisations across GM</strong>, spanning
+            numerous software groups and projects. Setup time is not a vanity metric on a safety
+            programme: it is how long a fix takes to reach a reproducible, auditable build.
+          </p>
+          <div class="chips">
+            <span class="chip">Conan</span><span class="chip">CMake</span>
+            <span class="chip">repo tool</span><span class="chip">Artifactory</span>
+            <span class="chip">Jenkins</span><span class="chip">Docker / Podman</span>
+            <span class="chip">Yocto</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach reveal" data-delay="210">
+        <div class="metric is-flag">
+          <span class="big">first</span>
+          <span class="cap">central compute unit, GM Israel</span>
+        </div>
+        <div>
+          <p class="where">General Motors · Autonomous Vehicle Infrastructure · 2017 — 2021</p>
+          <h3>Brought up the compute unit an autonomous-driving programme was built on</h3>
+          <p>
+            Built the first central computer unit and its core infrastructure from scratch — the
+            thing that made large-scale AV software development possible on the programme — and
+            pioneered containerisation there with its first on-site Docker development environment.
+            Delivered Safe Linux bring-up and containerised embedded solutions aligned with
+            FuSA / ISO 26262 practice, then joined the core team behind GM Israel's first hands-free
+            autonomous driving demonstration. At highway speed, a missed deadline is not a defect
+            report.
+          </p>
+          <div class="chips">
+            <span class="chip">Nvidia Drive</span><span class="chip">Qualcomm Ride</span>
+            <span class="chip">QNX</span><span class="chip">Safe Linux</span>
+            <span class="chip">ISO 26262 / FuSA</span><span class="chip">C++</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach reveal" data-delay="280">
+        <div class="metric is-flag">
+          <span class="big">AI on embedded</span>
+          <span class="cap">before it was easy</span>
+        </div>
+        <div>
+          <p class="where">General Motors · Platform &amp; AI/ML integration · 2017 — 2024</p>
+          <h3>Made machine-learning workloads run on automotive compute</h3>
+          <p>
+            Ported the Torch library to QNX and RedHat Linux and integrated CUDA into embedded
+            compute for GPU acceleration, enabling early AV machine-learning development. Evaluated
+            and integrated DDS (RTI) and Adaptive AUTOSAR into reliable IPC middleware for
+            high-throughput robotics, and wrote a high-performance C++ Vehicle Data Records parser
+            feeding ML pipelines and Elasticsearch analytics — all of it inside real-time and
+            safety constraints that do not relax for a framework.
+          </p>
+          <div class="chips">
+            <span class="chip">Torch</span><span class="chip">CUDA</span>
+            <span class="chip">DDS (RTI)</span><span class="chip">Adaptive AUTOSAR</span>
+            <span class="chip">Elasticsearch</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach reveal" data-delay="350">
+        <div class="metric">
+          <span class="big">2 teams · ~10 eng</span>
+          <span class="cap">hired, built and led</span>
+        </div>
+        <div>
+          <p class="where">Munters · Team Leader &amp; Principal Software Architect · 2011 — 2016</p>
+          <h3>Built the company's embedded and IoT platform — and the teams behind it</h3>
+          <p>
+            Hired and led two embedded teams (infrastructure and algorithms), defined the company's
+            core embedded and IoT software platform from scratch, and owned the full lifecycle from
+            requirements and architecture through to production deployment — while staying hands-on
+            in firmware, communication protocols, GUI engines and RTOS board bring-up.
+          </p>
+          <div class="chips">
+            <span class="chip">ARM Cortex-M · STM32</span><span class="chip">FreeRTOS · ThreadX · CMX</span>
+            <span class="chip">BSP / HAL</span><span class="chip">IoT</span>
+            <span class="chip">Full SDLC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach reveal" data-delay="420">
+        <div class="metric is-flag">
+          <span class="big">worldwide</span>
+          <span class="cap">operational with air forces</span>
+        </div>
+        <div>
+          <p class="where">BVR Systems / Elbit · Embedded Virtual Avionics · 2006 — 2011</p>
+          <h3>Sole real-time engineer behind a virtual-avionics system now flying with air forces</h3>
+          <p>
+            EVA turns a basic or advanced trainer aircraft into a 5th-generation virtual fighter —
+            virtual avionics, sensors and weapons, hybrid real/virtual scenarios simulating radar
+            and EW, and fully synchronised replay for post-flight debrief. I owned every board
+            bring-up, every OS integration and the cross-platform distributed real-time
+            infrastructure underneath it. Installed in many of the world's leading trainer
+            aircraft and operational with leading air forces.
+          </p>
+          <div class="chips">
+            <span class="chip">GHS Integrity RTOS</span><span class="chip">VxWorks</span>
+            <span class="chip">Freescale PowerPC</span><span class="chip">C / C++ · ACE · STL</span>
+            <span class="chip">Hard real-time</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 03 · STANDARD ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">03</span>
+      <h2>The standard I hold</h2>
+      <span class="note">what mission-critical actually means</span>
+    </div>
+
+    <p class="lead reveal" style="margin-bottom:26px">
+      “Embedded engineer” is a job title. This is the part that is actually hard, and it is what
+      I am hired for.
+    </p>
+
+    <div class="rules">
+      <div class="rule reveal">
+        <span class="mk" aria-hidden="true">01</span>
+        <div>
+          <h3>Root cause, never the syndrome</h3>
+          <p>
+            No workarounds, no patches over symptoms, no “retry and hope”. A defect is not closed
+            until the mechanism is understood and named. Every workaround left in a mission-critical
+            system is a failure scheduled for a worse moment.
+          </p>
+        </div>
+      </div>
+      <div class="rule reveal">
+        <span class="mk" aria-hidden="true">02</span>
+        <div>
+          <h3>Never stuck — no deadlocks, no hangs, no crash dumps</h3>
+          <p>
+            Systems I own do not deadlock, do not wedge, and do not fall over into a core dump.
+            Concurrency, locking and lifetime are designed, not discovered in the field, and the
+            failure paths get the same scrutiny as the happy path.
+          </p>
+        </div>
+      </div>
+      <div class="rule reveal">
+        <span class="mk" aria-hidden="true">03</span>
+        <div>
+          <h3>Reboot is not a recovery strategy</h3>
+          <p>
+            A device that needs a power cycle to become healthy is a broken device. It boots the
+            first time, every time, from cold — and it stays up. Recovery is engineered into the
+            boot path, not delegated to the person holding the hardware.
+          </p>
+        </div>
+      </div>
+      <div class="rule reveal">
+        <span class="mk" aria-hidden="true">04</span>
+        <div>
+          <h3>Every frame, every deadline</h3>
+          <p>
+            Dropped, late and vanished frames are bugs, not tuning parameters. I have taken video
+            pipelines from intermittently losing frames to delivering all of them — and I hold
+            latency and throughput under sustained load, not just in a quiet lab.
+          </p>
+        </div>
+      </div>
+      <div class="rule reveal">
+        <span class="mk" aria-hidden="true">05</span>
+        <div>
+          <h3>Measured, not assumed</h3>
+          <p>
+            Performance claims come with numbers and a method. Bring-up is unusable without honest
+            telemetry, so I build the instrumentation first and treat “no data” as unknown —
+            never as healthy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 04 · LOOKING ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">04</span>
+      <h2>What I am looking for</h2>
+      <span class="note">open to conversations</span>
+    </div>
+
+    <div class="grid g2">
+      <div class="card reveal">
+        <h3>Roles</h3>
+        <p>
+          <strong>Tech lead, principal engineer, software architect</strong> or engineering
+          management on <strong>real-time embedded mission-critical systems</strong> — defence and
+          avionics, automotive functional safety, medical devices, robotics, space or XR.
+        </p>
+        <p>
+          The work I want is the hard part of the stack: bring-up, hard real-time behaviour,
+          performance under load, and the architecture around it.
+        </p>
+      </div>
+      <div class="card reveal" data-delay="80">
+        <h3>Practicalities</h3>
+        <p>
+          Based in Hadera, Haifa District, Israel (UTC+3). Open to on-site, hybrid and remote, and
+          used to working across time zones after seven years inside a global organisation.
+        </p>
+        <p>
+          Available for full-time senior roles, and for scoped consulting on platform bring-up or
+          build and release infrastructure. I reply to every serious enquiry, usually within a day.
+        </p>
+        <div class="btn-row" style="margin-top:18px">
+          <a class="btn btn-tonal btn-sm" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20mission-critical%20embedded&amp;body=Role%3A%0ACompany%3A%0ALocation%20%2F%20remote%3A%0ASeniority%3A%0ADomain%3A%0AJD%20link%3A%0A%0A">Email me about a role</a>
+          <a class="btn btn-ghost btn-sm" href="assets/max-pain.vcf" download>Save my contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 05 · DOMAINS ═══════════════════════ -->
+<section class="tight-top">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">05</span>
+      <h2>Domains &amp; environments</h2>
+      <span class="note">where failure is not an option</span>
     </div>
 
     <div class="grid g3">
       <div class="card reveal">
-        <h3>Follow the signal down</h3>
+        <h3>Defence &amp; avionics</h3>
+        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">2001 — 2011 · BVR, Elbit, Mango DSP, Albatronics, Formtest</p>
         <p>
-          A symptom on screen is rarely where the bug lives. I chase it through composition,
-          the HAL, the driver, the device tree and the rail underneath until the actual cause
-          is named — then fix that, not the symptom.
+          Mission computers, embedded virtual avionics, ground-based defence systems and automated
+          test equipment for airborne platforms. Ten years on GHS Integrity and VxWorks — the
+          certifiable real-time operating systems this industry builds on.
         </p>
       </div>
-      <div class="card reveal" data-delay="80">
-        <h3>Instrument before guessing</h3>
+      <div class="card reveal" data-delay="70">
+        <h3>Automotive &amp; autonomous</h3>
+        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">2016 — 2024 · General Motors, OSR Enterprises</p>
         <p>
-          Bring-up is unusable without honest telemetry, so I build the tooling first: a
-          desktop console for the test fleet, an on-device service and viewer, logs that tell
-          you what is stale versus what is genuinely healthy.
+          Autonomous-driving compute platforms delivered under FuSA / ISO 26262 practice, Safe
+          Linux bring-up, ADAS architecture and ASIL A–D working knowledge, AUTOSAR and DDS
+          middleware, LiDAR integration.
         </p>
       </div>
-      <div class="card reveal" data-delay="160">
-        <h3>Make it reproducible</h3>
+      <div class="card reveal" data-delay="140">
+        <h3>Medical devices</h3>
+        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">2024 — today · Baxter Healthcare, Snke XR</p>
         <p>
-          If a fix only works on one bench it isn’t a fix. Containerised builds, layered
-          overlays per hardware variant, and a signed artifact pipeline mean the same image
-          boots the same way on every unit.
+          Two regulated programmes back to back. At Baxter, embedded platform and release
+          infrastructure inside an audited environment. Today, the AR glasses platform I bring up is
+          itself a <strong>medical device</strong> — so the bring-up, the real-time behaviour and the
+          release pipeline all carry medical-grade expectations.
+        </p>
+      </div>
+      <div class="card reveal">
+        <h3>Industrial &amp; IoT</h3>
+        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">2011 — 2016 · Munters</p>
+        <p>
+          Company-wide embedded and IoT platform built from scratch, control and management systems
+          on ARM Cortex-M, and two engineering teams built around it.
+        </p>
+      </div>
+      <div class="card reveal" data-delay="70">
+        <h3>XR &amp; AR</h3>
+        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">current · Snke XR</p>
+        <p>
+          Dual-SoC medical-device AR glasses, boot to signed release, with low-latency camera,
+          display and sensor pipelines that have to hold every frame on a device worn on someone’s
+          face while it is being relied on.
+        </p>
+      </div>
+      <div class="card reveal" data-delay="140">
+        <h3>Leadership</h3>
+        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">2011 — today</p>
+        <p>
+          Two teams built and led (~10 engineers), principal-level titles at Munters and Baxter,
+          technical authority across domains, and mentoring on architecture, build systems and
+          system integration.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 03 · SKILLS ═══════════════════════ -->
-<section>
+<!-- ═══════════════════════ 06 · TECH ═══════════════════════ -->
+<section class="tight-top">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="idx">03</span>
-      <h2>Core skills</h2>
+      <span class="idx">06</span>
+      <h2>Technologies</h2>
+      <span class="note">hands-on</span>
     </div>
-    <div class="chips chips-lg reveal">
-      <span class="chip"><b>Embedded Linux</b></span>
-      <span class="chip"><b>Android</b> / AOSP</span>
-      <span class="chip">Device tree</span>
-      <span class="chip">UEFI / bootloader</span>
-      <span class="chip">Kernel drivers</span>
-      <span class="chip">Camera pipeline</span>
-      <span class="chip">DSP sensors</span>
-      <span class="chip">PCIe</span>
-      <span class="chip">MIPI DSI / LCOS</span>
-      <span class="chip"><b>C / C++</b></span>
-      <span class="chip">Build &amp; release systems</span>
-      <span class="chip">HW bring-up &amp; debug</span>
-    </div>
+
+    <dl class="skillset reveal">
+      <div class="skillrow">
+        <dt>Real-time &amp; mission-critical</dt>
+        <dd><div class="chips">
+          <span class="chip"><b>Real-time systems</b></span>
+          <span class="chip"><b>Mission-critical software</b></span>
+          <span class="chip"><b>Safety-critical development</b></span>
+          <span class="chip"><b>FuSA · ISO 26262</b></span>
+          <span class="chip">ASIL A–D (working knowledge)</span>
+          <span class="chip">Safe Linux bring-up</span>
+          <span class="chip">Regulated medical environments</span>
+          <span class="chip">Hard real-time · determinism</span>
+          <span class="chip">TrustZone · secure boot · code signing</span>
+          <span class="chip">Full SDLC ownership</span>
+        </div></dd>
+      </div>
+      <div class="skillrow" data-devops>
+        <dt>Build &amp; release (also)</dt>
+        <dd><div class="chips">
+          <span class="chip"><b>CI/CD</b></span><span class="chip"><b>Release engineering</b></span>
+          <span class="chip">Lifecycle management</span><span class="chip">Deployment automation</span>
+          <span class="chip">Reproducible builds</span><span class="chip">Toolchain management</span>
+          <span class="chip">Docker · Podman</span><span class="chip">Jenkins</span>
+          <span class="chip">Conan · CMake · Ninja · GNU Make</span>
+          <span class="chip">Artifactory</span><span class="chip">Azure</span>
+          <span class="chip">Git · GitHub · Bitbucket · repo tool</span>
+        </div></dd>
+      </div>
+      <div class="skillrow">
+        <dt>Performance &amp; media</dt>
+        <dd><div class="chips">
+          <span class="chip"><b>Low-latency streaming</b></span>
+          <span class="chip">Video pipelines · frame sync</span>
+          <span class="chip">Rendering</span>
+          <span class="chip">Performance optimisation</span>
+          <span class="chip">Load &amp; stress characterisation</span>
+          <span class="chip">Concurrency &amp; locking</span>
+          <span class="chip">Latency &amp; throughput analysis</span>
+        </div></dd>
+      </div>
+      <div class="skillrow">
+        <dt>Languages</dt>
+        <dd><div class="chips">
+          <span class="chip"><b>C</b></span><span class="chip"><b>C++</b> / Embedded C++</span>
+          <span class="chip">Python</span><span class="chip">Bash / POSIX shell</span>
+          <span class="chip">Groovy</span>
+        </div></dd>
+      </div>
+      <div class="skillrow">
+        <dt>OS &amp; platforms</dt>
+        <dd><div class="chips">
+          <span class="chip"><b>Linux</b> · Yocto · RedHat · Ubuntu · AGL</span>
+          <span class="chip"><b>QNX</b></span><span class="chip">Android / AOSP</span>
+          <span class="chip">GHS Integrity</span><span class="chip">VxWorks</span>
+          <span class="chip">PikeOS</span><span class="chip">FreeRTOS · CMX · ThreadX</span>
+        </div></dd>
+      </div>
+      <div class="skillrow">
+        <dt>Silicon &amp; bring-up</dt>
+        <dd><div class="chips">
+          <span class="chip">Qualcomm</span><span class="chip">Nvidia</span>
+          <span class="chip">Renesas R-Car</span><span class="chip">NXP</span>
+          <span class="chip">ARM Cortex-M · aarch64</span><span class="chip">PowerPC</span>
+          <span class="chip">TI DSP</span><span class="chip">BSP · HAL · drivers</span>
+          <span class="chip">Device tree</span><span class="chip">UEFI / bootloader</span>
+          <span class="chip">JTAG · Lauterbach</span><span class="chip">PCIe</span>
+          <span class="chip">MIPI DSI</span><span class="chip">I2C / SPI</span><span class="chip">PMIC</span>
+        </div></dd>
+      </div>
+      <div class="skillrow">
+        <dt>Leadership</dt>
+        <dd><div class="chips">
+          <span class="chip">Tech lead</span><span class="chip">Team building &amp; hiring</span>
+          <span class="chip">Architecture &amp; code review</span><span class="chip">Mentoring</span>
+          <span class="chip">Technical authority</span>
+          <span class="chip">Global, cross-timezone collaboration</span>
+        </div></dd>
+      </div>
+    </dl>
   </div>
 </section>
 
 <!-- ═══════════════════════ CTA ═══════════════════════ -->
-<section style="padding-top:20px">
+<section class="tight-top">
   <div class="wrap">
     <div class="cta reveal">
-      <h2>Want the detail?</h2>
+      <h2>Hiring for a system that cannot fail?</h2>
       <p class="lead">
-        The work page goes subsystem by subsystem — display, cameras, the inter-SoC link,
-        sensors, power and tooling — and is explicit about which parts were mine.
+        Twenty-five years of it, chronologically, with the technology behind every role — or skip
+        the reading and email me directly.
       </p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="projects.html">Subsystems brought up</a>
-        <a class="btn btn-ghost" href="contact.html">Get in touch</a>
+        <a class="btn btn-primary" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20mission-critical%20embedded&amp;body=Role%3A%0ACompany%3A%0ALocation%20%2F%20remote%3A%0ASeniority%3A%0ADomain%3A%0AJD%20link%3A%0A%0A">Email me about a role</a>
+        <a class="btn btn-tonal" href="assets/Max-Pain-Resume.pdf" download>Download CV (PDF)</a>
+        <a class="btn btn-ghost" href="resume.html">Read the resume</a>
       </div>
     </div>
   </div>
@@ -208,8 +747,8 @@
 <footer>
   <div class="wrap footer-inner">
     <span>© <span data-year>2026</span> Max Pain</span>
-    <span class="muted">boot → kernel → Android → release</span>
-    <span><a href="mailto:max.pain@snke.com">max.pain@snke.com</a></span>
+    <span class="muted">Real-time embedded · mission-critical · bring-up to release</span>
+    <span><a href="mailto:pain.max@gmail.com">pain.max@gmail.com</a></span>
   </div>
 </footer>
 
