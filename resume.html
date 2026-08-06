@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume — Max Pain</title>
+<meta name="description" content="Resume of Max Pain — platform and systems engineer, full-stack AR glasses bring-up.">
+<meta property="og:title" content="Resume — Max Pain">
+<meta property="og:type" content="profile">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"><i></i><s></s><i></i></span> Max&nbsp;Pain
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Work</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
+      <span aria-hidden="true" data-theme-icon>◐</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding-bottom:26px">
+  <div class="wrap">
+    <p class="eyebrow reveal">Resume</p>
+    <h1 class="reveal" data-delay="60" style="font-size:clamp(2.2rem,5.4vw,3.4rem)">Max Pain</h1>
+    <p class="lead reveal" data-delay="120" style="margin-top:14px">
+      Platform / Systems Engineer · Full-stack AR glasses bring-up · Snke XR<br>
+      <a href="mailto:max.pain@snke.com">max.pain@snke.com</a> ·
+      <a href="https://www.linkedin.com/in/max-pain/">linkedin.com/in/max-pain</a>
+    </p>
+    <div class="btn-row reveal no-print" data-delay="180">
+      <button class="btn btn-primary" type="button" data-print>Print / save as PDF</button>
+      <a class="btn btn-ghost" href="projects.html">Full subsystem detail</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SUMMARY ═══════════════════════ -->
+<section style="padding-top:14px;padding-bottom:44px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">01</span>
+      <h2>Summary</h2>
+    </div>
+    <p class="lead reveal">
+      Systems engineer who takes new AR glasses hardware from first power-on to a signed,
+      shippable image. I own every layer of a dual-SoC platform — UEFI bootloader, DSP and
+      TrustZone firmware, Linux kernel and device tree, Android system and vendor userspace,
+      and the containerised build and release pipeline that produces the images.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ EXPERIENCE ═══════════════════════
+     EDIT: dates and job titles are the only thing on this site I could not
+     source from what you sent me — the bracketed years below are placeholders.
+     Replace them, and add earlier roles as more .tl-item blocks.
+-->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">02</span>
+      <h2>Experience</h2>
+      <span class="note">most recent first</span>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item is-now reveal">
+        <div class="tl-top">
+          <span class="tl-role">Platform / Systems Engineer</span>
+          <span class="tl-org">Snke XR</span>
+          <span class="tl-when">[20XX] — present</span>
+        </div>
+        <ul>
+          <li>
+            Full-stack bring-up of a dual-SoC AR glasses platform: two symmetric compute
+            cores over a multi-gigabit PCIe link, flashed and booted as one device.
+          </li>
+          <li>
+            Bootloader through release: UEFI display and power init, boot-cascade debugging
+            and EDL brick recovery; signed peripheral images, TrustZone and PMIC access control.
+          </li>
+          <li>
+            Kernel and device-tree board bring-up with per-variant overlays; Android HAL,
+            camera and sensor service, platform property and SELinux integration.
+          </li>
+          <li>
+            Brought up the dual LCOS display path, a five-type camera array (RGB, IR,
+            eye-tracking, depth/ToF, fisheye) with hardware-triggered frame sync, the DSP
+            sensor core, and the PMIC power and audio paths.
+          </li>
+          <li>
+            Root-caused cross-core DMA misrouting and PCIe link-recovery faults; built
+            coordinated dual-core boot and deploy.
+          </li>
+          <li>
+            Built the tooling the team runs on: layered device-tree/overlay build system,
+            containerised reproducible builds and signed artifact pipeline, a desktop DevTools
+            app for the test fleet, and an on-device C++ camera/sensor service with SDK and viewer.
+          </li>
+        </ul>
+      </div>
+
+      <!-- EDIT: earlier role. Delete this block if it does not apply.
+      <div class="tl-item reveal" data-delay="80">
+        <div class="tl-top">
+          <span class="tl-role">Embedded Software Engineer</span>
+          <span class="tl-org">Company</span>
+          <span class="tl-when">20XX — 20XX</span>
+        </div>
+        <ul>
+          <li>Outcome, not duty. What shipped because you were there.</li>
+        </ul>
+      </div>
+      -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SKILLS + EDUCATION ═══════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="grid g2">
+
+      <div class="reveal">
+        <div class="section-head" style="margin-bottom:22px">
+          <span class="idx">03</span>
+          <h2>Technical skills</h2>
+        </div>
+        <div class="card">
+          <h3>Platform</h3>
+          <div class="chips">
+            <span class="chip"><b>Embedded Linux</b></span>
+            <span class="chip"><b>Android</b> / AOSP</span>
+            <span class="chip">Device tree</span>
+            <span class="chip">UEFI / bootloader</span>
+            <span class="chip">Kernel drivers</span>
+            <span class="chip">TrustZone</span>
+            <span class="chip">SELinux</span>
+          </div>
+
+          <h3 style="margin-top:20px">Hardware &amp; buses</h3>
+          <div class="chips">
+            <span class="chip">PCIe</span>
+            <span class="chip">MIPI DSI / LCOS</span>
+            <span class="chip">I2C / SPI</span>
+            <span class="chip">PMIC</span>
+            <span class="chip">DSP sensors</span>
+            <span class="chip">Camera pipeline</span>
+          </div>
+
+          <h3 style="margin-top:20px">Languages &amp; tooling</h3>
+          <div class="chips">
+            <span class="chip"><b>C / C++</b></span>
+            <span class="chip">Python</span>
+            <span class="chip">Bash</span>
+            <span class="chip">Git</span>
+            <span class="chip">Docker</span>
+            <span class="chip">CI / release pipelines</span>
+            <span class="chip">TypeScript / Electron</span>
+          </div>
+
+          <!-- EDIT: adjust or delete. -->
+          <h3 style="margin-top:20px">Spoken</h3>
+          <div class="chips">
+            <span class="chip">English</span>
+            <span class="chip">Hebrew</span>
+            <span class="chip">Russian</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" data-delay="100">
+        <div class="section-head" style="margin-bottom:22px">
+          <span class="idx">04</span>
+          <h2>Background</h2>
+        </div>
+        <div class="grid">
+          <!-- EDIT: your degree, institution and years. -->
+          <div class="card">
+            <h3>[Degree]</h3>
+            <p class="muted" style="margin:2px 0 8px;font-family:var(--mono);font-size:.8rem">
+              [Institution] · [20XX — 20XX]
+            </p>
+            <p>One line on focus or final project, if it is relevant to the work above.</p>
+          </div>
+          <div class="card">
+            <h3>Depth</h3>
+            <p>
+              Bring-up is the whole job: hardware that has never booted, no reference image,
+              and a bug that could live anywhere between a power rail and a compositor. The
+              layers on the left are not a wish-list — each one is somewhere I have had to
+              land a fix.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© <span data-year>2026</span> Max Pain</span>
+    <span class="muted">boot → kernel → Android → release</span>
+    <span><a href="mailto:max.pain@snke.com">max.pain@snke.com</a></span>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

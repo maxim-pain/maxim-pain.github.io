@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Max Pain — Platform / Systems Engineer</title>
+<meta name="description" content="Max Pain — platform and systems engineer. Full-stack AR glasses bring-up: bootloader, kernel, Android userspace and signed release images on a dual-SoC platform.">
+<meta name="author" content="Max Pain">
+<meta property="og:title" content="Max Pain — Platform / Systems Engineer">
+<meta property="og:description" content="Full-stack AR glasses bring-up — bootloader to signed release images on a dual-SoC platform.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://maxim-pain.github.io/">
+<link rel="canonical" href="https://maxim-pain.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>/* Set the theme before first paint so there is no flash. */
+(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"><i></i><s></s><i></i></span> Max&nbsp;Pain
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Work</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
+      <span aria-hidden="true" data-theme-icon>◐</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow reveal">Platform · Systems Engineer</p>
+    <h1 class="reveal" data-delay="60">Max Pain</h1>
+    <p class="lead reveal" data-delay="120" style="margin-top:14px">
+      Full-stack AR glasses bring-up at <strong>Snke XR</strong>.
+    </p>
+    <p class="lead reveal" data-delay="180" style="margin-top:18px">
+      I take brand-new AR glasses hardware from <em>“doesn’t boot”</em> to a fully functional,
+      shippable device — owning every layer of a dual-SoC platform, from the bootloader all the
+      way up to signed release images.
+    </p>
+
+    <!-- The dual-SoC motif: two mirrored cores, the inter-SoC link as a first-class
+         object between them. Identity colours only — indigo core A, teal core B. -->
+    <div class="cores reveal" data-delay="240" aria-label="Dual-SoC architecture">
+      <div class="core core-a">
+        <span class="lbl">Compute core A</span>
+        <span class="val">Primary SoC</span>
+        <span class="sub">display · cameras · connectivity</span>
+      </div>
+      <div class="core-link" aria-hidden="true">
+        <span class="arrows">⇄</span>
+        <span class="txt">PCIe<br>LINK</span>
+      </div>
+      <div class="core core-b">
+        <span class="lbl">Compute core B</span>
+        <span class="val">Secondary SoC</span>
+        <span class="sub">eye-tracking · sensors</span>
+      </div>
+    </div>
+    <p class="cores-note reveal" data-delay="280">
+      Two symmetric compute cores · one firmware image · flashed and booted as a single device.
+    </p>
+
+    <div class="btn-row reveal" data-delay="320">
+      <a class="btn btn-primary" href="projects.html">See the work →</a>
+      <a class="btn btn-ghost" href="resume.html">Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 01 · THE STACK ═══════════════════════ -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">01</span>
+      <h2>Full-stack coverage</h2>
+      <span class="note">boot → release, every layer</span>
+    </div>
+
+    <div class="stack">
+      <div class="layer reveal">
+        <span class="n">L0</span>
+        <div class="tag">Bootloader<span>UEFI</span></div>
+        <div class="desc">Display and power init, boot-cascade debugging, EDL brick recovery.</div>
+      </div>
+      <div class="layer reveal" data-delay="60">
+        <span class="n">L1</span>
+        <div class="tag">Low-level firmware<span>DSP · TrustZone · PIL</span></div>
+        <div class="desc">Sensor and audio DSP, secure world, signed peripheral images, PMIC access control.</div>
+      </div>
+      <div class="layer reveal" data-delay="120">
+        <span class="n">L2</span>
+        <div class="tag">Kernel &amp; device tree<span>Linux</span></div>
+        <div class="desc">Board bring-up, driver enablement, per-variant device-tree overlays.</div>
+      </div>
+      <div class="layer reveal" data-delay="180">
+        <span class="n">L3</span>
+        <div class="tag">Android userspace<span>system + vendor</span></div>
+        <div class="desc">HAL integration, camera and sensor services, platform properties, SELinux.</div>
+      </div>
+      <div class="layer reveal" data-delay="240">
+        <span class="n">L4</span>
+        <div class="tag">Build &amp; release<span>pipeline</span></div>
+        <div class="desc">Containerised reproducible builds, artifact pipeline, signed release images.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 02 · HOW I WORK ═══════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">02</span>
+      <h2>How I work</h2>
+      <span class="note">bring-up habits</span>
+    </div>
+
+    <div class="grid g3">
+      <div class="card reveal">
+        <h3>Follow the signal down</h3>
+        <p>
+          A symptom on screen is rarely where the bug lives. I chase it through composition,
+          the HAL, the driver, the device tree and the rail underneath until the actual cause
+          is named — then fix that, not the symptom.
+        </p>
+      </div>
+      <div class="card reveal" data-delay="80">
+        <h3>Instrument before guessing</h3>
+        <p>
+          Bring-up is unusable without honest telemetry, so I build the tooling first: a
+          desktop console for the test fleet, an on-device service and viewer, logs that tell
+          you what is stale versus what is genuinely healthy.
+        </p>
+      </div>
+      <div class="card reveal" data-delay="160">
+        <h3>Make it reproducible</h3>
+        <p>
+          If a fix only works on one bench it isn’t a fix. Containerised builds, layered
+          overlays per hardware variant, and a signed artifact pipeline mean the same image
+          boots the same way on every unit.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 03 · SKILLS ═══════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">03</span>
+      <h2>Core skills</h2>
+    </div>
+    <div class="chips chips-lg reveal">
+      <span class="chip"><b>Embedded Linux</b></span>
+      <span class="chip"><b>Android</b> / AOSP</span>
+      <span class="chip">Device tree</span>
+      <span class="chip">UEFI / bootloader</span>
+      <span class="chip">Kernel drivers</span>
+      <span class="chip">Camera pipeline</span>
+      <span class="chip">DSP sensors</span>
+      <span class="chip">PCIe</span>
+      <span class="chip">MIPI DSI / LCOS</span>
+      <span class="chip"><b>C / C++</b></span>
+      <span class="chip">Build &amp; release systems</span>
+      <span class="chip">HW bring-up &amp; debug</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CTA ═══════════════════════ -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Want the detail?</h2>
+      <p class="lead">
+        The work page goes subsystem by subsystem — display, cameras, the inter-SoC link,
+        sensors, power and tooling — and is explicit about which parts were mine.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="projects.html">Subsystems brought up</a>
+        <a class="btn btn-ghost" href="contact.html">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© <span data-year>2026</span> Max Pain</span>
+    <span class="muted">boot → kernel → Android → release</span>
+    <span><a href="mailto:max.pain@snke.com">max.pain@snke.com</a></span>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

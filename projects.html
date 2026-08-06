@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — Max Pain</title>
+<meta name="description" content="Subsystems Max Pain brought up on a dual-SoC AR glasses platform: dual LCOS display, five-type camera array, PCIe inter-SoC link, DSP sensors, power and audio, and the build and fleet tooling.">
+<meta property="og:title" content="Work — Max Pain">
+<meta property="og:description" content="Subsystems brought up on a dual-SoC AR glasses platform.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"><i></i><s></s><i></i></span> Max&nbsp;Pain
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Work</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
+      <span aria-hidden="true" data-theme-icon>◐</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding-bottom:34px">
+  <div class="wrap">
+    <p class="eyebrow reveal">Work</p>
+    <h1 class="reveal" data-delay="60" style="font-size:clamp(2.2rem,5.4vw,3.4rem)">Subsystems brought up</h1>
+    <p class="lead reveal" data-delay="120" style="margin-top:16px">
+      One dual-SoC AR glasses platform, taken from first power-on to a signed, shippable
+      image. Each card below is hardware that had to be made to work — and where the work
+      was shared, the last section says plainly which part was mine.
+    </p>
+    <div class="chips reveal" data-delay="180" style="margin-top:20px">
+      <span class="chip chip-main">core A · primary SoC</span>
+      <span class="chip chip-sub">core B · secondary SoC</span>
+      <span class="chip chip-both">both cores</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 01 · SUBSYSTEMS ═══════════════════════
+     EDIT: this is the page to grow as you ship more. One .card per subsystem.
+     Keep the identity chip honest — chip-main / chip-sub / chip-both.
+-->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">01</span>
+      <h2>Hardware ⇄ software</h2>
+      <span class="note">six subsystems</span>
+    </div>
+
+    <div class="grid g3">
+
+      <div class="card sub-card reveal">
+        <h3>Display</h3>
+        <p class="muted" style="font-size:.86rem;margin:2px 0 0">Dual LCOS microdisplays, one per eye</p>
+        <ul>
+          <li>Brought up both microdisplays through a per-eye bridge and LED driver</li>
+          <li>Fixed display-handoff timing failures and composition regressions</li>
+          <li>Converged both eyes onto one correct pipeline</li>
+        </ul>
+        <div class="chips">
+          <span class="chip chip-main">core A</span>
+          <span class="chip">MIPI DSI</span>
+          <span class="chip">LCOS</span>
+        </div>
+      </div>
+
+      <div class="card sub-card reveal" data-delay="80">
+        <h3>Cameras</h3>
+        <p class="muted" style="font-size:.86rem;margin:2px 0 0">Five sensor types across both cores</p>
+        <ul>
+          <li>RGB, IR, eye-tracking, depth / ToF and fisheye</li>
+          <li>Sensor drivers plus hardware-triggered frame sync</li>
+          <li>Real-time pipeline with automatic fault recovery</li>
+        </ul>
+        <div class="chips">
+          <span class="chip chip-both">both cores</span>
+          <span class="chip">V4L2 / HAL</span>
+        </div>
+      </div>
+
+      <div class="card sub-card reveal" data-delay="160">
+        <h3>Inter-SoC link</h3>
+        <p class="muted" style="font-size:.86rem;margin:2px 0 0">PCIe, multi-gigabit</p>
+        <ul>
+          <li>Cross-core networking and remote debug</li>
+          <li>Root-caused DMA misrouting and link-recovery faults</li>
+          <li>Coordinated dual-core boot and deploy</li>
+        </ul>
+        <div class="chips">
+          <span class="chip chip-both">both cores</span>
+          <span class="chip">PCIe</span>
+          <span class="chip">DMA</span>
+        </div>
+      </div>
+
+      <div class="card sub-card reveal">
+        <h3>Sensors</h3>
+        <p class="muted" style="font-size:.86rem;margin:2px 0 0">DSP sensor core</p>
+        <ul>
+          <li>IMU, ambient light, magnetometer and temperature</li>
+          <li>Custom virtual sensors</li>
+          <li>Camera-to-IMU time synchronisation</li>
+        </ul>
+        <div class="chips">
+          <span class="chip chip-sub">core B</span>
+          <span class="chip">DSP</span>
+        </div>
+      </div>
+
+      <div class="card sub-card reveal" data-delay="80">
+        <h3>Power &amp; audio</h3>
+        <p class="muted" style="font-size:.86rem;margin:2px 0 0">Rails and codecs</p>
+        <ul>
+          <li>PMIC bring-up; resolved boot-halting power faults</li>
+          <li>Brownout detection and protection</li>
+          <li>Speaker and microphone audio path</li>
+        </ul>
+        <div class="chips">
+          <span class="chip chip-both">both cores</span>
+          <span class="chip">PMIC</span>
+        </div>
+      </div>
+
+      <div class="card sub-card reveal" data-delay="160">
+        <h3>Tooling</h3>
+        <p class="muted" style="font-size:.86rem;margin:2px 0 0">Build system and test fleet</p>
+        <ul>
+          <li>Layered device-tree and overlay build system</li>
+          <li>Desktop DevTools app driving the whole test fleet</li>
+          <li>On-device C++ camera and sensor service, SDK and viewer</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">C++</span>
+          <span class="chip">Electron</span>
+          <span class="chip">CI</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 02 · MY PART ═══════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="idx">02</span>
+      <h2>Collaborative work — my part</h2>
+      <span class="note">what I drove</span>
+    </div>
+
+    <div class="part">
+      <div class="card reveal">
+        <p class="tagline">In-pipeline sensor register control</p>
+        <h3>Making register writes actually reach the sensor</h3>
+        <p>
+          <span class="mine">My contribution:</span> diagnosed why control tags were being
+          silently dropped inside the camera framework, fixed the data-width encoding, and
+          built a property-based side-channel for per-camera targeted register read and write —
+          verified across both cores and every camera.
+        </p>
+      </div>
+
+      <div class="card reveal" data-delay="90">
+        <p class="tagline">Wireless connectivity &amp; remote debug</p>
+        <h3>Debugging both cores over the air, reliably</h3>
+        <p>
+          <span class="mine">My contribution:</span> drove the WiFi integration on top of a
+          teammate’s app — concurrent client and hotspot operation, self-healing
+          debug-over-WiFi to both cores, stable addressing via mDNS, a relay path to the
+          second core, and channel-coexistence handling to stop high-throughput transfers
+          from dropping.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>The short version is on the resume</h2>
+      <p class="lead">Dates, roles and skills — printable straight to PDF.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="resume.html">Read the resume</a>
+        <a class="btn btn-ghost" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© <span data-year>2026</span> Max Pain</span>
+    <span class="muted">boot → kernel → Android → release</span>
+    <span><a href="mailto:max.pain@snke.com">max.pain@snke.com</a></span>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

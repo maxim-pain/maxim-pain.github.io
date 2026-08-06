@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Copy this file to  deploy.conf  and fill in the four values below.
+#
+#      cp deploy.conf.example deploy.conf
+#      chmod 600 deploy.conf
+#
+#  deploy.conf is in .gitignore, so it never gets pushed to GitHub.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Your GitHub username (the one in your profile URL).
+GITHUB_USER="maxim-pain"
+
+# The repository name. For a user site this MUST be "<username>.github.io"
+# so it serves at https://<username>.github.io with no extra configuration.
+GITHUB_REPO="maxim-pain.github.io"
+
+# ── The token ────────────────────────────────────────────────────────────────
+# GitHub stopped accepting account passwords over HTTPS in 2021 — you need a
+# Personal Access Token (PAT). It is used exactly like a password.
+#
+#   1. https://github.com/settings/tokens?type=beta   ("Fine-grained tokens")
+#   2. "Generate new token"
+#   3. Repository access →  Only select repositories →  maxim-pain.github.io
+#   4. Permissions → Repository permissions → Contents → Read and write
+#   5. Expiration: 90 days (or longer — you will have to redo this when it ends)
+#   6. Generate, then copy the token. It is shown ONCE.
+#
+# Paste it below. It starts with github_pat_ (fine-grained) or ghp_ (classic).
+GITHUB_TOKEN=""
+
+# ── Commit identity ──────────────────────────────────────────────────────────
+# What shows up as the author on your commits.
+GIT_NAME="Maxim Pain"
+GIT_EMAIL="max.pain@snke.com"
+
+# ── Optional ─────────────────────────────────────────────────────────────────
+# Branch GitHub Pages serves from.
+BRANCH="main"
+
+# Port for ./serve.sh
+PORT="8000"

@@ -1,0 +1,19 @@
+# Credentials — NEVER commit this. It holds your GitHub token.
+deploy.conf
+
+# Local Claude skills (ui-color-system, xr-glasses-devtool).
+# These are the design rules this site is built on, kept here so any session in
+# this repo picks them up — but they contain internal Snke detail, so they stay
+# local and are never published. The publishable summary is docs/DESIGN.md.
+.claude/
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local scratch
+*.log
+.serve-pid
