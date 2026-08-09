@@ -23,6 +23,16 @@ if g ls-files --error-unmatch deploy.conf >/dev/null 2>&1; then
   Fix it:  git rm --cached deploy.conf && git commit -m 'stop tracking secrets'"
 fi
 
+# ── cache-bust the assets ────────────────────────────────────────────────────
+# GitHub Pages serves everything with cache-control: max-age=600. Without this,
+# a visitor returning within 10 minutes of a deploy pairs fresh HTML with a
+# stale cached stylesheet and the site renders broken. A new query string per
+# deploy means fresh HTML always references a URL no browser has cached yet.
+step "Stamping asset versions"
+STAMP="$(date -u +%Y%m%d%H%M%S)"
+sed -i -E "s@assets/(style\.css|main\.js)(\?v=[0-9]*)?@assets/\1?v=$STAMP@g" "$ROOT"/*.html
+dim "assets stamped ?v=$STAMP"
+
 # ── stage + commit ───────────────────────────────────────────────────────────
 g add -A
 if g diff --cached --quiet; then
