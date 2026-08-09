@@ -202,33 +202,6 @@ h1 { font-size: clamp(2.05rem, 4.6vw, 3.15rem); letter-spacing: -0.032em; }
 h2 { font-size: clamp(1.45rem, 2.6vw, 1.9rem); }
 h3 { font-size: clamp(1.12rem, 1.6vw, 1.3rem); letter-spacing: -0.014em; line-height: 1.25; }
 
-/* ── hero nameplate + live availability ─────────────────────────────────────
-   Availability is a STATUS, so --ok is the correct role, and it reuses the
-   "live" pulse idiom already established by the current-role timeline marker. */
-.hero-head { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; margin: 0 0 var(--sp-2); }
-.nameplate {
-  display: inline-flex; align-items: center; gap: 10px; margin: 0;
-  font-family: var(--mono); font-size: 0.8rem; font-weight: 700;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--on-surface);
-}
-.status {
-  display: inline-flex; align-items: center; gap: 8px; margin: 0;
-  padding: 5px 12px 5px 10px; border-radius: 999px;
-  background: var(--ok-container);
-  border: 1px solid color-mix(in srgb, var(--ok) 38%, transparent);
-  color: var(--on-ok-container);
-  font-family: var(--mono); font-size: var(--fs-nano); font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
-}
-.status .dot { position: relative; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
-@media (prefers-reduced-motion: no-preference) {
-  .status .dot::after {
-    content: ""; position: absolute; inset: -1px; border-radius: 50%;
-    border: 1px solid var(--ok); pointer-events: none;
-    animation: now-pulse 2.8s var(--ease) infinite;
-  }
-}
-
 /* ── spec rail under the portrait ─────────────────────────────────────────── */
 .spec {
   margin: 10px 0 0; display: grid; gap: 1px;
@@ -247,129 +220,130 @@ h3 { font-size: clamp(1.12rem, 1.6vw, 1.3rem); letter-spacing: -0.014em; line-he
 .spec dd { margin: 0; font-size: 0.78rem; line-height: 1.45; color: var(--on-surface-secondary); }
 @media (max-width: 620px) { .spec { max-width: 330px; } }
 
-/* ── the cost of hand-offs, as three figures instead of a paragraph ───────── */
-.costs {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  border-top: 1px solid var(--outline-variant);
-  margin-top: var(--sp-3); padding-top: var(--sp-3);
-}
-.cost {
-  padding: 0 22px; display: grid; gap: 3px; align-content: start;
-  border-left: 1px solid var(--outline-variant);
-}
-.cost:first-child { border-left: 0; padding-left: 0; }
-.cost .n {
-  font-family: var(--mono); font-weight: 700;
-  font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.02em; line-height: 1.05;
-  color: var(--on-surface); font-variant-numeric: tabular-nums;
-}
-.cost.is-mine .n { color: var(--ok); }
-.cost .t { font-size: 0.8rem; line-height: 1.45; color: var(--on-surface-tertiary); }
-@media (max-width: 620px) {
-  .costs { grid-template-columns: 1fr; gap: var(--sp-2); }
-  .cost { border-left: 0; padding: 0; }
-}
-@media print { .costs { border-top-color: #ddd !important; } .cost { border-left-color: #ddd !important; } .cost.is-mine .n { color: #111 !important; } }
+/* ── 01 · ownership: eight layers, zero hand-offs ────────────────────────────
+   The subject of this figure is the SEAMS, not the layers. The layers are the
+   AXIS; the content is two coverage tracks — three cells vs eight — plus a real
+   mark at each boundary a typical remit hands off across. Continuity versus
+   interruption carries the comparison; shading three rows did not, and read
+   backwards (shading conventionally means "mine").
 
-/* ── ownership depth: the value proposition as one picture ──────────────────
-   Reading order is left to right, so the CLAIM goes left with real weight and
-   the comparison goes right, muted. The two hand-off markers sit on the edges
-   of the typical-remit brace, because those boundaries are the argument. */
-.ownfig { margin: var(--sp-3) 0 0; }
-.own {
+   --ok appears exactly twice, both as the same known-good claim: the owned rail
+   and its count. Container tint + hairline + tinted text, never a solid fill. */
+
+.claim {
+  margin: 0 0 var(--sp-3);
+  font-size: clamp(1.55rem, 3.4vw, 2.35rem);
+  font-weight: 700; line-height: 1.12; letter-spacing: -0.026em;
+  color: var(--on-surface); max-width: 20ch; text-wrap: balance;
+}
+
+/* Prose left, figure right — the reader gets the argument and the evidence in
+   one view instead of scrolling from one to the other. */
+.own-split {
+  display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(28px, 4vw, 52px); align-items: start;
+}
+@media (max-width: 940px) { .own-split { grid-template-columns: 1fr; gap: var(--sp-4); } }
+
+.seam { margin: 0; max-width: 620px; }
+
+/* 11 rows: header, then 08 07 [cut] 06 05 04 [cut] 03 02 01. The cut rows are
+   real rows, so the gap they open also groups the typical remit. */
+.seam-grid {
   display: grid;
-  grid-template-columns: 150px minmax(0, 1fr) 118px;
-  grid-template-rows: repeat(8, auto);
-  gap: 4px 0;
+  grid-template-columns: minmax(0, 1fr) 82px 82px;
+  grid-template-rows: repeat(11, auto);
+  column-gap: 16px; align-items: stretch;
 }
-.own-stack { display: contents; list-style: none; margin: 0; padding: 0; }
-.own-stack li {
-  grid-column: 2; position: relative;
-  display: grid; grid-template-columns: minmax(0, 1fr) auto;
-  gap: 2px 16px; align-items: baseline;
-  background: var(--surface-container-low);
-  border: 1px solid var(--outline-variant);
-  padding: 10px 16px; margin: 0 10px;
-  border-radius: 8px;
+.seam-hd { grid-row: 1; margin: 0; align-self: end; padding-bottom: 10px; font-family: var(--mono); }
+.seam-hd.is-lay {
+  grid-column: 1; font-size: var(--fs-nano); letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--on-surface-tertiary);
 }
-.own-stack li.is-typ { background: var(--surface-container-high); border-color: var(--outline); }
-.own-stack b { font-size: 0.95rem; color: var(--on-surface); font-weight: 700; }
-.own-stack span {
-  font-family: var(--mono); font-size: var(--fs-nano); letter-spacing: 0.06em;
-  color: var(--on-surface-tertiary); text-align: right;
+.seam-hd.is-typ  { grid-column: 2; }
+.seam-hd.is-mine { grid-column: 3; }
+.seam-hd .k {
+  display: block; font-size: var(--fs-nano); line-height: 1.35;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-surface-tertiary);
 }
+.seam-hd .v {
+  display: block; margin-top: 3px; font-size: 0.86rem; font-weight: 700;
+  color: var(--on-surface-secondary); font-variant-numeric: tabular-nums;
+}
+.seam-hd.is-mine .v { color: var(--ok); }
 
-/* LEFT — the claim. Full height, tinted, and the figure a reader remembers. */
-.own-mine {
-  grid-column: 1; grid-row: 1 / span 8; margin: 0;
-  display: grid; align-content: center; justify-items: center; gap: 2px;
-  text-align: center; padding: 16px 12px;
+/* Layer names are the axis, so weight 500 / secondary. Setting them bold is
+   what made the old table read as a list of job functions rather than a scale. */
+.seam-lay { grid-column: 1; margin: 0; padding: 9px 0; display: flex; align-items: center; gap: 10px; }
+.seam-lay .n {
+  font-family: var(--mono); font-size: 0.72rem;
+  color: var(--on-surface-tertiary); font-variant-numeric: tabular-nums;
+}
+.seam-lay .nm { font-size: 0.92rem; font-weight: 500; color: var(--on-surface-secondary); }
+.l08 { grid-row: 2; } .l07 { grid-row: 3; }
+.l06 { grid-row: 5; } .l05 { grid-row: 6; } .l04 { grid-row: 7; }
+.l03 { grid-row: 9; } .l02 { grid-row: 10; } .l01 { grid-row: 11; }
+
+/* Spans the label column AND the typical track, and stops dead at the owned
+   rail. "The cut does not reach me" is the argument, drawn once. */
+.seam-cut {
+  grid-column: 1 / 3; margin: 0; padding: 7px 0;
+  display: flex; align-items: center; gap: 10px; color: var(--on-surface-secondary);
+}
+.seam-cut span {
+  font-family: var(--mono); font-size: var(--fs-nano);
+  letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap;
+}
+.seam-cut::after { content: ""; flex: 1 1 auto; height: 0; border-top: 1px dashed var(--outline); }
+.seam-cut.is-a { grid-row: 4; } .seam-cut.is-b { grid-row: 8; }
+
+/* Identical track, different fill length — the reader compares two lengths on a
+   shared baseline with no legend. */
+.seam-track {
+  grid-column: 2; grid-row: 2 / 12; border-radius: 6px;
+  background: var(--fill-4); border: 1px dashed var(--outline-variant);
+}
+.seam-rail { border-radius: 6px; }
+.seam-rail.is-remit {
+  grid-column: 2; grid-row: 5 / 8;
+  background: var(--fill); border: 1px solid var(--outline);
+}
+.seam-rail.is-all {
+  grid-column: 3; grid-row: 2 / 12;
+  display: flex; align-items: center; justify-content: center;
   background: var(--ok-container);
-  border: 1px solid color-mix(in srgb, var(--ok) 50%, transparent);
-  border-right: 0; border-radius: 10px 0 0 10px;
+  border: 1px solid color-mix(in srgb, var(--ok) 38%, transparent);
 }
-.own-mine .lb {
+.seam-lab {
+  writing-mode: vertical-rl; transform: rotate(180deg);
   font-family: var(--mono); font-size: var(--fs-nano);
-  letter-spacing: 0.18em; text-transform: uppercase; color: var(--on-ok-container);
-}
-.own-mine .fig {
-  font-family: var(--mono); font-weight: 700;
-  font-size: clamp(1.7rem, 2.9vw, 2.25rem); line-height: 1;
-  letter-spacing: -0.03em; color: var(--ok); font-variant-numeric: tabular-nums;
-  margin: 6px 0 4px; white-space: nowrap;
-}
-.own-mine .sb {
-  font-size: 0.74rem; line-height: 1.4; color: var(--on-ok-container); max-width: 17ch;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--on-ok-container); white-space: nowrap;
 }
 
-/* RIGHT — the comparison, muted, with the hand-off boundaries on its edges. */
-.own-band {
-  grid-column: 3; grid-row: 3 / span 3;
-  position: relative; margin: 0;
-  display: grid; align-content: center; justify-items: center; gap: 3px;
-  text-align: center; padding: 12px 10px;
-  font-family: var(--mono); font-size: var(--fs-nano);
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-surface-tertiary);
-  border: 1px solid var(--outline-variant); border-left: 0; border-radius: 0 10px 10px 0;
-  background: var(--fill-4);
+@media (max-width: 620px) {
+  .claim { font-size: clamp(1.4rem, 6.4vw, 1.9rem); max-width: none; }
+  .seam-grid { grid-template-columns: minmax(0, 1fr) 56px 56px; column-gap: 12px; }
+  .seam-lay { padding: 8px 0; }
+  .seam-lay .nm { font-size: 0.88rem; }
 }
-.own-band b { display: block; color: var(--on-surface-secondary); font-size: 1.05rem; letter-spacing: -0.01em; }
-.own-band::before, .own-band::after {
-  position: absolute; left: 0; width: 100%;
-  font-size: 0.56rem; letter-spacing: 0.1em; color: var(--warn);
-  background: var(--surface); padding: 1px 0;
-}
-.own-band::before { content: "▲ hand-off"; top: -9px; }
-.own-band::after  { content: "▼ hand-off"; bottom: -9px; }
 
-/* Direction labels belong above and below a vertical stack, not beside it. */
-.own-end {
-  margin: 0; padding-left: 160px;
-  font-family: var(--mono); font-size: var(--fs-nano);
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-surface-tertiary);
-}
-.own-end.is-top { margin-bottom: 7px; }
-.own-end.is-bot { margin-top: 7px; }
-
-@media (max-width: 760px) {
-  .own { grid-template-columns: 108px minmax(0, 1fr); }
-  .own-stack li { grid-column: 2; grid-template-columns: minmax(0, 1fr); margin: 0 0 0 12px; }
-  .own-stack span { text-align: left; }
-  .own-mine { padding: 12px 8px; }
-  .own-mine .fig { font-size: 1.7rem; }
-  .own-mine .sb { display: none; }
-  .own-band { display: none; }
-  .own-end { padding-left: 120px; }
-}
 @media print {
-  .own-mine { background: #fff !important; border-color: #999 !important; }
-  .own-mine .lb, .own-mine .sb { color: #444 !important; }
-  .own-mine .fig { color: #111 !important; }
-  .own-band { background: #fff !important; border-color: #bbb !important; color: #444 !important; }
-  .own-band::before, .own-band::after { color: #666 !important; background: #fff !important; }
-  .own-stack li.is-typ { background: #f4f4f4 !important; }
-  .own { break-inside: avoid; }
+  .claim { font-size: 13pt; color: #111 !important; max-width: none; margin: 0 0 6pt; }
+  .own-split { grid-template-columns: 1fr 1.15fr; gap: 14pt; }
+  .seam { max-width: none; margin: 0; break-inside: avoid; }
+  .seam-grid { grid-template-columns: minmax(0, 1fr) 54pt 54pt; column-gap: 10pt; }
+  .seam-lay { padding: 2.5pt 0; }
+  .seam-lay .nm { font-size: 8.5pt; color: #111 !important; }
+  .seam-lay .n, .seam-hd .k, .seam-hd.is-lay { color: #666 !important; }
+  .seam-hd .v { color: #333 !important; }
+  .seam-hd.is-mine .v { color: #111 !important; }
+  .seam-cut { color: #333 !important; }
+  .seam-cut::after { border-top-color: #bbb !important; }
+  .seam-track { background: #fff !important; border: 1px dashed #ccc !important; }
+  .seam-rail.is-remit { background: #eee !important; border: 1px solid #bbb !important; }
+  .seam-rail.is-all { background: #fff !important; border: 1.2pt solid #111 !important; }
+  .seam-lab { color: #111 !important; }
 }
 
 /* ── devtool panel: a representative operator console, built in CSS ──────────
@@ -566,25 +540,6 @@ h3 { font-size: clamp(1.12rem, 1.6vw, 1.3rem); letter-spacing: -0.014em; line-he
   .mx, .cnt { break-inside: avoid; }
 }
 
-/* ── scoped engagements ─────────────────────────────────────────────────── */
-.offers { display: grid; gap: 10px; }
-.offer {
-  display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 18px; align-items: start;
-  background: var(--surface-container-low); border: 1px solid var(--outline-variant);
-  border-left: 2px solid var(--primary); border-radius: var(--r); padding: 15px 20px;
-}
-.offer .dur {
-  font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-surface);
-}
-.offer .dur small {
-  display: block; font-weight: 400; font-size: 0.58rem; letter-spacing: 0.12em;
-  color: var(--on-surface-tertiary); margin-top: 3px;
-}
-.offer h3 { font-size: 1.02rem; margin: 0 0 4px; }
-.offer p { margin: 0; font-size: 0.92rem; }
-@media (max-width: 620px) { .offer { grid-template-columns: 1fr; gap: 6px; } }
-
 /* ── forwardable block: a manager pastes this to a colleague ─────────────── */
 .fwd {
   position: relative;
@@ -605,6 +560,187 @@ h3 { font-size: clamp(1.12rem, 1.6vw, 1.3rem); letter-spacing: -0.014em; line-he
 .fwd .cp:hover { background: var(--fill-3); color: var(--on-surface); border-color: var(--outline); }
 html:not(.js) .fwd .cp { display: none; }
 @media print { .fwd .cp { display: none !important; } }
+
+/* ── contact: hairline detail table + two-column density ─────────────────── */
+.cgrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+@media (max-width: 900px) { .cgrid { grid-template-columns: 1fr; gap: var(--sp-5); } }
+
+.ctable { margin: 0; display: grid; }
+.ctable > div {
+  display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 16px; align-items: baseline;
+  padding: 13px 0; border-bottom: 1px solid var(--outline-variant);
+}
+.ctable > div:first-child { border-top: 1px solid var(--outline-variant); }
+.ctable dt {
+  font-family: var(--mono); font-size: var(--fs-nano);
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-surface-tertiary);
+}
+.ctable dd { margin: 0; font-size: 0.98rem; color: var(--on-surface); }
+.ctable dd a { text-decoration: none; }
+.ctable dd a:hover { text-decoration: underline; }
+.ctable dd small { display: block; font-size: 0.78rem; color: var(--on-surface-tertiary); margin-top: 3px; }
+/* The practical block reads as facts, not links. */
+.ctable.is-facts dd { color: var(--on-surface-secondary); font-size: 0.92rem; }
+.ctable + .ctable { margin-top: var(--sp-4); }
+
+.clabel {
+  font-family: var(--mono); font-size: var(--fs-nano);
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-surface-tertiary);
+  margin: 0 0 12px;
+}
+.ways { display: grid; gap: 16px; margin: 0; }
+.ways p { margin: 0; font-size: 0.93rem; }
+.ways b { color: var(--on-surface); }
+.ways .dur { font-family: var(--mono); font-size: 0.78rem; color: var(--on-surface-tertiary); }
+
+/* Availability + location, always visible in the nav. */
+/* Availability in the nav, but only where there is genuinely room for it —
+   below this width it crowds the links and wraps to two lines. */
+.nav-meta {
+  display: none; margin-left: auto; align-items: center; gap: 16px;
+  font-family: var(--mono); font-size: var(--fs-nano);
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--on-surface-tertiary);
+  white-space: nowrap;
+}
+.nav-meta .open { color: var(--ok); display: inline-flex; align-items: center; gap: 7px; }
+.nav-meta .open i { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); display: block; flex: none; }
+@media (min-width: 1240px) { .nav-meta { display: flex; } }
+/* The home hero's title bar carries the same live status — don't say it twice
+   150px apart. :has() is progressive: unsupported browsers just show both. */
+body:has(.hero-v3) .nav-meta { display: none; }
+@media print { .nav-meta { display: none !important; } }
+
+/* ── hero v3: one instrument plate ───────────────────────────────────────────
+   Every hero so far was stacked loose blocks; every element the owner has
+   LIKED (contact table, fleet console, layer table) is one bordered object
+   with hairline dividers. So the hero becomes exactly that: a single plate —
+   claim + action in the main cell, portrait and engagement facts in the side
+   cell, the four figures as a footer strip, keywords as the last row. One
+   object to read, not seven to assemble. */
+
+.hero-v3 .plate {
+  border: 1px solid var(--outline);
+  border-radius: var(--r-lg);
+  background: var(--surface-container-low);
+  overflow: hidden;
+}
+
+/* main cell + side cell */
+/* title bar: the fleet-console idiom — what it is on the left, live status on
+   the right. Replaces a stacked pill + kicker with one slim row. */
+.hero-v3 .plate-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px 20px; flex-wrap: wrap;
+  padding: 11px clamp(18px, 2.4vw, 24px);
+  background: var(--surface-container-high);
+  border-bottom: 1px solid var(--outline-variant);
+  font-family: var(--mono); font-size: var(--fs-nano);
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.hero-v3 .pb-title { color: var(--on-surface); font-weight: 700; letter-spacing: 0.17em; }
+.hero-v3 .pb-live { display: inline-flex; align-items: center; gap: 8px; color: var(--ok); }
+.hero-v3 .pb-live i { position: relative; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-v3 .pb-live i::after {
+    content: ""; position: absolute; inset: -1px; border-radius: 50%;
+    border: 1px solid var(--ok); pointer-events: none;
+    animation: now-pulse 2.8s var(--ease) infinite;
+  }
+}
+
+.hero-v3 .plate-body { display: grid; grid-template-columns: minmax(0, 1fr) 292px; }
+.hero-v3 .plate-main {
+  padding: clamp(26px, 3.6vw, 46px); min-width: 0;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.hero-v3 h1 {
+  font-size: clamp(2rem, 4.3vw, 3rem);
+  letter-spacing: -0.032em; line-height: 1.05; max-width: 19ch;
+}
+/* Sanctioned --ok: "working product" is a known-good status claim. */
+.hero-v3 .works { color: var(--ok); }
+
+.hero-v3 .hero-lede {
+  margin: 16px 0 0; max-width: 52ch;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: var(--on-surface-secondary); text-wrap: pretty;
+}
+
+.hero-v3 .hero-cta { margin-top: 28px; gap: 12px; }
+/* The working standard, as a quiet footer to the pitch — the fuller, carefully
+   qualified version lives in §03; this is the credo form. */
+.hero-v3 .plate-creed {
+  margin: 26px 0 0; padding-top: 14px;
+  border-top: 1px solid var(--outline-variant);
+  font-size: 0.85rem; line-height: 1.7; max-width: 52ch;
+  color: var(--on-surface-secondary);
+}
+.hero-v3 .plate-creed a { white-space: nowrap; }
+.hero-v3 .btn-lg { padding: 13px 22px; font-size: 0.98rem; border-radius: 10px; }
+
+/* side cell: the portrait as the plate's ID photo, engagement facts under it */
+.hero-v3 .plate-side {
+  border-left: 1px solid var(--outline-variant);
+  background: var(--surface-container);
+  display: flex; flex-direction: column; min-width: 0;
+}
+.hero-v3 .plate-side .portrait { border: 0; border-radius: 0; aspect-ratio: 4 / 4.4; flex: none; }
+.hero-v3 .plate-side .spec { margin: 0; border: 0; border-radius: 0; background: transparent; flex: 1; align-content: start; }
+.hero-v3 .plate-side .spec > div {
+  background: transparent; border: 0;
+  border-top: 1px solid var(--outline-variant);
+  padding: 10px 16px; grid-template-columns: 60px minmax(0, 1fr);
+}
+.hero-v3 .plate-side .spec dd { font-size: 0.82rem; }
+
+/* footer strip: the four figures, spanning the whole plate */
+.hero-v3 .plate-figs {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px; background: var(--outline-variant);
+  border-top: 1px solid var(--outline-variant);
+}
+.hero-v3 .fig { background: var(--surface-container); padding: 14px 18px; display: grid; gap: 2px; min-width: 0; }
+.hero-v3 .fig .k {
+  font-family: var(--mono); font-size: 0.58rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--on-surface-tertiary);
+}
+.hero-v3 .fig .v {
+  font-family: var(--mono); font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-weight: 700; letter-spacing: -0.02em; line-height: 1.15;
+  color: var(--on-surface); font-variant-numeric: tabular-nums;
+}
+.hero-v3 .fig .d { margin-top: 3px; font-size: 0.75rem; line-height: 1.4; color: var(--on-surface-secondary); }
+
+/* last row: the working stack as a sentence, not a labelled chip cloud. The
+   same search tokens are all present as text — chips only ever helped machines,
+   and machines read the meta tags. */
+.hero-v3 .plate-stack {
+  margin: 0; padding: 14px clamp(18px, 2.4vw, 24px);
+  border-top: 1px solid var(--outline-variant);
+  font-size: 0.88rem; line-height: 1.7;
+  color: var(--on-surface-secondary);
+}
+
+@media (max-width: 900px) {
+  .hero-v3 .plate-body { grid-template-columns: 1fr; }
+  /* side cell becomes a horizontal strip: small photo + facts */
+  .hero-v3 .plate-side { flex-direction: row; border-left: 0; border-top: 1px solid var(--outline-variant); }
+  .hero-v3 .plate-side .portrait { width: 150px; aspect-ratio: 4 / 5; }
+  .hero-v3 .plate-side .portrait-rail { display: none; }
+  .hero-v3 .plate-side .spec > div:first-child { border-top: 0; }
+  .hero-v3 .plate-figs { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .hero-v3 h1 { font-size: clamp(1.8rem, 7.8vw, 2.3rem); max-width: none; }
+  .hero-v3 .plate-main { padding: 22px 18px; }
+  .hero-v3 .hero-cta { align-items: stretch; flex-direction: column; }
+  .hero-v3 .hero-cta .btn-lg { width: 100%; justify-content: center; }
+}
+@media (max-width: 440px) {
+  .hero-v3 .plate-side { flex-direction: column; }
+  .hero-v3 .plate-side .portrait { width: 100%; aspect-ratio: 4 / 3; }
+  .hero-v3 .plate-figs { grid-template-columns: 1fr; }
+}
 
 /* ── the slogan ───────────────────────────────────────────────────────────────
    The one line that says the whole job. Sits directly under the name at
@@ -676,7 +812,7 @@ strong { color: var(--on-surface); font-weight: 700; }
 .nav-links { display: flex; align-items: center; gap: 2px; }
 .nav-links a {
   text-decoration: none; color: var(--on-surface-secondary);
-  font-size: 0.92rem; font-weight: 600;
+  font-size: 0.92rem; font-weight: 600; white-space: nowrap;
   padding: 7px 12px; border-radius: 8px;
   transition: color 0.15s, background 0.15s;
 }
@@ -861,16 +997,7 @@ section.tight-top { padding-top: 0; }
 }
 .cores-note { font-family: var(--mono); font-size: 0.72rem; color: var(--on-surface-tertiary); margin: 0; }
 
-@media (max-width: 1000px) { .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-/* Five cells into two columns leaves an orphan — let the last one span the row. */
-@media (max-width: 720px) {
-  .stats { grid-template-columns: 1fr 1fr; }
-  .stats .stat:last-child { grid-column: 1 / -1; }
-}
-@media (max-width: 420px) {
-  .stats { grid-template-columns: 1fr; }
-  .stats .stat:last-child { grid-column: auto; }
-}
+@media (max-width: 460px) { .stats { grid-template-columns: 1fr; } }
 
 @media (max-width: 620px) {
   .cores { flex-direction: column; }
@@ -944,6 +1071,7 @@ section.tight-top { padding-top: 0; }
 
 /* Skill chips read a touch larger. */
 .chips-lg .chip { font-size: 0.8rem; padding: 6px 11px; }
+
 
 /* ── "my part" cards (collaborative work) ─────────────────────────────────── */
 
@@ -1023,39 +1151,6 @@ section.tight-top { padding-top: 0; }
   .hero-split { grid-template-columns: 1fr; }
   .portrait { max-width: 210px; aspect-ratio: 1 / 1; }
   .portrait-cap { text-align: left; }
-}
-
-/* ── stat strip ───────────────────────────────────────────────────────────── */
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--outline-variant);
-  border: 1px solid var(--outline-variant);
-  border-radius: var(--r);
-  overflow: hidden;
-  margin-top: 34px;
-}
-.stat { background: var(--surface-container); padding: 15px 18px; display: grid; gap: 3px; }
-.stat .num, .stat .lbl, .stat .key { display: block; }
-/* A register-style key above the figure, so a bare number has a unit. */
-.stat .key {
-  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--on-surface-tertiary);
-}
-.stat .from { color: var(--on-surface-tertiary); font-weight: 400; }
-.stat .arw { color: var(--on-surface-tertiary); padding: 0 0.16em; }
-.stat .num {
-  font-family: var(--mono);
-  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-  font-weight: 700; letter-spacing: -0.02em; line-height: 1.1;
-  color: var(--on-surface);
-  font-variant-numeric: tabular-nums;
-}
-.stat .lbl {
-  font-size: 0.8rem; color: var(--on-surface-secondary);
-  margin-top: 5px; line-height: 1.4;
 }
 
 /* ── achievement cards ────────────────────────────────────────────────────── */
@@ -1555,13 +1650,7 @@ main { view-transition-name: page; }
     opacity: 1 !important; transform: none !important;
     animation: none !important; clip-path: none !important;
   }
-  .nav::after, .tl-item.is-now::after, .portrait-rail, .status .dot::after { display: none !important; }
-  .status { border-color: #bbb !important; background: #fff !important; color: #111 !important; }
-  .status .dot { background: #666 !important; }
-  .nameplate { color: #111 !important; }
-  .own-mine { background: #fff !important; color: #444 !important; border-color: #999 !important; }
-  .own-band { border-color: #bbb !important; color: #666 !important; }
-  .own { break-inside: avoid; }
+  .nav::after, .tl-item.is-now::after, .portrait-rail { display: none !important; }
   .spec { break-inside: avoid; }
   .cta::before { display: none !important; }
   .section-head {
