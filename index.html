@@ -6,14 +6,14 @@
 <!-- Keyword-first: "Max Pain" is an options-trading term and will never rank,
      so the searchable role terms lead and the name trails. -->
 <title>Real-Time Embedded Systems Specialist — Mission-Critical Platforms, Tech Lead | Max Pain</title>
-<meta name="description" content="From bare metal to working product. Max Pain — Embedded Systems Tech Lead, principal engineer and architect for real-time, mission- and safety-critical platforms. 25 years across defence and avionics, automotive functional safety (ISO 26262 / FuSA), medical devices, industrial control and XR: multi-SoC and vendor bring-up, hard real-time performance, low-latency video and rendering, C/C++, Linux, QNX, RTOS. Root cause, never workarounds — no deadlocks, no crash dumps, no reboot as a fix.">
+<meta name="description" content="From bare metal to working product. Max Pain — Embedded Systems Tech Lead, principal engineer and architect for real-time, mission- and safety-critical platforms. 25 years across defence and avionics, automotive functional safety (ISO 26262 / FuSA), medical devices, industrial control and XR: multi-SoC and vendor bring-up, hard real-time performance, low-latency video and rendering, C/C++, Linux, QNX, RTOS. Root cause, never workarounds — concurrency designed up front, and never a reboot as a fix.">
 <meta name="author" content="Max Pain">
 <meta name="keywords" content="embedded systems, mission-critical, safety-critical, real-time, hard real-time, functional safety, ISO 26262, FuSA, tech lead, principal engineer, software architect, multi-SoC bring-up, board bring-up, BSP, device tree, Linux, Yocto, QNX, RTOS, Android AOSP, C++, PCIe, low-latency video, streaming, rendering, performance optimisation, software architecture, team leadership, CI/CD, release engineering, reproducible builds">
 <link rel="canonical" href="https://maxim-pain.github.io/">
 <meta property="og:site_name" content="Max Pain">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Max Pain — Real-Time Embedded Mission-Critical Systems Specialist">
-<meta property="og:description" content="From bare metal to working product. 25 years of real-time, mission-critical embedded — defence and avionics, automotive safety, medical, XR. No deadlocks, no crash dumps, never a reboot as a fix, root cause every time.">
+<meta property="og:description" content="From bare metal to working product. 25 years of real-time, mission-critical embedded — defence and avionics, automotive safety, medical, XR. Concurrency designed up front, never a reboot as a fix, root cause every time.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://maxim-pain.github.io/">
 <meta property="og:image" content="https://maxim-pain.github.io/assets/og-cover.png">
@@ -105,9 +105,9 @@
         </p>
 
         <div class="btn-row reveal" data-delay="180">
-          <a class="btn btn-primary" href="assets/Max-Pain-Resume.pdf" download>Download CV (PDF)</a>
-          <a class="btn btn-tonal" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20embedded%20systems&amp;body=Role%3A%0ACompany%3A%0ALocation%20%2F%20remote%3A%0ASeniority%3A%0ADomain%3A%0AJD%20link%3A%0A%0A">Email me about a role</a>
-          <a class="btn btn-ghost" href="projects.html">Case studies</a>
+          <a class="btn btn-primary" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20principal%20embedded">Email me about a role</a>
+          <a class="btn btn-tonal" href="projects.html">Case studies</a>
+          <a class="btn btn-ghost" href="assets/Max-Pain-Resume.pdf" download>CV (PDF)</a>
         </div>
       </div>
 
@@ -120,6 +120,7 @@
           <div><dt>Based</dt><dd>Hadera, Israel · UTC+3</dd></div>
           <div><dt>Mode</dt><dd>On-site · hybrid · remote</dd></div>
           <div><dt>Now</dt><dd>Dual-SoC AR platform bring-up</dd></div>
+          <div><dt>Engage</dt><dd>Employee in Israel · EOR or contract abroad</dd></div>
           <div><dt>Reply</dt><dd>Every serious enquiry, ~1 day</dd></div>
           <div><dt>Langs</dt><dd>Hebrew · Russian · English</dd></div>
         </dl>
@@ -174,6 +175,7 @@
     </p>
 
     <figure class="ownfig reveal">
+      <p class="own-end is-top" aria-hidden="true">▲ ships to the customer</p>
       <div class="own">
         <ol class="own-stack" role="list">
           <li role="listitem"><b>Signed release</b><span>image signing · release pipeline</span></li>
@@ -185,10 +187,15 @@
           <li role="listitem"><b>Bootloader</b><span>UEFI · display &amp; power init</span></li>
           <li role="listitem"><b>Silicon &amp; board</b><span>multi-SoC bring-up · PCIe · JTAG</span></li>
         </ol>
-        <p class="own-band" aria-hidden="true">typical<br>embedded<br>role</p>
-        <p class="own-mine" aria-hidden="true">I own<br>all<br>of it</p>
+        <p class="own-mine" aria-hidden="true">
+          <span class="lb">I own</span>
+          <span class="fig">8 of 8</span>
+          <span class="sb">bare board to signed release</span>
+        </p>
+        <p class="own-band" aria-hidden="true">typical remit<b>3 of 8</b></p>
       </div>
-      <figcaption class="is-label">Bare board → signed release · shaded band = a typical embedded remit</figcaption>
+      <p class="own-end is-bot" aria-hidden="true">▼ bare board, nothing boots</p>
+      <figcaption class="is-label">Two hand-off boundaries are where a typical remit ends — and where programmes lose months</figcaption>
 
         <div class="costs">
         <div class="cost">
@@ -321,10 +328,9 @@
           <span class="cap">setup time, adopted org-wide</span>
         </div>
         <div>
-          <p class="where">General Motors · Tech Lead, Platform &amp; Infrastructure · 2019 — 2024</p>
+          <p class="where">General Motors · 2017 — 2024 · as Tech Lead, Platform &amp; Infrastructure</p>
           <h3>A build framework that many GM organisations adopted</h3>
           <div class="ratio" role="img" aria-label="Time to a developer's first successful build fell from about three weeks to about fifteen minutes.">
-            <p class="ratio-x">≈2000× <span>faster</span></p>
             <div class="ratio-row">
               <span class="k">before</span><i class="b" style="--w:100%"></i><span class="v">~3 weeks</span>
             </div>
@@ -357,7 +363,7 @@
           <span class="cap">central compute unit, GM Israel</span>
         </div>
         <div>
-          <p class="where">General Motors · Autonomous Vehicle Infrastructure · 2017 — 2021</p>
+          <p class="where">General Motors · 2017 — 2024 · AV infrastructure</p>
           <h3>Brought up the compute unit an autonomous-driving programme was built on</h3>
           <p>
             Built the first central computer unit and its core infrastructure from scratch — the
@@ -382,7 +388,7 @@
           <span class="cap">before it was easy</span>
         </div>
         <div>
-          <p class="where">General Motors · Platform &amp; AI/ML integration · 2017 — 2024</p>
+          <p class="where">General Motors · 2017 — 2024 · AI/ML enablement</p>
           <h3>Made machine-learning workloads run on automotive compute</h3>
           <p>
             Ported the Torch library to QNX and RedHat Linux and integrated CUDA into embedded
@@ -479,11 +485,13 @@
       <div class="rule reveal">
         <span class="mk" aria-hidden="true">02</span>
         <div>
-          <h3>Never stuck — no deadlocks, no hangs, no crash dumps</h3>
+          <h3>Concurrency is designed, not discovered in the field</h3>
           <p>
-            Systems I own do not deadlock, do not wedge, and do not fall over into a core dump.
-            Concurrency, locking and lifetime are designed, not discovered in the field, and the
-            failure paths get the same scrutiny as the happy path.
+            Locking, lifetime and failure paths get the same scrutiny as the happy path, so
+            deadlocks and hangs are found at design and test time rather than by the person holding
+            the hardware. And when something does crash, it produces a symbolised dump that names
+            the mechanism — diagnostics are how a defect gets closed properly, not an admission of
+            defeat.
           </p>
         </div>
       </div>
@@ -492,9 +500,9 @@
         <div>
           <h3>Reboot is not a recovery strategy</h3>
           <p>
-            A device that needs a power cycle to become healthy is a broken device. It boots the
-            first time, every time, from cold — and it stays up. Recovery is engineered into the
-            boot path, not delegated to the person holding the hardware.
+            A device that needs a power cycle to become healthy is telling you the fault is still
+            there. Recovery belongs in the boot path — cold-boot reliability is a design target with
+            a test behind it, not a hope, and "power-cycle it" is never the fix I ship.
           </p>
         </div>
       </div>
@@ -574,6 +582,75 @@
       <span class="note">where failure is not an option</span>
     </div>
 
+
+    <figure class="reveal">
+      <div class="mx">
+        <div class="mx-row is-hd">
+          <span>domain</span>
+          <span>platform bring-up</span>
+          <span>hard real-time</span>
+          <span>functional safety</span>
+          <span>video &amp; latency</span>
+          <span>build &amp; release</span>
+          <span>team / tech lead</span>
+        </div>
+        <div class="mx-row">
+          <span class="dm">Defence &amp; avionics<small>2001–2011</small></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c part"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c none"><i aria-hidden="true"></i></span>
+            <span class="mx-c none"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="mx-row">
+          <span class="dm">Industrial &amp; IoT<small>2011–2016</small></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c none"><i aria-hidden="true"></i></span>
+            <span class="mx-c none"><i aria-hidden="true"></i></span>
+            <span class="mx-c part"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="mx-row">
+          <span class="dm">Automotive &amp; autonomous<small>2016–2024</small></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c none"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="mx-row">
+          <span class="dm">Medical devices<small>2024–now</small></span>
+            <span class="mx-c part"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c part"><i aria-hidden="true"></i></span>
+            <span class="mx-c none"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c part"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="mx-row is-now">
+          <span class="dm">XR / AR glasses — medical<small>2025–now</small></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+            <span class="mx-c core"><i aria-hidden="true"></i></span>
+        </div>
+      </div>
+      <div class="mx-key" aria-hidden="true">
+        <span class="mxk core"><i></i> core work</span>
+        <span class="mxk part"><i></i> involved</span>
+      </div>
+      <figcaption>
+        Six capabilities across five domains and twenty-five years. The bottom row is today: a
+        medical-device AR platform where every column is in scope at once — which is the whole reason
+        the earlier rows matter.
+      </figcaption>
+    </figure>
+
     <div class="grid g3">
       <div class="card reveal">
         <h3>Defence &amp; avionics</h3>
@@ -630,97 +707,6 @@
         </p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ 06 · TECH ═══════════════════════ -->
-<section class="tight-top">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="idx">06</span>
-      <h2>Technologies</h2>
-      <span class="note">hands-on</span>
-    </div>
-
-    <dl class="skillset reveal">
-      <div class="skillrow">
-        <dt>Real-time &amp; mission-critical</dt>
-        <dd><div class="chips">
-          <span class="chip"><b>Real-time systems</b></span>
-          <span class="chip"><b>Mission-critical software</b></span>
-          <span class="chip"><b>Safety-critical development</b></span>
-          <span class="chip"><b>FuSA · ISO 26262</b></span>
-          <span class="chip">ASIL A–D (working knowledge)</span>
-          <span class="chip">Safe Linux bring-up</span>
-          <span class="chip">Regulated medical environments</span>
-          <span class="chip">Hard real-time · determinism</span>
-          <span class="chip">TrustZone · secure boot · code signing</span>
-          <span class="chip">Full SDLC ownership</span>
-        </div></dd>
-      </div>
-      <div class="skillrow" data-devops>
-        <dt>Build &amp; release (also)</dt>
-        <dd><div class="chips">
-          <span class="chip"><b>CI/CD</b></span><span class="chip"><b>Release engineering</b></span>
-          <span class="chip">Lifecycle management</span><span class="chip">Deployment automation</span>
-          <span class="chip">Reproducible builds</span><span class="chip">Toolchain management</span>
-          <span class="chip">Docker · Podman</span><span class="chip">Jenkins</span>
-          <span class="chip">Conan · CMake · Ninja · GNU Make</span>
-          <span class="chip">Artifactory</span><span class="chip">Azure</span>
-          <span class="chip">Git · GitHub · Bitbucket · repo tool</span>
-        </div></dd>
-      </div>
-      <div class="skillrow">
-        <dt>Performance &amp; media</dt>
-        <dd><div class="chips">
-          <span class="chip"><b>Low-latency streaming</b></span>
-          <span class="chip">Video pipelines · frame sync</span>
-          <span class="chip">Rendering</span>
-          <span class="chip">Performance optimisation</span>
-          <span class="chip">Load &amp; stress characterisation</span>
-          <span class="chip">Concurrency &amp; locking</span>
-          <span class="chip">Latency &amp; throughput analysis</span>
-        </div></dd>
-      </div>
-      <div class="skillrow">
-        <dt>Languages</dt>
-        <dd><div class="chips">
-          <span class="chip"><b>C</b></span><span class="chip"><b>C++</b> / Embedded C++</span>
-          <span class="chip">Python</span><span class="chip">Bash / POSIX shell</span>
-          <span class="chip">Groovy</span>
-        </div></dd>
-      </div>
-      <div class="skillrow">
-        <dt>OS &amp; platforms</dt>
-        <dd><div class="chips">
-          <span class="chip"><b>Linux</b> · Yocto · RedHat · Ubuntu · AGL</span>
-          <span class="chip"><b>QNX</b></span><span class="chip">Android / AOSP</span>
-          <span class="chip">GHS Integrity</span><span class="chip">VxWorks</span>
-          <span class="chip">PikeOS</span><span class="chip">FreeRTOS · CMX · ThreadX</span>
-        </div></dd>
-      </div>
-      <div class="skillrow">
-        <dt>Silicon &amp; bring-up</dt>
-        <dd><div class="chips">
-          <span class="chip">Qualcomm</span><span class="chip">Nvidia</span>
-          <span class="chip">Renesas R-Car</span><span class="chip">NXP</span>
-          <span class="chip">ARM Cortex-M · aarch64</span><span class="chip">PowerPC</span>
-          <span class="chip">TI DSP</span><span class="chip">BSP · HAL · drivers</span>
-          <span class="chip">Device tree</span><span class="chip">UEFI / bootloader</span>
-          <span class="chip">JTAG · Lauterbach</span><span class="chip">PCIe</span>
-          <span class="chip">MIPI DSI</span><span class="chip">I2C / SPI</span><span class="chip">PMIC</span>
-        </div></dd>
-      </div>
-      <div class="skillrow">
-        <dt>Leadership</dt>
-        <dd><div class="chips">
-          <span class="chip">Tech lead</span><span class="chip">Team building &amp; hiring</span>
-          <span class="chip">Architecture &amp; code review</span><span class="chip">Mentoring</span>
-          <span class="chip">Technical authority</span>
-          <span class="chip">Global, cross-timezone collaboration</span>
-        </div></dd>
-      </div>
-    </dl>
   </div>
 </section>
 

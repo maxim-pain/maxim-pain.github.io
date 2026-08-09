@@ -103,8 +103,10 @@
       Across eleven roles I have owned the layers most engineers will not touch: bootloader, BSP,
       kernel, drivers, RTOS, multi-SoC and vendor bring-up on hardware that has never booted — then
       held it to hard real-time under sustained load. My working rule throughout:
-      <strong>solve the root cause, never patch the symptom.</strong> No workarounds, no deadlocks,
-      no crash dumps, every frame and every deadline met, and never a reboot as a recovery strategy.
+      <strong>solve the root cause, never patch the symptom.</strong> Concurrency and failure paths
+      are designed rather than discovered in the field; when something does fail it produces a
+      dump that names the mechanism; every frame and every deadline is accounted for; and
+      "power-cycle it" is never the fix I ship.
     </p>
     <p class="lead reveal" style="max-width:80ch;margin-top:16px">
       I have hired and led two teams (~10 engineers), held principal-level titles twice, acted as
@@ -220,7 +222,7 @@
 
       <div class="tl-item is-now reveal">
         <div class="tl-top">
-          <span class="tl-role">Platform Lead — Systems, Bring-up &amp; Release</span>
+          <span class="tl-role">Principal Engineer / Platform Lead — Systems, Bring-up &amp; Release</span>
           <span class="tl-org">Snke XR</span>
           <span class="tl-when">2025 — present</span>
         </div>
@@ -548,7 +550,6 @@
           <span class="chip">Concurrency, locking &amp; lifetime</span>
           <span class="chip">Deadlock &amp; starvation analysis</span>
           <span class="chip"><b>FuSA · ISO 26262</b></span>
-          <span class="chip">ASIL A–D (working knowledge)</span>
           <span class="chip">Safe Linux bring-up</span>
           <span class="chip">Defence &amp; avionics mission systems</span>
           <span class="chip">Regulated medical environments</span>

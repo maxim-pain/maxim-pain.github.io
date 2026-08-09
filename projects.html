@@ -331,35 +331,46 @@
 
     <figure class="reveal">
       <div class="figscroll">
-        <svg class="topo" viewBox="0 0 700 260" role="img" aria-labelledby="topoT topoD">
+        <svg class="topo" viewBox="0 0 720 300" role="img" aria-labelledby="topoT topoD">
           <title id="topoT">Host to dual-core connectivity paths</title>
           <desc id="topoD">The host reaches core A over a wired link and over the air. Core B is
-            reached directly over the air, over the inter-SoC link from core A, and through a
+            reached over the air directly, over the inter-SoC link from core A, and through a
             userspace relay, which is the slowest of the routes.</desc>
 
-          <path class="ed ed-wired" d="M150 92 H272"/>
-          <path class="ed ed-air"   d="M150 130 C 210 190, 240 190, 272 150"/>
-          <path class="ed ed-wired" d="M428 92 H550"/>
-          <path class="ed ed-air"   d="M150 112 C 300 236, 420 236, 550 140"/>
-          <path class="ed ed-relay" d="M150 150 C 300 254, 430 254, 550 160"/>
+          <!-- direct links, drawn straight along the node row -->
+          <path class="ed ed-wired" d="M160 76 H290"/>
+          <path class="ed ed-wired" d="M440 76 H560"/>
 
-          <g><rect class="elb" x="176" y="72" width="72" height="16" rx="4"/><text class="el" x="212" y="84">wired · fast</text></g>
-          <g><rect class="elb" x="452" y="72" width="76" height="16" rx="4"/><text class="el" x="490" y="84">inter-SoC · fastest</text></g>
-          <g><rect class="elb" x="292" y="206" width="66" height="16" rx="4"/><text class="el" x="325" y="218">air · direct</text></g>
-          <g><rect class="elb" x="300" y="240" width="94" height="16" rx="4"/><text class="el" x="347" y="252">relay · slowest path</text></g>
+          <!-- orthogonal lanes: one route per lane, no crossings -->
+          <path class="ed ed-air"   d="M100 112 V162 H366 V112"/>
+          <path class="ed ed-air"   d="M60 112 V206 H628 V112"/>
+          <path class="ed ed-relay" d="M140 112 V250 H596 V112"/>
 
-          <g class="nd"><rect x="18" y="86" width="132" height="72" rx="10"/>
-            <text class="nn" x="84" y="116">HOST</text>
-            <text class="ns" x="84" y="134">workstation</text>
-            <text class="ns" x="84" y="147">wired + radio</text></g>
-          <g class="nd is-a"><rect x="272" y="86" width="156" height="72" rx="10"/>
-            <text class="nn" x="350" y="116">CORE A</text>
-            <text class="ns" x="350" y="134">primary SoC</text>
-            <text class="ns" x="350" y="147">access point</text></g>
-          <g class="nd is-b"><rect x="550" y="86" width="132" height="72" rx="10"/>
-            <text class="nn" x="616" y="116">CORE B</text>
-            <text class="ns" x="616" y="134">secondary SoC</text>
-            <text class="ns" x="616" y="147">via link or air</text></g>
+          <g class="lab">
+            <rect class="elb" x="182" y="60" width="86" height="15" rx="4"/>
+            <text class="el" x="225" y="71">wired · fast</text>
+            <rect class="elb" x="452" y="60" width="116" height="15" rx="4"/>
+            <text class="el" x="510" y="71">inter-SoC · fastest</text>
+            <rect class="elb" x="184" y="145" width="94" height="15" rx="4"/>
+            <text class="el" x="231" y="156">air · to core A</text>
+            <rect class="elb" x="300" y="189" width="94" height="15" rx="4"/>
+            <text class="el" x="347" y="200">air · to core B</text>
+            <rect class="elb" x="286" y="233" width="130" height="15" rx="4"/>
+            <text class="el" x="351" y="244">relay · slowest path</text>
+          </g>
+
+          <g class="nd"><rect x="20" y="40" width="140" height="72" rx="10"/>
+            <text class="nn" x="90" y="70">HOST</text>
+            <text class="ns" x="90" y="88">workstation</text>
+            <text class="ns" x="90" y="101">wired + radio</text></g>
+          <g class="nd is-a"><rect x="290" y="40" width="150" height="72" rx="10"/>
+            <text class="nn" x="365" y="70">CORE A</text>
+            <text class="ns" x="365" y="88">primary SoC</text>
+            <text class="ns" x="365" y="101">access point</text></g>
+          <g class="nd is-b"><rect x="560" y="40" width="140" height="72" rx="10"/>
+            <text class="nn" x="630" y="70">CORE B</text>
+            <text class="ns" x="630" y="88">secondary SoC</text>
+            <text class="ns" x="630" y="101">via link or air</text></g>
         </svg>
       </div>
       <div class="topo-key" aria-hidden="true">
@@ -441,10 +452,10 @@
           <div class="dt-cols">
             <span>camera</span><span>fps</span><span>missed</span><span>lost</span><span>late</span><span></span>
           </div>
-          <div class="dt-cam"><span class="nm">core A · rgb ×2</span><span>60.89</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
-          <div class="dt-cam"><span class="nm">core A · depth</span><span>30.00</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
-          <div class="dt-cam"><span class="nm">core B · fisheye</span><span>60.87</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
-          <div class="dt-cam"><span class="nm">core B · IR</span><span>60.87</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
+          <div class="dt-cam"><span class="nm">core A · cam 1</span><span>60.89</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
+          <div class="dt-cam"><span class="nm">core A · cam 2</span><span>30.00</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
+          <div class="dt-cam"><span class="nm">core B · cam 3</span><span>60.87</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
+          <div class="dt-cam"><span class="nm">core B · cam 4</span><span>60.87</span><span class="zero">0</span><span class="zero">0</span><span class="zero">0</span><span class="verdict">clean</span></div>
         </div>
       </div>
       <figcaption>
@@ -641,6 +652,46 @@
           kernel. Worked throughout in safety- and mission-critical environments across C/C++,
           Linux, GHS Integrity and VxWorks.
         </p>
+
+        <figure>
+          <div class="cnt">
+            <div class="cnt-w">
+              <span class="nm">Video<small>capture &amp; display</small></span>
+              <span class="lane" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="md">1 ms period</span>
+            </div>
+            <div class="cnt-w">
+              <span class="nm">Graphics<small>symbology overlay</small></span>
+              <span class="lane" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="md">2 ms period</span>
+            </div>
+            <div class="cnt-w">
+              <span class="nm">Analog SP<small>sensor conditioning</small></span>
+              <span class="lane" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="md">0.5 ms period</span>
+            </div>
+            <div class="cnt-w">
+              <span class="nm">Digital SP<small>filtering &amp; transforms</small></span>
+              <span class="lane" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="md">0.5 ms period</span>
+            </div>
+            <div class="cnt-w">
+              <span class="nm">Comms<small>protocol stacks</small></span>
+              <span class="lane" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="md">4 ms period</span>
+            </div>
+          </div>
+          <p class="cnt-foot">
+            <span>deadlines met</span><b>every period</b>
+            <span>· one platform · no lane starves another</span>
+          </p>
+          <figcaption>
+            Five workload classes with different periods, sharing one multi-core platform. Any one of
+            them is straightforward alone; making all five hold their deadlines simultaneously —
+            without one starving another under load — is the actual engineering problem a mission
+            computer poses.
+          </figcaption>
+        </figure>
         <div class="chips">
           <span class="chip">Multi-core embedded</span><span class="chip">GHS Integrity</span>
           <span class="chip">VxWorks</span><span class="chip">C / C++</span>
