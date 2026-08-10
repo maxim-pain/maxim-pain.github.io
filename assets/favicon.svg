@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <!-- The dual-SoC mark: two compute cores joined by the inter-SoC link.
-       Identity colours from the design system — core A indigo, core B teal. -->
-  <rect width="32" height="32" rx="8" fill="#0E1116"/>
-  <rect x="4.5" y="12" width="8" height="8" rx="2.5" fill="#8B93F8"/>
-  <rect x="19.5" y="12" width="8" height="8" rx="2.5" fill="#2DD4BF"/>
-  <rect x="13" y="15.25" width="6" height="1.5" rx="0.75" fill="#3A4350"/>
+  
+  <rect width="32" height="32" rx="8" fill="#0E1116"></rect>
+  <rect x="4.5" y="12" width="8" height="8" rx="2.5" fill="#8B93F8"></rect>
+  <rect x="19.5" y="12" width="8" height="8" rx="2.5" fill="#2DD4BF"></rect>
+  <rect x="13" y="15.25" width="6" height="1.5" rx="0.75" fill="#3A4350"></rect>
 </svg>

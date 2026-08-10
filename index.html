@@ -8,7 +8,8 @@
 <title>Real-Time Embedded Systems Specialist — Mission-Critical Platforms, Tech Lead | Max Pain</title>
 <meta name="description" content="From bare metal to working product. Max Pain — Embedded Systems Tech Lead, principal engineer and architect for real-time, mission- and safety-critical platforms. 25 years across defence and avionics, automotive functional safety (ISO 26262 / FuSA), medical devices, industrial control and XR: multi-SoC and vendor bring-up, hard real-time performance, low-latency video and rendering, C/C++, Linux, QNX, RTOS. Root cause, never workarounds — concurrency designed up front, and never a reboot as a fix.">
 <meta name="author" content="Max Pain">
-<meta name="keywords" content="embedded systems, mission-critical, safety-critical, real-time, hard real-time, functional safety, ISO 26262, FuSA, tech lead, principal engineer, software architect, multi-SoC bring-up, board bring-up, BSP, device tree, Linux, Yocto, QNX, RTOS, Android AOSP, C++, PCIe, low-latency video, streaming, rendering, performance optimisation, software architecture, team leadership, CI/CD, release engineering, reproducible builds">
+<!-- keywords meta removed: unused by search engines since ~2009, and a 30-term
+     list is a keyword-stuffing signal. The page copy already carries the terms. -->
 <link rel="canonical" href="https://maxim-pain.github.io/">
 <meta property="og:site_name" content="Max Pain">
 <meta property="og:locale" content="en_US">
@@ -25,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=20260809201858">
+<link rel="stylesheet" href="assets/style.css?v=20260810101348">
 <script>/* Set the theme before first paint so there is no flash. */
 (function(){var r=document.documentElement;r.className+=" js";try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")r.dataset.theme=t;}catch(e){}})();</script>
 <script type="application/ld+json">
@@ -65,7 +66,6 @@
       <a href="resume.html">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <p class="nav-meta"><span class="open"><i aria-hidden="true"></i> Open · full-time · principal / staff / lead</span></p>
     <a class="btn btn-primary btn-sm btn-cta" href="assets/Max-Pain-Resume.pdf" download>CV&nbsp;<span>(PDF)</span></a>
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
       <span aria-hidden="true" data-theme-icon>◐</span>
@@ -97,16 +97,10 @@
           </p>
 
           <div class="btn-row hero-cta">
-            <a class="btn btn-primary btn-lg" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20principal%20embedded">Email me about a role</a>
+            <a class="btn btn-primary btn-lg" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20real-time%20embedded%20mission-critical">Email me about a role</a>
             <a class="btn btn-ghost btn-lg" href="projects.html">Systems I have shipped <span aria-hidden="true">→</span></a>
           </div>
 
-          <p class="plate-creed">
-            I fix causes, not symptoms: the system boots from cold, first time, holds every
-            frame and every deadline, and stays up — a reboot is not a fix. When a team has
-            been stuck on something for months, I'm the one who closes it.
-            <a href="#standard">In full ↓</a>
-          </p>
 
         </div>
 
@@ -124,15 +118,39 @@
         </div>
       </div>
 
+      <!-- Promoted out of the left column: this is the strongest line in the hero
+           and it was set as a footnote in a 44ch measure with dead space beside it. -->
+      <blockquote class="plate-creed">
+        <p>
+          I fix causes, not symptoms: the system boots from cold, first time, holds every
+          frame and every deadline, and stays up — <em>a reboot is not a fix</em>.
+        </p>
+        <p class="creed-punch">
+          When a team has been stuck on something for months, I'm the one who closes it.
+          <a href="#standard">In full ↓</a>
+        </p>
+      </blockquote>
 
+
+      <div class="plate-reg">
       <p class="plate-stack">
-        Day to day: C and C++ on embedded Linux (Yocto), QNX, VxWorks, GHS Integrity and
-        Android/AOSP — kernel and drivers, BSP and device tree, PCIe, MIPI CSI/DSI and DSP,
-        low-latency video pipelines, on-device inference with CUDA. Functional safety under
-        ISO 26262 / FuSA. <strong>I bring up anything, including silicon and stacks that are
-        brand new — hardware nobody has booted before.</strong> I take it from first power-on
-        to a working product; that is what I am doing now, on a dual-SoC medical AR platform.
+        <strong>I bring up anything, including silicon and stacks that are brand new — hardware
+        nobody has booted before.</strong> First power-on to a working product; that is what I
+        am doing now, on a dual-SoC medical AR platform.
       </p>
+      <!-- The stack was a six-line prose wall. Same terms, same SEO surface, but as a
+           scannable register — the reader takes it in at a glance instead of reading it. -->
+      <div class="chips plate-chips">
+        <span class="chip is-lead">C / C++</span><span class="chip is-lead">Embedded Linux · Yocto</span>
+        <span class="chip is-lead">QNX</span><span class="chip">VxWorks</span>
+        <span class="chip">GHS Integrity</span><span class="chip is-lead">Android / AOSP</span>
+        <span class="chip">Kernel &amp; drivers</span><span class="chip">BSP &amp; device tree</span>
+        <span class="chip">PCIe</span><span class="chip">MIPI CSI/DSI</span>
+        <span class="chip">DSP</span><span class="chip is-lead">Low-latency video</span>
+        <span class="chip is-lead">ISO 26262 / FuSA</span>
+        <span class="chip">CUDA on device</span>
+      </div>
+      </div><!-- /.plate-reg -->
 
       <div class="plate-figs">
         <div class="fig">
@@ -159,6 +177,62 @@
 
 
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CAREER SPINE ═══════════════════════ -->
+<!-- Twenty-five years had no picture anywhere on the page. One strip: domain bands
+     to scale, a tick per role start, the current end in --ok. -->
+<section class="tight-top">
+  <div class="wrap">
+    <figure class="spine reveal">
+      <div class="spine-top">
+        <span class="sp-y">2001</span>
+        <span class="sp-lede">25 years · 11 roles · 5 domains · one specialism</span>
+        <span class="sp-y is-now">today</span>
+      </div>
+
+      <div class="spine-doms" aria-hidden="true">
+        <span style="--c:1">Defence &amp; avionics</span>
+        <span style="--c:12">Industrial &amp; IoT</span>
+        <span style="--c:17">Automotive &amp; autonomous</span>
+        <span class="is-now is-end" style="--c:25">Medical · XR</span>
+      </div>
+
+      <div class="spine-bar" role="img"
+           aria-label="Career timeline, 2001 to today. Defence and avionics 2001 to 2011, industrial and IoT 2011 to 2016, automotive and autonomous 2016 to 2024, medical devices and XR 2024 to today.">
+        <span class="sp-band b1"></span>
+        <span class="sp-band b2"></span>
+        <span class="sp-band b3"></span>
+        <span class="sp-band b4 is-now"></span>
+      </div>
+
+      <div class="spine-ticks" aria-hidden="true">
+        <span class="sp-tick" style="--c:2"></span>
+        <span class="sp-tick" style="--c:5"></span>
+        <span class="sp-tick" style="--c:6"></span>
+        <span class="sp-tick" style="--c:7"></span>
+        <span class="sp-tick" style="--c:10"></span>
+        <span class="sp-tick" style="--c:12"></span>
+        <span class="sp-tick" style="--c:17"></span>
+        <span class="sp-tick" style="--c:18"></span>
+        <span class="sp-tick" style="--c:25"></span>
+        <span class="sp-tick is-now" style="--c:26"></span>
+      </div>
+
+      <div class="spine-foot" aria-hidden="true">
+        <span style="--c:2">Formtest</span>
+        <span style="--c:7">BVR · Elbit</span>
+        <span style="--c:12">Munters</span>
+        <span style="--c:18">GM</span>
+        <span class="is-end" style="--c:26">Snke XR</span>
+      </div>
+
+      <figcaption>
+        Each tick is a role beginning. The domains changed five times; the requirement — real-time,
+        not allowed to fail — never did.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -245,6 +319,30 @@
             images — plus microdisplays, a multi-sensor camera array with hardware-triggered frame
             sync, the DSP sensor core, and the PMIC power and audio paths.
           </p>
+          <!-- The site's signature figure, and the current platform had no picture on
+               the front page. Core A left, core B right, live PCIe link between. -->
+          <div class="cores">
+            <div class="core core-a">
+              <span class="lbl">Compute core A</span>
+              <span class="val">Primary SoC</span>
+              <span class="sub">display · cameras · connectivity</span>
+            </div>
+            <div class="core-link" role="img"
+                 aria-label="High-speed PCIe link carrying traffic in both directions between core A and core B">
+              <svg class="lnk" viewBox="0 0 64 22" width="64" height="22" aria-hidden="true" focusable="false">
+                <g class="lnk-track"><line x1="3" y1="7" x2="61" y2="7"/><line x1="3" y1="15" x2="61" y2="15"/></g>
+                <line class="lnk-ab" x1="3" y1="7" x2="61" y2="7"/>
+                <line class="lnk-ba" x1="3" y1="15" x2="61" y2="15"/>
+              </svg>
+              <span class="txt">PCIe<br>A ⇄ B</span>
+            </div>
+            <div class="core core-b">
+              <span class="lbl">Compute core B</span>
+              <span class="val">Secondary SoC</span>
+              <span class="sub">eye-tracking · sensors</span>
+            </div>
+          </div>
+          <p class="cores-note">Two symmetric compute cores · one firmware image · flashed and booted as a single device.</p>
           <div class="chips">
             <span class="chip">UEFI</span><span class="chip">Linux kernel</span>
             <span class="chip">Android / AOSP</span><span class="chip">Device tree</span>
@@ -262,6 +360,15 @@
         <div>
           <p class="where">Vendor bring-up · video, streaming &amp; rendering · current</p>
           <h3>Turned a lossy video pipeline into one that delivers all of it</h3>
+          <div class="ratio" role="img" aria-label="Frame loss went from intermittent to none, held under sustained load.">
+            <div class="ratio-row">
+              <span class="k">before</span><i class="b" style="--w:100%"></i><span class="v">frames lost</span>
+            </div>
+            <div class="ratio-row is-after">
+              <span class="k">after</span><i class="b" style="--w:3%"></i><span class="v">zero lost</span>
+            </div>
+            <p class="ratio-note">held under sustained load · not a quiet lab</p>
+          </div>
           <p>
             Multi-sensor camera and display pipelines that dropped and silently lost frames now
             deliver every one of them. That work is vendor bring-up in the hardest sense —
@@ -279,13 +386,22 @@
         </div>
       </div>
 
-      <div class="ach reveal" data-delay="140">
+      <!-- Three consecutive GM entries repeated the same employer line and read as
+           three unrelated blocks. One employer, three outcomes. -->
+      <div class="emp reveal" data-delay="140">
+        <div class="emp-hd">
+          <span class="emp-org">General Motors</span>
+          <span class="emp-when">2017 — 2024</span>
+          <span class="emp-role">Tech Lead, Platform &amp; Infrastructure</span>
+        </div>
+
+      <div class="ach">
         <div class="metric">
           <span class="big">weeks → minutes</span>
           <span class="cap">setup time, adopted org-wide</span>
         </div>
         <div>
-          <p class="where">General Motors · 2017 — 2024 · as Tech Lead, Platform &amp; Infrastructure</p>
+          <p class="where">Build &amp; release engineering</p>
           <h3>A build framework that many GM organisations adopted</h3>
           <div class="ratio" role="img" aria-label="Time to a developer's first successful build fell from about three weeks to about fifteen minutes.">
             <div class="ratio-row">
@@ -314,13 +430,13 @@
         </div>
       </div>
 
-      <div class="ach reveal" data-delay="210">
+      <div class="ach">
         <div class="metric is-flag">
           <span class="big">first</span>
           <span class="cap">central compute unit, GM Israel</span>
         </div>
         <div>
-          <p class="where">General Motors · 2017 — 2024 · AV infrastructure</p>
+          <p class="where">AV infrastructure</p>
           <h3>Brought up the compute unit an autonomous-driving programme was built on</h3>
           <p>
             Built the first central computer unit and its core infrastructure from scratch — the
@@ -339,13 +455,13 @@
         </div>
       </div>
 
-      <div class="ach reveal" data-delay="280">
+      <div class="ach">
         <div class="metric is-flag">
-          <span class="big">AI on embedded</span>
-          <span class="cap">before it was easy</span>
+          <span class="big">Torch → QNX</span>
+          <span class="cap">AI on embedded, before it was easy</span>
         </div>
         <div>
-          <p class="where">General Motors · 2017 — 2024 · AI/ML enablement</p>
+          <p class="where">AI/ML enablement</p>
           <h3>Made machine-learning workloads run on automotive compute</h3>
           <p>
             Ported the Torch library to QNX and RedHat Linux and integrated CUDA into embedded
@@ -362,6 +478,8 @@
           </div>
         </div>
       </div>
+
+      </div><!-- /.emp -->
 
       <div class="ach reveal" data-delay="350">
         <div class="metric">
@@ -414,7 +532,7 @@
 </section>
 
 <!-- ═══════════════════════ 03 · STANDARD ═══════════════════════ -->
-<section class="tight-top" id="standard">
+<section class="band" id="standard">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="idx">03</span>
@@ -524,7 +642,7 @@
           I reply to every serious enquiry, usually within a day.
         </p>
         <div class="btn-row" style="margin-top:18px">
-          <a class="btn btn-tonal btn-sm" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20mission-critical%20embedded&amp;body=Role%3A%0ACompany%3A%0ALocation%20%2F%20remote%3A%0ASeniority%3A%0ADomain%3A%0AJD%20link%3A%0A%0A">Email me about a role</a>
+          <a class="btn btn-tonal btn-sm" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20real-time%20embedded%20mission-critical">Email me about a role</a>
           <a class="btn btn-ghost btn-sm" href="assets/max-pain.vcf" download>Save my contact</a>
         </div>
       </div>
@@ -610,62 +728,6 @@
       </figcaption>
     </figure>
 
-    <div class="grid g3">
-      <div class="card reveal">
-        <h3>Defence &amp; avionics</h3>
-        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">2001 — 2011 · BVR, Elbit, Mango DSP, Albatronics, Formtest</p>
-        <p>
-          Mission computers, embedded virtual avionics, ground-based defence systems and automated
-          test equipment for airborne platforms. Ten years on GHS Integrity and VxWorks — the
-          certifiable real-time operating systems this industry builds on.
-        </p>
-      </div>
-      <div class="card reveal" data-delay="70">
-        <h3>Automotive &amp; autonomous</h3>
-        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">2016 — 2024 · General Motors, OSR Enterprises</p>
-        <p>
-          Autonomous-driving compute platforms delivered under FuSA / ISO 26262 practice, Safe
-          Linux bring-up, ADAS architecture and ASIL A–D working knowledge, AUTOSAR and DDS
-          middleware, LiDAR integration.
-        </p>
-      </div>
-      <div class="card reveal" data-delay="140">
-        <h3>Medical devices</h3>
-        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">2024 — today · Baxter Healthcare, Snke XR</p>
-        <p>
-          Two regulated programmes back to back. At Baxter, embedded platform and release
-          infrastructure inside an audited environment. Today, the AR glasses platform I bring up is
-          itself a <strong>medical device</strong> — so the bring-up, the real-time behaviour and the
-          release pipeline all carry medical-grade expectations.
-        </p>
-      </div>
-      <div class="card reveal">
-        <h3>Industrial &amp; IoT</h3>
-        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">2011 — 2016 · Munters</p>
-        <p>
-          Company-wide embedded and IoT platform built from scratch, control and management systems
-          on ARM Cortex-M, and two engineering teams built around it.
-        </p>
-      </div>
-      <div class="card reveal" data-delay="70">
-        <h3>XR &amp; AR</h3>
-        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">current · Snke XR</p>
-        <p>
-          Dual-SoC medical-device AR glasses, boot to signed release, with low-latency camera,
-          display and sensor pipelines that have to hold every frame on a device worn on someone’s
-          face while it is being relied on.
-        </p>
-      </div>
-      <div class="card reveal" data-delay="140">
-        <h3>Leadership</h3>
-        <p class="muted" style="font-size:.82rem;margin:0 0 8px;font-family:var(--mono)">2011 — today</p>
-        <p>
-          Two teams built and led (~10 engineers), principal-level titles at Munters and Baxter,
-          technical authority across domains, and mentoring on architecture, build systems and
-          system integration.
-        </p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -682,7 +744,7 @@
           I reply to every serious enquiry, usually within a day.
         </p>
         <div class="btn-row">
-          <a class="btn btn-primary" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20principal%20embedded">Email me about a role</a>
+          <a class="btn btn-primary" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20real-time%20embedded%20mission-critical">Email me about a role</a>
           <a class="btn btn-ghost" href="resume.html">Read the resume</a>
         </div>
       </div>
@@ -723,6 +785,6 @@
   </div>
 </footer>
 
-<script src="assets/main.js?v=20260809201858"></script>
+<script src="assets/main.js?v=20260810101348"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <meta property="og:site_name" content="Max Pain">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Resume — Real-Time Embedded Mission-Critical Systems | Max Pain">
-<meta property="og:description" content="25 years, 11 roles: defence and avionics, automotive functional safety, medical devices, industrial IoT and XR. Multi-SoC and vendor bring-up, hard real-time, and team leadership.">
+<meta property="og:description" content="25 years, 11 engineering roles: defence and avionics, automotive functional safety, medical devices, industrial IoT and XR. Multi-SoC and vendor bring-up, hard real-time, and team leadership.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://maxim-pain.github.io/resume.html">
 <meta property="og:image" content="https://maxim-pain.github.io/assets/og-cover.png">
@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=20260809201858">
+<link rel="stylesheet" href="assets/style.css?v=20260810101348">
 <script>(function(){var r=document.documentElement;r.className+=" js";try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")r.dataset.theme=t;}catch(e){}})();</script>
 </head>
 <body>
@@ -40,7 +40,6 @@
       <a href="resume.html" aria-current="page">Resume</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <p class="nav-meta"><span class="open"><i aria-hidden="true"></i> Open · full-time · principal / staff / lead</span></p>
     <a class="btn btn-primary btn-sm btn-cta" href="assets/Max-Pain-Resume.pdf" download>CV&nbsp;<span>(PDF)</span></a>
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
       <span aria-hidden="true" data-theme-icon>◐</span>
@@ -53,9 +52,12 @@
 <!-- ═══════════════════════ HEADER ═══════════════════════ -->
 <section class="hero" style="padding-bottom:24px">
   <div class="wrap">
+    <div class="pagebar reveal">
+      <span class="pb-title">Curriculum vitae</span>
+      <span class="pb-live"><i aria-hidden="true"></i>Open · full-time · principal / staff / tech lead</span>
+    </div>
     <div class="hero-split">
       <div>
-        <p class="eyebrow reveal">Resume</p>
         <h1 class="reveal" data-delay="60" style="font-size:clamp(2.1rem,5.2vw,3.3rem)">Max Pain</h1>
         <p class="slogan reveal" data-delay="90" style="font-size:clamp(1.25rem,2.6vw,1.7rem);margin-top:12px">
           From bare metal to <span class="works">working product</span>.
@@ -101,7 +103,7 @@
       <em>it is not allowed to fail.</em>
     </p>
     <p class="lead reveal" style="max-width:80ch;margin-top:16px">
-      Across eleven roles I have owned the layers most engineers will not touch: bootloader, BSP,
+      Across eleven engineering roles I have owned the layers most engineers will not touch: bootloader, BSP,
       kernel, drivers, RTOS, multi-SoC and vendor bring-up on hardware that has never booted — then
       held it to hard real-time under sustained load. My working rule throughout:
       <strong>solve the root cause, never patch the symptom.</strong> Concurrency and failure paths
@@ -125,52 +127,60 @@
       <span class="idx">02</span>
       <h2>Career highlights</h2>
     </div>
-    <div class="card reveal">
-      <ul style="margin:0;padding-left:20px">
-        <li style="margin-bottom:9px">
-          Sole real-time engineer behind the <strong>EVA embedded virtual avionics</strong>
-          infrastructure — deployed worldwide and operational with leading air forces.
-        </li>
-        <li style="margin-bottom:9px">
-          Developed a <strong>distributed multi-core defence mission computer</strong> integrating
-          video, graphics, analog and digital signal processing and advanced communication protocols
-          deterministically in one system — and was the in-house authority on GHS Integrity RTOS.
-        </li>
-        <li style="margin-bottom:9px">
-          Brought up the <strong>first central compute unit</strong> for GM Israel's autonomous
-          vehicle programme from scratch, and was on the core team behind its first hands-free
-          driving demonstration.
-        </li>
-        <li style="margin-bottom:9px">
-          Took multi-sensor <strong>video pipelines from intermittently losing frames to delivering
-          every frame</strong>, with latency and throughput held under sustained load.
-        </li>
-        <li style="margin-bottom:9px">
-          Currently own <strong>full-stack bring-up of a dual-SoC AR glasses platform</strong> —
-          UEFI through Android userspace to signed release images, with display, cameras, sensors,
-          power, audio, WiFi and the PCIe inter-SoC link brought up across two cores.
-        </li>
-        <li style="margin-bottom:9px">
-          Ported <strong>Torch to QNX and Linux</strong> and integrated CUDA into embedded compute,
-          enabling GPU-accelerated AV machine-learning development.
-        </li>
-        <li style="margin-bottom:9px">
-          Built and led <strong>two embedded teams (~10 engineers)</strong> at Munters as team leader
-          and principal software architect, defining the company's embedded and IoT platform from
-          scratch.
-        </li>
-        <li>
-          Architected a build framework at GM that cut toolchain setup <strong>from weeks to
-          minutes</strong> and was adopted by many organisations across GM, spanning numerous software
-            groups and projects.
-        </li>
-      </ul>
-    </div>
+    <!-- Was eight equal bullets in one card: the page's highest-value scan surface
+         with no hierarchy at all. Same sentences, outcome first, newest first. -->
+    <ul class="hl reveal">
+      <li>
+        <span class="hl-k"><b>2 SoCs → 1 signed image</b><i>current</i></span>
+        <span class="hl-t">Currently own <strong>full-stack bring-up of a dual-SoC AR glasses platform</strong> —
+        UEFI through Android userspace to signed release images, with display, cameras, sensors,
+        power, audio, WiFi and the PCIe inter-SoC link brought up across two cores.</span>
+      </li>
+      <li>
+        <span class="hl-k"><b>Every frame</b><i>was: intermittent loss</i></span>
+        <span class="hl-t">Took multi-sensor <strong>video pipelines from intermittently losing frames to delivering
+        every frame</strong>, with latency and throughput held under sustained load.</span>
+      </li>
+      <li>
+        <span class="hl-k"><b>Weeks → minutes</b><i>adopted org-wide</i></span>
+        <span class="hl-t">Architected a build framework at GM that cut toolchain setup <strong>from weeks to
+        minutes</strong> and was adopted by many organisations across GM, spanning numerous
+        software groups and projects.</span>
+      </li>
+      <li>
+        <span class="hl-k"><b>First</b><i>central compute unit, GM Israel</i></span>
+        <span class="hl-t">Brought up the <strong>first central compute unit</strong> for GM Israel's autonomous
+        vehicle programme from scratch, and was on the core team behind its first hands-free
+        driving demonstration.</span>
+      </li>
+      <li>
+        <span class="hl-k"><b>Torch → QNX</b><i>AI on embedded</i></span>
+        <span class="hl-t">Ported <strong>Torch to QNX and Linux</strong> and integrated CUDA into embedded compute,
+        enabling GPU-accelerated AV machine-learning development.</span>
+      </li>
+      <li>
+        <span class="hl-k"><b>2 teams · ~10 eng</b><i>hired, built and led</i></span>
+        <span class="hl-t">Built and led <strong>two embedded teams (~10 engineers)</strong> at Munters as team leader
+        and principal software architect, defining the company's embedded and IoT platform from
+        scratch.</span>
+      </li>
+      <li>
+        <span class="hl-k"><b>Worldwide</b><i>operational with air forces</i></span>
+        <span class="hl-t">Sole real-time engineer behind the <strong>EVA embedded virtual avionics</strong>
+        infrastructure — deployed worldwide and operational with leading air forces.</span>
+      </li>
+      <li>
+        <span class="hl-k"><b>One system</b><i>deterministic, multi-core</i></span>
+        <span class="hl-t">Developed a <strong>distributed multi-core defence mission computer</strong> integrating
+        video, graphics, analog and digital signal processing and advanced communication protocols
+        deterministically in one system — and was the in-house authority on GHS Integrity RTOS.</span>
+      </li>
+    </ul>
   </div>
 </section>
 
 <!-- ═══════════════════════ 03 · SPAN MAP ═══════════════════════ -->
-<section class="tight-top no-print" style="padding-bottom:38px">
+<section class="band no-print">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="idx">03</span>
@@ -301,8 +311,8 @@
           <span class="tl-when">2017 — 2024</span>
         </div>
         <p class="tl-what">
-          Sr. RT Embedded SW Engineer (2017) → Staff Software Engineer (2019) → Tech Lead, Platform
-          group (2019–2024). Drove platform and real-time infrastructure for advanced embedded
+          Sr. RT Embedded SW Engineer and Staff Software Engineer (2017–2021), Tech Lead of the
+          Platform group (2019–2024). Drove platform and real-time infrastructure for advanced embedded
           automotive systems powering autonomous driving programmes.
         </p>
         <ul>
@@ -466,7 +476,7 @@
         <p class="tl-stack">C/C++ · GHS Integrity · VxWorks · Windows · Freescale PowerPC · Intel · ACE · STL · POSIX</p>
       </div>
 
-      <p class="tl-era reveal">Early career · 2001 — 2006</p>
+      <p class="tl-era reveal">Early career · 2000 — 2006</p>
 
       <div class="tl-item is-brief reveal">
         <div class="tl-top">
@@ -525,6 +535,20 @@
           peripheral I/O devices and microcontroller programming.
         </p>
         <p class="tl-stack">C · ATEasy · ATE software</p>
+      </div>
+
+      <div class="tl-item is-brief reveal">
+        <div class="tl-top">
+          <span class="tl-role">Radio-Electronics Technician</span>
+          <span class="tl-org">Ceragon Networks</span>
+          <span class="tl-when">2000 — 2001</span>
+        </div>
+        <p class="tl-what">
+          Automated test equipment for RF broadband wireless networking — built and deployed ATE
+          systems for radio equipment, improved the ATE process in the RF domain, and installed and
+          supported systems in Israel and abroad.
+        </p>
+        <p class="tl-stack">RF · broadband wireless · ATE · test &amp; inspection systems</p>
       </div>
 
     </div>
@@ -616,7 +640,6 @@
           <span class="chip">Torch on QNX / Linux</span><span class="chip">CUDA</span>
           <span class="chip">ML data parsing · Elasticsearch</span>
           <span class="chip">Claude Code · agent skills</span>
-          <span class="chip">Copilot · ChatGPT · Cursor</span>
         </div></dd>
       </div>
       <div class="skillrow">
@@ -658,7 +681,7 @@
     <div class="grid g3">
       <div class="card reveal">
         <h3>B.Sc. — System Analysis &amp; Programming</h3>
-        <p class="tl-stack" style="margin-top:4px">Champlain College · 2003</p>
+        <p class="tl-stack" style="margin-top:4px">Champlain College · 2000 — 2004</p>
       </div>
       <div class="card reveal" data-delay="70">
         <h3>Technician Diploma — Radio Electronics</h3>
@@ -695,7 +718,7 @@
       </p>
       </div>
       <div class="btn-row">
-        <a class="btn btn-primary" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20real-time%20embedded%20mission-critical&amp;body=Role%3A%0ACompany%3A%0ALocation%20%2F%20remote%3A%0ASeniority%3A%0ADomain%3A%0AJD%20link%3A%0A%0A">Email me about a role</a>
+        <a class="btn btn-primary" href="mailto:pain.max@gmail.com?subject=Role%20enquiry%20%E2%80%94%20real-time%20embedded%20mission-critical">Email me about a role</a>
         <a class="btn btn-tonal" href="assets/Max-Pain-Resume.pdf" download>Download CV (PDF)</a>
         <a class="btn btn-ghost" href="contact.html">Contact</a>
       </div>
@@ -713,6 +736,6 @@
   </div>
 </footer>
 
-<script src="assets/main.js?v=20260809201858"></script>
+<script src="assets/main.js?v=20260810101348"></script>
 </body>
 </html>

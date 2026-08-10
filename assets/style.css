@@ -594,21 +594,6 @@ html:not(.js) .fwd .cp { display: none; }
 .ways .dur { font-family: var(--mono); font-size: 0.78rem; color: var(--on-surface-tertiary); }
 
 /* Availability + location, always visible in the nav. */
-/* Availability in the nav, but only where there is genuinely room for it —
-   below this width it crowds the links and wraps to two lines. */
-.nav-meta {
-  display: none; margin-left: auto; align-items: center; gap: 16px;
-  font-family: var(--mono); font-size: var(--fs-nano);
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--on-surface-tertiary);
-  white-space: nowrap;
-}
-.nav-meta .open { color: var(--ok); display: inline-flex; align-items: center; gap: 7px; }
-.nav-meta .open i { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); display: block; flex: none; }
-@media (min-width: 1240px) { .nav-meta { display: flex; } }
-/* The home hero's title bar carries the same live status — don't say it twice
-   150px apart. :has() is progressive: unsupported browsers just show both. */
-body:has(.hero-v3) .nav-meta { display: none; }
-@media print { .nav-meta { display: none !important; } }
 
 /* ── hero v3: one instrument plate ───────────────────────────────────────────
    Every hero so far was stacked loose blocks; every element the owner has
@@ -669,12 +654,8 @@ body:has(.hero-v3) .nav-meta { display: none; }
 .hero-v3 .hero-cta { margin-top: 28px; gap: 12px; }
 /* The working standard, as a quiet footer to the pitch — the fuller, carefully
    qualified version lives in §03; this is the credo form. */
-.hero-v3 .plate-creed {
-  margin: 26px 0 0; padding-top: 14px;
-  border-top: 1px solid var(--outline-variant);
-  font-size: 0.85rem; line-height: 1.7; max-width: 52ch;
-  color: var(--on-surface-secondary);
-}
+/* .hero-v3 .plate-creed — superseded by the v4 plate rules at the end of this
+   file, where the creed became a full-width statement band. */
 .hero-v3 .plate-creed a { white-space: nowrap; }
 .hero-v3 .btn-lg { padding: 13px 22px; font-size: 0.98rem; border-radius: 10px; }
 
@@ -1565,20 +1546,6 @@ figcaption.is-label {
 
 /* ── page transitions & scroll progress ──────────────────────────────────── */
 
-/* Cross-document view transitions: the nav and footer are named groups held at
-   1ms so the chrome stays perfectly still while the body crossfades. Chromium
-   only today; a silent no-op everywhere else. */
-@view-transition { navigation: auto; }
-.nav { view-transition-name: site-nav; }
-footer { view-transition-name: site-footer; }
-main { view-transition-name: page; }
-::view-transition-group(site-nav),
-::view-transition-group(site-footer) { animation-duration: 1ms; }
-::view-transition-old(page) { animation: vt-out 150ms var(--ease) both; }
-::view-transition-new(page) { animation: vt-in 230ms var(--ease) both; }
-@keyframes vt-out { to { opacity: 0; transform: translateY(-6px); } }
-@keyframes vt-in { from { opacity: 0; transform: translateY(10px); } }
-
 /* Read-progress on the nav's own hairline. */
 .nav::after {
   content: ""; position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%;
@@ -1654,7 +1621,8 @@ main { view-transition-name: page; }
   a { color: #111; text-decoration: none; }
   /* Anything scroll-animated must be forced to its END state, or a partially
      scrolled page prints half-faded elements. */
-  .reveal, .stat .num, .ach .metric .big, .sm-bar, .ratio .b, .cascade .stage {
+  .reveal, .stat .num, .ach .metric .big, .sm-bar, .ratio .b, .cascade .stage,
+  .sp-band, .sp-tick {
     opacity: 1 !important; transform: none !important;
     animation: none !important; clip-path: none !important;
   }
@@ -1698,4 +1666,353 @@ main { view-transition-name: page; }
   .chip + .chip::before { content: " · "; color: #aaa; }
   .skillrow { padding: 3.5pt 7pt; }
   .skillrow dt { font-size: 8pt; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   PRINT · resume §06 education / service / languages
+   Four short cards in .grid.g3 were printing as tall boxes of raggedly
+   wrapped monospace, leaving the final page mostly empty. On paper the
+   fill and border read as noise, so they become a tight band of
+   rule-marked items instead.
+   ═══════════════════════════════════════════════════════════════════ */
+@media print {
+  .grid.g3 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .grid.g3 > .card {
+    padding: 6px 0 6px 10px;
+    border: 0;
+    border-left: 1.5pt solid #000;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  .grid.g3 > .card h3 { font-size: 9pt; line-height: 1.25; margin: 0 0 3px; }
+  .grid.g3 > .card .tl-stack,
+  .grid.g3 > .card p {
+    font-size: 7.5pt;
+    line-height: 1.45;
+    letter-spacing: 0;
+    hyphens: none;
+    overflow-wrap: normal;
+    margin: 0;
+  }
+  /* Keep §06 with the heading above it rather than orphaning it on a page of its
+     own. Target the section that actually holds the cards — :last-of-type is the
+     CTA, which is .no-print and never reaches paper. */
+  main > section:has(.grid.g3) { break-before: avoid; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CAREER SPINE — the 25-year strip under the hero
+   ---------------------------------------------------------------------------
+   26 equal columns, one per year 2000..2025; every element positions itself
+   with --c so the rows stay in register with no magic pixel values. Domains
+   are not identity or status roles, so they take NO hue (rule 5) — they are
+   tone steps. Only the current band and the last tick take --ok, matching the
+   span map and the coverage matrix.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.spine { margin: 0; display: grid; gap: 7px; }
+
+.spine-top {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  font-family: var(--mono); font-size: var(--fs-nano);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--on-surface-tertiary);
+}
+.spine-top .sp-lede { color: var(--on-surface-secondary); letter-spacing: 0.1em; }
+.spine-top .is-now { color: var(--ok); }
+
+.spine-doms, .spine-bar, .spine-ticks, .spine-foot {
+  display: grid; grid-template-columns: repeat(26, 1fr);
+}
+
+.spine-doms span {
+  /* All four labels overlap in column span, so they MUST be pinned to row 1 —
+     without this, auto-placement gives each its own implicit row and they
+     staircase away from the bar they name. */
+  grid-row: 1;
+  grid-column: var(--c) / -1; justify-self: start; white-space: nowrap;
+  font-family: var(--mono); font-size: 0.68rem; color: var(--on-surface-secondary);
+}
+.spine-doms .is-now { color: var(--ok); }
+.spine-doms .is-end { justify-self: end; }
+
+.spine-bar { gap: 2px; height: 10px; }
+.sp-band { border-radius: 3px; background: var(--fill-3); }
+/* Tone climbs toward the present — the eye is pulled to today without a hue. */
+.b1 { grid-column: 1 / 12;  background: var(--fill-4); }
+.b2 { grid-column: 12 / 17; background: var(--fill-3); }
+.b3 { grid-column: 17 / 25; background: var(--fill); }
+.b4 { grid-column: 25 / 27; background: var(--ok); }
+
+.spine-ticks { height: 13px; }
+.sp-tick {
+  grid-column: var(--c); justify-self: center;
+  width: 1px; height: 100%; background: var(--outline);
+}
+.sp-tick.is-now { background: var(--ok); width: 2px; }
+
+.spine-foot span {
+  grid-column: var(--c); justify-self: center; white-space: nowrap;
+  font-family: var(--mono); font-size: var(--fs-nano);
+  letter-spacing: 0.08em; color: var(--on-surface-tertiary);
+}
+.spine-foot .is-end { justify-self: end; color: var(--ok); }
+
+/* Under ~720px the year grid stops being readable, so the strip collapses to
+   its statement and the domain labels stack. */
+@media (max-width: 720px) {
+  .spine-foot { display: none; }
+  .spine-doms { grid-template-columns: 1fr 1fr; gap: 2px 12px; }
+  .spine-doms span { grid-row: auto; grid-column: auto; justify-self: start; font-size: 0.64rem; }
+  .spine-doms .is-end { justify-self: start; }
+}
+
+/* ── hero stack register ──────────────────────────────────────────────────── */
+.plate-chips { margin-top: 14px; }
+
+/* ── employer grouping in "Systems I have shipped" ────────────────────────
+   Three GM entries in a row repeated the employer line and read as three
+   unrelated blocks. One header, three outcomes hung off a single rule. */
+.emp { display: grid; gap: 12px; }
+.emp-hd {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px;
+  padding: 0 0 2px 16px; border-left: 2px solid var(--outline);
+}
+.emp-org { font-weight: 700; font-size: 1.05rem; color: var(--on-surface); }
+.emp-when, .emp-role {
+  font-family: var(--mono); font-size: var(--fs-micro);
+  letter-spacing: 0.08em; color: var(--on-surface-tertiary);
+}
+.emp-role { color: var(--on-surface-secondary); }
+.emp > .ach { margin-left: 16px; }
+@media (max-width: 620px) { .emp > .ach { margin-left: 0; } }
+
+/* ── inverted band ────────────────────────────────────────────────────────
+   One section drops to the dim surface, full-bleed, so the page has a break
+   in its rhythm. Tone, not a new colour — rule 3. */
+.band {
+  background: var(--surface-container-highest);
+  border-top: 1px solid var(--outline-variant);
+  border-bottom: 1px solid var(--outline-variant);
+  padding: var(--sp-6) 0;
+  margin: var(--sp-6) 0;
+}
+.band .rule { background: transparent; border: 1px solid var(--outline-variant); }
+
+@media print {
+  .spine { break-inside: avoid; }
+  .sp-band { background: #ddd !important; }
+  .b4, .sp-tick.is-now { background: #666 !important; }
+  .sp-tick { background: #999 !important; }
+  .spine-doms .is-now, .spine-foot .is-end, .spine-top .is-now { color: #222 !important; }
+  .band { background: #fff !important; border: 0 !important; margin: 0 !important; padding: 0 !important; }
+  .emp-hd { border-left: 1pt solid #999 !important; }
+}
+
+/* A banded section directly after a pillar sub-head should not add a second
+   gap on top of the one the sub-head already leaves. */
+section[style*="padding-bottom:0"] + .band { margin-top: var(--sp-4); }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO PLATE v4 — one edge, one statement, one boot
+   ---------------------------------------------------------------------------
+   The plate had five different left edges (bar 24, main 43, stack 24, chips 0,
+   figs 18). On a design whose whole idiom is instrument panels and hairlines,
+   that reads as unfinished. Everything now hangs off --plate-pad.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero-v3 .plate { --plate-pad: clamp(20px, 2.8vw, 34px); position: relative; }
+
+.hero-v3 .plate-bar   { padding-left: var(--plate-pad); padding-right: var(--plate-pad); }
+.hero-v3 .plate-main  { padding: clamp(24px, 3vw, 38px) var(--plate-pad); }
+.hero-v3 .plate-stack { padding: 0; border-top: 0; }
+.hero-v3 .plate-chips { margin-top: 12px; }
+.hero-v3 .plate-reg {
+  padding: 16px var(--plate-pad) 18px;
+  border-top: 1px solid var(--outline-variant);
+}
+/* Only the outer figures carry the plate edge; the inner ones keep their own
+   breathing room so the four cells stay evenly weighted. */
+.hero-v3 .fig:first-child { padding-left: var(--plate-pad); }
+.hero-v3 .fig:last-child  { padding-right: var(--plate-pad); }
+
+/* ── the creed, promoted ──────────────────────────────────────────────────
+   Was a 44ch footnote under a hairline with ~265px of dead space beside it.
+   Now a full-width statement band filling exactly that void. */
+.hero-v3 .plate-creed {
+  margin: 0; max-width: none; font-size: 1rem;
+  padding: clamp(18px, 2.2vw, 26px) var(--plate-pad);
+  border-top: 1px solid var(--outline-variant);
+  background: var(--surface-container-low);
+  display: grid; gap: 8px;
+}
+.hero-v3 .plate-creed p { margin: 0; max-width: 88ch; }
+.hero-v3 .plate-creed > p:first-child {
+  font-size: clamp(1rem, 1.5vw, 1.12rem); line-height: 1.55;
+  color: var(--on-surface-secondary);
+}
+.hero-v3 .plate-creed em { font-style: normal; color: var(--on-surface); font-weight: 600; }
+.hero-v3 .creed-punch {
+  font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.35;
+  letter-spacing: -0.015em; font-weight: 600; color: var(--on-surface);
+  text-wrap: pretty;
+}
+.hero-v3 .creed-punch a {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em;
+  text-transform: uppercase; white-space: nowrap; margin-left: 6px;
+  vertical-align: 0.18em;
+}
+
+/* ── chip tiers ───────────────────────────────────────────────────────────
+   Fourteen chips at identical weight is a keyword dump. Six lead. */
+.hero-v3 .plate-chips .chip {
+  color: var(--on-surface-tertiary);
+  border-color: var(--outline-variant);
+  background: transparent;
+}
+.hero-v3 .plate-chips .chip.is-lead {
+  color: var(--on-surface); background: var(--fill-4); border-color: var(--outline);
+}
+
+/* ── power-on ─────────────────────────────────────────────────────────────
+   He brings hardware up for a living, so the first thing on the site boots:
+   a scan completes across the plate and the bands print in sequence. Under
+   900ms end to end, opacity only, and every word is in the DOM from the
+   first byte — JS-off and reduced-motion both get the finished plate. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero-v3 .plate::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; z-index: 3;
+    background: var(--ok); transform-origin: left;
+    animation: boot-scan 880ms var(--ease) both;
+  }
+  @keyframes boot-scan {
+    0%   { transform: scaleX(0); opacity: 1; }
+    72%  { transform: scaleX(1); opacity: 1; }
+    100% { transform: scaleX(1); opacity: 0; }
+  }
+  .js .hero-v3 .plate-bar   { animation: band-on 420ms var(--ease) both  60ms; }
+  .js .hero-v3 .plate-body  { animation: band-on 420ms var(--ease) both 170ms; }
+  .js .hero-v3 .plate-creed { animation: band-on 420ms var(--ease) both 290ms; }
+  .js .hero-v3 .plate-reg   { animation: band-on 420ms var(--ease) both 380ms; }
+  .js .hero-v3 .plate-figs  { animation: band-on 420ms var(--ease) both 460ms; }
+  @keyframes band-on { from { opacity: 0; transform: translateY(6px); } }
+}
+
+@media (max-width: 620px) {
+  .hero-v3 .creed-punch { font-size: 1.1rem; }
+}
+
+@media print {
+  .hero-v3 .plate::before { display: none !important; }
+  .hero-v3 .plate-bar, .hero-v3 .plate-body, .hero-v3 .plate-creed,
+  .hero-v3 .plate-reg, .hero-v3 .plate-figs {
+    animation: none !important; opacity: 1 !important; transform: none !important;
+  }
+  .hero-v3 .plate-creed { background: #fff !important; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESUME §02 — outcome-led highlights
+   The eight bullets were the page's highest-value scan surface with no
+   hierarchy. Same grammar as the .ach cards on the home page: the number
+   claims the left column, the sentence explains it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hl { list-style: none; margin: 0; padding: 0; display: grid; }
+.hl li {
+  display: grid; grid-template-columns: 168px minmax(0, 1fr);
+  gap: 18px; align-items: baseline;
+  padding: 13px 0; border-top: 1px solid var(--outline-variant);
+}
+.hl li:last-child { border-bottom: 1px solid var(--outline-variant); }
+.hl-k { display: grid; gap: 2px; }
+.hl-k b {
+  font-family: var(--mono); font-weight: 700; font-size: 0.95rem;
+  letter-spacing: -0.01em; line-height: 1.2; color: var(--on-surface);
+}
+.hl-k i {
+  font-style: normal; font-family: var(--mono); font-size: var(--fs-nano);
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--on-surface-tertiary);
+  line-height: 1.4;
+}
+.hl li:first-child .hl-k b { color: var(--ok); }
+.hl-t { font-size: 0.95rem; line-height: 1.6; color: var(--on-surface-secondary); }
+.hl-t strong { color: var(--on-surface); }
+@media (max-width: 620px) {
+  .hl li { grid-template-columns: 1fr; gap: 6px; }
+  .hl-k { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+}
+
+/* ── the spine fills as it scrolls in ─────────────────────────────────────
+   Every other figure on the site is scroll-driven (span map, boot cascade,
+   ratio bars); the spine was the one inert one. Bands wipe left to right in
+   career order, ticks land behind them. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .js .spine { view-timeline-name: --spine; view-timeline-axis: block; }
+    .js .sp-band {
+      transform-origin: left;
+      animation: sp-fill linear both; animation-timeline: --spine;
+    }
+    .js .spine-bar .b1 { animation-range: entry 12% entry 42%; }
+    .js .spine-bar .b2 { animation-range: entry 20% entry 50%; }
+    .js .spine-bar .b3 { animation-range: entry 28% entry 58%; }
+    .js .spine-bar .b4 { animation-range: entry 36% entry 66%; }
+    @keyframes sp-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+    .js .sp-tick {
+      animation: sp-tick-in linear both; animation-timeline: --spine;
+      animation-range: entry 30% entry 74%;
+    }
+    @keyframes sp-tick-in { from { opacity: 0; transform: scaleY(0.2); } to { opacity: 1; transform: scaleY(1); } }
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PAGE BAR — the plate's title strip, on the pages that have no plate
+   ---------------------------------------------------------------------------
+   The home page opens on the instrument plate; the inner pages opened on a
+   bare eyebrow and heading, so the site read as two designs. This is the
+   plate-bar idiom reduced to a rule: what the page is on the left, live
+   status on the right.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.pagebar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px 20px; flex-wrap: wrap;
+  margin: 0 0 var(--sp-3);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--outline-variant);
+  font-family: var(--mono); font-size: var(--fs-nano);
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.pagebar .pb-title { color: var(--on-surface); font-weight: 700; letter-spacing: 0.17em; }
+.pagebar .pb-live { display: inline-flex; align-items: center; gap: 8px; color: var(--ok); }
+.pagebar .pb-live i {
+  position: relative; flex: none;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--ok);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pagebar .pb-live i::after {
+    content: ""; position: absolute; inset: -4px; border-radius: 50%;
+    border: 1px solid var(--ok); opacity: 0;
+    animation: pb-ping 2.6s var(--ease) infinite;
+  }
+  @keyframes pb-ping { 0% { opacity: .7; transform: scale(.6); } 70%, 100% { opacity: 0; transform: scale(1.25); } }
+}
+/* The hero eyebrows were deleted outright rather than hidden — a sibling
+   selector only worked while the bar happened to sit next to them. */
+
+@media print {
+  .pagebar { border-bottom: 1pt solid #999 !important; }
+  .pagebar .pb-live { color: #444 !important; }
+  .pagebar .pb-live i { background: #444 !important; }
+  .pagebar .pb-live i::after { display: none !important; }
 }
