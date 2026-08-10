@@ -371,10 +371,21 @@ h3 { font-size: clamp(1.12rem, 1.6vw, 1.3rem); letter-spacing: -0.014em; line-he
 .dt-tile { background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: 8px; padding: 8px 10px; }
 .dt-tile .k { display: block; font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--on-surface-tertiary); }
 .dt-tile .v { display: block; font-family: var(--mono); font-weight: 700; font-size: 0.95rem; color: var(--on-surface); margin-top: 3px; font-variant-numeric: tabular-nums; }
-.dt-tile .bar { display: block; height: 3px; border-radius: 2px; background: var(--fill); margin-top: 6px; }
-.dt-tile .bar > i { display: block; height: 100%; border-radius: 2px; width: var(--v); background: var(--on-surface-tertiary); }
-.dt-tile.is-ok .bar > i { background: var(--ok); }
-.dt-tile.is-warn .bar > i { background: var(--warn); }
+/* Live telemetry sparklines — the real console shows scrolling waveforms under
+   TEMP/CPU, and the panel claims "live"; this is the sanctioned ambient case
+   where continuous motion IS the meaning. Each polyline is two identical
+   periods, so translating one period (64 units) loops seamlessly. */
+.dt-tile .wave { display: block; width: 100%; height: 14px; margin-top: 6px; overflow: hidden; }
+.dt-tile .wave polyline { fill: none; stroke: var(--on-surface-tertiary); stroke-width: 1.4; }
+.dt-tile.is-ok .wave polyline { stroke: var(--ok); }
+.dt-tile.is-warn .wave polyline { stroke: var(--warn); }
+@media (prefers-reduced-motion: no-preference) {
+  .dt-tile .wave polyline { animation: wave-run 7s linear infinite; }
+  .dt-tiles .dt-tile:nth-child(2) .wave polyline { animation-duration: 8.6s; }
+  .dt-tiles .dt-tile:nth-child(3) .wave polyline { animation-duration: 6.2s; }
+  .dt-tiles .dt-tile:nth-child(4) .wave polyline { animation-duration: 9.4s; }
+}
+@keyframes wave-run { to { transform: translateX(-64px); } }
 .dt-rows { display: grid; gap: 5px; }
 .dt-row { display: grid; grid-template-columns: 9px minmax(0, 1fr) auto; gap: 8px; align-items: center; font-size: 0.76rem; color: var(--on-surface-secondary); }
 .dt-row i { width: 7px; height: 7px; border-radius: 50%; background: var(--on-surface-tertiary); }
@@ -443,13 +454,27 @@ h3 { font-size: clamp(1.12rem, 1.6vw, 1.3rem); letter-spacing: -0.014em; line-he
 .dist-row .v { text-align: right; color: var(--on-surface); font-variant-numeric: tabular-nums; }
 .trace { display: block; width: 100%; height: 46px; margin-top: var(--sp-2); }
 .trace .tl { fill: none; stroke: var(--primary); stroke-width: 1.2; }
+/* The capture draws itself as it scrolls in — the run happening, not decoration. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .js .trace .tl {
+      stroke-dasharray: 1; stroke-dashoffset: 1;
+      animation: trace-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 20% entry 85%;
+    }
+  }
+}
+@keyframes trace-draw { to { stroke-dashoffset: 0; } }
 .trace .tb { fill: none; stroke: var(--outline-variant); stroke-width: 1; }
 @media (max-width: 620px) { .dist-row { grid-template-columns: 68px minmax(0,1fr) 54px; } }
 
 @media print {
   .dt, .dt-soc, .dt-link, .dt-frames, .dt-tile { background: #fff !important; border-color: #ddd !important; }
   .dt-bar { background: #f4f4f4 !important; }
-  .dt-bar .dt-live i, .dt-tile .bar { display: none !important; }
+  .dt-bar .dt-live i { display: none !important; }
+  .dt-tile .wave polyline { stroke: #999 !important; animation: none !important; }
+  .trace .tl { animation: none !important; stroke-dashoffset: 0 !important; }
   .dt-cam .verdict { background: #fff !important; color: #111 !important; border-color: #999 !important; }
   .topo .nd rect { fill: #fff !important; stroke: #bbb !important; }
   .topo text { fill: #222 !important; }
